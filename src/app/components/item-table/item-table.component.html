@@ -1,0 +1,31 @@
+<app-brand-name></app-brand-name>
+<app-navigation (changeDateAfter)="nextDate($event)" (changeDateBefore)="previousDate($event)"></app-navigation>
+
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th scope="col" class="col-5">ITEMS</th>
+    <th scope="col" class="col">UNIT</th>
+    <th scope="col" class="col">NORM</th>
+    <th scope="col" class="col">LO</th>
+    <th scope="col" class="col">HI</th>
+    <th scope="col" class="col">TTL</th>
+  </tr>
+  </thead>
+  <tbody>
+    @for (vegetable of vegetables$ | async; track vegetable.id) {
+      <tr>
+        <td class="col-5">{{ vegetable.name }}</td>
+        <td class="col">{{ vegetable.unitOfMeasure }}</td>
+        <td class="col">{{ vegetable.averagePrice }}</td>
+        <td class="col">{{ vegetable.lowPrice }}</td>
+        <td class="col">{{ vegetable.highPrice }}</td>
+        <td class="col">{{ vegetable.totalSold }}</td>
+      </tr>
+    } @empty {
+      <tr>
+        <td colspan="12" style="text-align: center">No Records found</td>
+      </tr>
+    }
+  </tbody>
+</table>
