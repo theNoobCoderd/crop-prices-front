@@ -5,8 +5,8 @@
 		</button>
 	</div>
 
-	<span class="date-display">
-		{{ dateDisplayed$ | async }}
+	<span *ngIf="dateDisplayed$ | async" class="date-display">
+		{{ (dateDisplayed$ | async)?.date }}
 	</span>
 
 	<div class="navigate-right">
