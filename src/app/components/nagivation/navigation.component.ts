@@ -55,9 +55,9 @@ export class NavigationComponent {
 	}
 
 	private _calculateDayOfWeek(): void {
-		const dayOfWeek = this.dateDisplayed$.getValue();
+		const dayOfWeek = this.dateDisplayed$.getValue() as unknown as string;
 		if (dayOfWeek) {
-			const dateParts = dayOfWeek.date.split("-");
+			const dateParts = dayOfWeek.split("-");
 			if (dateParts.length === 3) {
 				const year = parseInt(dateParts[0], 10);
 				const month = parseInt(dateParts[1], 10) - 1; // Months are 0-indexed in JavaScript

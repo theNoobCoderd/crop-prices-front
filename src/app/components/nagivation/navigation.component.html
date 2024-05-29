@@ -6,7 +6,7 @@
 	</div>
 
 	<span *ngIf="dateDisplayed$ | async" class="date-display">
-		{{ (dateDisplayed$ | async)?.date }}
+		{{ dateDisplayed$ | async }} {{dayOfTheWeek$ | async}}
 	</span>
 
 	<div class="navigate-right">

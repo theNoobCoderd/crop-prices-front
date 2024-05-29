@@ -3,7 +3,7 @@ import {CropsService} from "../../services/crops/crops.service";
 import {Vegetable} from "../../models/vegetable.model";
 import {AsyncPipe} from "@angular/common";
 import {NavigationComponent} from "../nagivation/navigation.component";
-import { Observable, of } from "rxjs";
+import { Observable } from "rxjs";
 import {BrandNameComponent} from "../brand-name/brand-name.component";
 import {ExtractionDate} from "../../models/extraction-date.model";
 
@@ -25,7 +25,7 @@ export class ItemTableComponent  implements OnInit {
 	}
 
 	ngOnInit(): void {
-		this.vegetables$ = of([{id: 1, name: "bringel"}, {id: 2, name: "apple"}, {id: 3, name: "cucumber"}] as Vegetable[]);
+		this.vegetables$ = this._cropsService.getVegetableByMostRecentDate();
 	}
 
 	nextDate(nextDate: ExtractionDate): void {
