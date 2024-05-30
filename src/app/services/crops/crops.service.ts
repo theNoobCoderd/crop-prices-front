@@ -3,13 +3,13 @@ import {HttpClient} from "@angular/common/http";
 import {Observable} from "rxjs";
 import {Vegetable} from "../../models/vegetable.model";
 import {ExtractionDate} from "../../models/extraction-date.model";
+import {environment} from "../../../environments/environment";
 
 @Injectable({
 	providedIn: 'root'
 })
 export class CropsService {
-
-	private apiUrl = "http://localhost:8080/api/v1/crops";
+	private apiUrl = environment.apiUrl + "/api/v1/crops";
 
 	constructor(private _http: HttpClient) { }
 
