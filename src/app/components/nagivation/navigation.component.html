@@ -5,9 +5,14 @@
 		</button>
 	</div>
 
-	<span *ngIf="dateDisplayed$ | async" class="date-display">
-		{{ dateDisplayed$ | async }} {{dayOfTheWeek$ | async}}
-	</span>
+	<div *ngIf="dateDisplayed$ | async" class="date-display">
+		<span class="day-date-row">
+			{{dayOfTheWeek$ | async}} {{dateToDisplay$ | async}}
+		</span>
+		<span class="month-year-row">
+			{{monthToDisplay$ | async}} {{yearToDisplay$ | async}}
+		</span>
+	</div>
 
 	<div class="navigate-right">
 		<button type="button" class="btn" (click)="nextDate()">

@@ -20,18 +20,27 @@ export class NavigationComponent {
 
 	dateDisplayed$ = new BehaviorSubject<ExtractionDate>({} as ExtractionDate);
 	dayOfTheWeek$= new BehaviorSubject<string>("");
+	monthToDisplay$ = new BehaviorSubject<string>("");
+	dateToDisplay$ = new BehaviorSubject<string>("");
+	yearToDisplay$ = new BehaviorSubject<number>(0);
 
 	private _availableDates: ExtractionDate[] = [];
 	private _dateDisplayedIndex = 0
-	private _days = ["Dimans", "Lindi", "Mardi", "Merkredi", "Zedi", "Vandredi", "Samdi"];
-
+	private _days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+	private _months = ["January", "February", "March", "April", "Mai", "June", "July", "August", "September", "October", "November", "December"];
 	constructor(private _extractionDateService: ExtractionDatesService) {
-		this._extractionDateService.getAllAvailableDates().subscribe(result => {
-			this.dateDisplayed$.next(result[result.length - 1]);
-			this._calculateDayOfWeek();
-			this._availableDates = result;
-			this._dateDisplayedIndex = result.length - 1;
-		})
+		// this._extractionDateService.getAllAvailableDates().subscribe(result => {
+		// 	this.dateDisplayed$.next(result[result.length - 1]);
+		// 	this._calculateDayOfWeek();
+		// 	this._availableDates = result;
+		// 	this._dateDisplayedIndex = result.length - 1;
+		// })
+
+		const test = [{date: "2024-04-19"}, {date: "2024-04-23"}, {date: "2024-05-02"}] as ExtractionDate[];
+		this.dateDisplayed$.next(test[test.length - 1]);
+		this._calculateDayOfWeek();
+		this._availableDates = test;
+		this._dateDisplayedIndex = test.length - 1;
 	}
 
 	nextDate(): void {
@@ -55,7 +64,7 @@ export class NavigationComponent {
 	}
 
 	private _calculateDayOfWeek(): void {
-		const dayOfWeek = this.dateDisplayed$.getValue() as unknown as string;
+		const dayOfWeek = this.dateDisplayed$.getValue().date as unknown as string;
 		if (dayOfWeek) {
 			const dateParts = dayOfWeek.split("-");
 			if (dateParts.length === 3) {
@@ -67,6 +76,18 @@ export class NavigationComponent {
 				if (!isNaN(inputDate.getTime())) { // Check if the date is valid
 					const dayIndex = inputDate.getDay();
 					this.dayOfTheWeek$.next(this._days[dayIndex]);
+
+					const dateIndex = inputDate.getDate();
+					if (dateIndex >= 10) {
+						this.dateToDisplay$.next(inputDate.getDate().toString());
+					} else {
+						this.dateToDisplay$.next("0" + inputDate.getDate());
+					}
+
+					this.yearToDisplay$.next(inputDate.getFullYear())
+
+					const monthIndex = inputDate.getMonth();
+					this.monthToDisplay$.next(this._months[monthIndex]);
 				}
 			}
 		}
