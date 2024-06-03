@@ -3,13 +3,13 @@
 
 <table class="table table-striped">
   <thead class="sticky">
-  <tr>
-    <th scope="col" class="col-6 font-bold">ITEM</th>
-    <th scope="col" class="col">UNIT</th>
-		<th scope="col" class="col">LO</th>
-		<th scope="col" class="col">HI</th>
-    <th scope="col" class="col font-bold">NORM</th>
-  </tr>
+		<tr>
+			<th scope="col" class="col-6 font-bold">ITEM</th>
+			<th scope="col" class="col">UNIT</th>
+			<th scope="col" class="col">LO</th>
+			<th scope="col" class="col">HI</th>
+			<th scope="col" class="col font-bold">NORM</th>
+		</tr>
   </thead>
   <tbody>
     @for (vegetable of vegetables$ | async; track vegetable.id) {
