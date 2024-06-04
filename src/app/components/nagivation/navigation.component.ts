@@ -3,13 +3,15 @@ import {BehaviorSubject} from "rxjs";
 import {ExtractionDate} from "../../models/extraction-date.model";
 import {ExtractionDatesService} from "../../services/dates/extraction-dates.service";
 import { AsyncPipe, NgIf } from "@angular/common";
+import {NgxSkeletonLoaderModule} from "ngx-skeleton-loader";
 
 @Component({
 	selector: "app-navigation",
 	standalone: true,
 	imports: [
 		AsyncPipe,
-		NgIf
+		NgIf,
+		NgxSkeletonLoaderModule
 	],
 	templateUrl: "./navigation.component.html",
 	styleUrl: "./navigation.component.less"
@@ -56,7 +58,7 @@ export class NavigationComponent {
 	previousDate(): void {
 		if (this._availableDates[this._dateDisplayedIndex - 1]) {
 			this._dateDisplayedIndex--;
-			this.dateDisplayed$.next(this._availableDates[this._dateDisplayedIndex]);
+			this.dateDisplayed$.next(undefined as unknown as ExtractionDate);
 			this._calculateDayOfWeek();
 
 			this.changeDateBefore.next(this.dateDisplayed$.getValue());

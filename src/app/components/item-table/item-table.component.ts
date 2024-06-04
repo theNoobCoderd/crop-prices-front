@@ -9,6 +9,7 @@ import {ExtractionDate} from "../../models/extraction-date.model";
 import {Type} from "../../models/type.enum";
 import {Unit} from "../../models/unit.enum";
 import {ReplaceBatonPipe} from "../../pipes/replace-baton.pipe";
+import {NgxSkeletonLoaderModule} from "ngx-skeleton-loader";
 
 @Component({
 	selector: 'app-item-table',
@@ -17,7 +18,8 @@ import {ReplaceBatonPipe} from "../../pipes/replace-baton.pipe";
 		AsyncPipe,
 		NavigationComponent,
 		BrandNameComponent,
-		ReplaceBatonPipe
+		ReplaceBatonPipe,
+		NgxSkeletonLoaderModule
 	],
 	templateUrl: './item-table.component.html',
 	styleUrl: './item-table.component.less'
