@@ -8,6 +8,7 @@ import {BrandNameComponent} from "../brand-name/brand-name.component";
 import {ExtractionDate} from "../../models/extraction-date.model";
 import {Type} from "../../models/type.enum";
 import {Unit} from "../../models/unit.enum";
+import {ReplaceBatonPipe} from "../../pipes/replace-baton.pipe";
 
 @Component({
 	selector: 'app-item-table',
@@ -15,7 +16,8 @@ import {Unit} from "../../models/unit.enum";
 	imports: [
 		AsyncPipe,
 		NavigationComponent,
-		BrandNameComponent
+		BrandNameComponent,
+		ReplaceBatonPipe
 	],
 	templateUrl: './item-table.component.html',
 	styleUrl: './item-table.component.less'
@@ -33,13 +35,13 @@ export class ItemTableComponent  implements OnInit {
 			{id: 2, name: "Pomme de terre", type: Type.VEGETABLE, unitOfMeasure: Unit.PACKET, averagePrice: 212, lowPrice: 223, highPrice: 564, totalSold: 500},
 			{id: 2, name: "Pomme d'Amour", type: Type.VEGETABLE, unitOfMeasure: Unit.UNITS, averagePrice: 212, lowPrice: 223, highPrice: 564, totalSold: 500},
 			{id: 2, name: "Poivron (Rouge)", type: Type.VEGETABLE, unitOfMeasure: Unit.PACKET, averagePrice: 212, lowPrice: 223, highPrice: 564, totalSold: 500},
-			{id: 2, name: "Laque Onion", type: Type.VEGETABLE, unitOfMeasure: Unit.PACKET, averagePrice: 212, lowPrice: 223, highPrice: 564, totalSold: 500},
+			{id: 2, name: "Laque Onion", type: Type.VEGETABLE, unitOfMeasure: Unit.PACKET, averagePrice: 1600, lowPrice: 223, highPrice: 564, totalSold: 500},
 			{id: 2, name: "Gros Piment", type: Type.VEGETABLE, unitOfMeasure: Unit.UNITS, averagePrice: 212, lowPrice: 223, highPrice: 564, totalSold: 500},
 			{id: 2, name: "Brede Tom Pouce", type: Type.VEGETABLE, unitOfMeasure: Unit.UNITS, averagePrice: 212, lowPrice: 223, highPrice: 564, totalSold: 500},
 			{id: 2, name: "Brede Baton Blanc", type: Type.VEGETABLE, unitOfMeasure: Unit.PACKET, averagePrice: 212, lowPrice: 223, highPrice: 564, totalSold: 500},
 			{id: 2, name: "Brede Baton Vert", type: Type.VEGETABLE, unitOfMeasure: Unit.PACKET, averagePrice: 212, lowPrice: 223, highPrice: 564, totalSold: 500},
 			{id: 2, name: "Brede Chouchou", type: Type.VEGETABLE, unitOfMeasure: Unit.KG, averagePrice: 212, lowPrice: 223, highPrice: 564, totalSold: 500},
-			{id: 2, name: "Carrots", type: Type.VEGETABLE, unitOfMeasure: Unit.KG, averagePrice: 212, lowPrice: 223, highPrice: 564, totalSold: 500},
+			{id: 2, name: "Chou (Vert)", type: Type.VEGETABLE, unitOfMeasure: Unit.KG, averagePrice: 212, lowPrice: 223, highPrice: 564, totalSold: 12500},
 			{id: 2, name: "Carrots", type: Type.VEGETABLE, unitOfMeasure: Unit.PACKET, averagePrice: 212, lowPrice: 223, highPrice: 564, totalSold: 500},
 			{id: 2, name: "Carrots", type: Type.VEGETABLE, unitOfMeasure: Unit.PACKET, averagePrice: 212, lowPrice: 223, highPrice: 564, totalSold: 500},
 			{id: 2, name: "Carrots", type: Type.VEGETABLE, unitOfMeasure: Unit.KG, averagePrice: 212, lowPrice: 223, highPrice: 564, totalSold: 500},

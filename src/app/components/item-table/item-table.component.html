@@ -15,11 +15,11 @@
   <tbody>
     @for (vegetable of vegetables$ | async; track vegetable.id) {
       <tr>
-        <td class="col-5 font-bold">{{ vegetable.name }}</td>
+        <td class="col-5 font-bold">{{ vegetable.name | replaceBaton }}</td>
         <td class="col">{{ vegetable.unitOfMeasure }}</td>
 				<td class="col">{{ vegetable.lowPrice }}</td>
 				<td class="col">{{ vegetable.highPrice }}</td>
-        <td class="col font-bold">{{ vegetable.averagePrice }}</td>
+        <td class="col font-bold test">{{ vegetable.averagePrice }}</td>
 				<td class="col">{{ vegetable.totalSold }}</td>
       </tr>
     } @empty {
