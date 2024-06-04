@@ -4,21 +4,23 @@
 <table class="table table-striped">
   <thead class="sticky">
 		<tr>
-			<th scope="col" class="col-6 font-bold">ITEM</th>
+			<th scope="col" class="col-5 font-bold">ITEM</th>
 			<th scope="col" class="col">UNIT</th>
 			<th scope="col" class="col">LO</th>
 			<th scope="col" class="col">HI</th>
 			<th scope="col" class="col font-bold">NORM</th>
+			<th scope="col" class="col">TTL</th>
 		</tr>
   </thead>
   <tbody>
     @for (vegetable of vegetables$ | async; track vegetable.id) {
       <tr>
-        <td class="col-6 font-bold">{{ vegetable.name }}</td>
+        <td class="col-5 font-bold">{{ vegetable.name }}</td>
         <td class="col">{{ vegetable.unitOfMeasure }}</td>
 				<td class="col">{{ vegetable.lowPrice }}</td>
 				<td class="col">{{ vegetable.highPrice }}</td>
         <td class="col font-bold">{{ vegetable.averagePrice }}</td>
+				<td class="col">{{ vegetable.totalSold }}</td>
       </tr>
     } @empty {
       <tr>
