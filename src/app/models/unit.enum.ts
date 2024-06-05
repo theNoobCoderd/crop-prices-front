@@ -1,5 +1,5 @@
 export enum Unit {
-	KG = "Kg",
-	PACKET = "Pkt",
-	UNITS = "Unit"
+	KG = "KG",
+	PACKET = "PACKET",
+	UNITS = "UNITS"
 }

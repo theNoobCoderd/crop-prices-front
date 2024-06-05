@@ -16,7 +16,11 @@
     @for (vegetable of vegetables$ | async; track vegetable.id) {
       <tr>
         <td class="col-5 font-bold">{{ vegetable.name | replaceBaton }}</td>
-        <td class="col">{{ vegetable.unitOfMeasure }}</td>
+				<td [ngSwitch]="vegetable.unitOfMeasure" class="col">
+					<ng-container *ngSwitchCase="Unit.KG">Kg</ng-container>
+					<ng-container *ngSwitchCase="Unit.UNITS">Unit</ng-container>
+					<ng-container *ngSwitchCase="Unit.PACKET">Pkt</ng-container>
+				</td>
 				<td class="col">{{ vegetable.lowPrice }}</td>
 				<td class="col">{{ vegetable.highPrice }}</td>
         <td class="col font-bold">{{ vegetable.averagePrice }}</td>
