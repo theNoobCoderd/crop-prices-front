@@ -64,7 +64,7 @@ export class NavigationComponent {
 	}
 
 	private _calculateDayOfWeek(): void {
-		const dayOfWeek = this.dateDisplayed$.getValue().date as unknown as string;
+		const dayOfWeek = this.dateDisplayed$.getValue() as unknown as string;
 		if (dayOfWeek) {
 			const dateParts = dayOfWeek.split("-");
 			if (dateParts.length === 3) {
