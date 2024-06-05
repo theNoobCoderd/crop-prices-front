@@ -29,18 +29,18 @@ export class NavigationComponent {
 	private _days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 	private _months = ["January", "February", "March", "April", "Mai", "June", "July", "August", "September", "October", "November", "December"];
 	constructor(private _extractionDateService: ExtractionDatesService) {
-		// this._extractionDateService.getAllAvailableDates().subscribe(result => {
-		// 	this.dateDisplayed$.next(result[result.length - 1]);
-		// 	this._calculateDayOfWeek();
-		// 	this._availableDates = result;
-		// 	this._dateDisplayedIndex = result.length - 1;
-		// })
+		this._extractionDateService.getAllAvailableDates().subscribe(result => {
+			this.dateDisplayed$.next(result[result.length - 1]);
+			this._calculateDayOfWeek();
+			this._availableDates = result;
+			this._dateDisplayedIndex = result.length - 1;
+		})
 
-		const test = [{date: "2024-04-19"}, {date: "2024-04-23"}, {date: "2024-05-02"}] as ExtractionDate[];
-		this.dateDisplayed$.next(test[test.length - 1]);
-		this._calculateDayOfWeek();
-		this._availableDates = test;
-		this._dateDisplayedIndex = test.length - 1;
+		// const test = [{date: "2024-04-19"}, {date: "2024-04-23"}, {date: "2024-05-02"}] as ExtractionDate[];
+		// this.dateDisplayed$.next(test[test.length - 1]);
+		// this._calculateDayOfWeek();
+		// this._availableDates = test;
+		// this._dateDisplayedIndex = test.length - 1;
 	}
 
 	nextDate(): void {
