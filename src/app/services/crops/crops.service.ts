@@ -14,7 +14,7 @@ export class CropsService {
 	constructor(private _http: HttpClient) { }
 
 	getVegetableByDate(date: ExtractionDate): Observable<Vegetable[]> {
-		const url = `${this.apiUrl}/date?date=${date}`;
+		const url = `${this.apiUrl}/all/date?date=${date}`;
 		return this._http.get<Vegetable[]>(url);
 	}
 

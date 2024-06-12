@@ -3,10 +3,8 @@ import {CropsService} from "../../services/crops/crops.service";
 import {Vegetable} from "../../models/vegetable.model";
 import {AsyncPipe, NgSwitch, NgSwitchCase} from "@angular/common";
 import {NavigationComponent} from "../nagivation/navigation.component";
-import {Observable, of} from "rxjs";
-import {BrandNameComponent} from "../brand-name/brand-name.component";
+import {Observable} from "rxjs";
 import {ExtractionDate} from "../../models/extraction-date.model";
-import {Type} from "../../models/type.enum";
 import {Unit} from "../../models/unit.enum";
 import {ReplaceBatonPipe} from "../../pipes/replace-baton.pipe";
 import {NgxSkeletonLoaderModule} from "ngx-skeleton-loader";
@@ -17,7 +15,6 @@ import {NgxSkeletonLoaderModule} from "ngx-skeleton-loader";
 	imports: [
 		AsyncPipe,
 		NavigationComponent,
-		BrandNameComponent,
 		ReplaceBatonPipe,
 		NgxSkeletonLoaderModule,
 		NgSwitch,
@@ -33,24 +30,7 @@ export class ItemTableComponent  implements OnInit {
 	}
 
 	ngOnInit(): void {
-		// this.vegetables$ = this._cropsService.getVegetableByMostRecentDate();
-		this.vegetables$ = of([
-			{id: 1, name: "Angives", type: Type.VEGETABLE, unitOfMeasure: "KG", averagePrice: 212, lowPrice: 223, highPrice: 564, totalSold: 500},
-			{id: 2, name: "Pomme de terre", type: Type.VEGETABLE, unitOfMeasure: "PACKET", averagePrice: 212, lowPrice: 223, highPrice: 564, totalSold: 500},
-			{id: 2, name: "Pomme d'Amour", type: Type.VEGETABLE, unitOfMeasure: "UNITS", averagePrice: 212, lowPrice: 223, highPrice: 564, totalSold: 500},
-			{id: 2, name: "Poivron (Rouge)", type: Type.VEGETABLE, unitOfMeasure: "PACKET", averagePrice: 212, lowPrice: 223, highPrice: 564, totalSold: 500},
-			{id: 2, name: "Laque Onion", type: Type.VEGETABLE, unitOfMeasure: "PACKET", averagePrice: 1600, lowPrice: 223, highPrice: 564, totalSold: 500},
-			{id: 2, name: "Gros Piment", type: Type.VEGETABLE, unitOfMeasure: "UNITS", averagePrice: 212, lowPrice: 223, highPrice: 564, totalSold: 500},
-			{id: 2, name: "Brede Tom Pouce", type: Type.VEGETABLE, unitOfMeasure: "UNITS", averagePrice: 212, lowPrice: 223, highPrice: 564, totalSold: 500},
-			{id: 2, name: "Brede Baton Blanc", type: Type.VEGETABLE, unitOfMeasure: "PACKET", averagePrice: 212, lowPrice: 223, highPrice: 564, totalSold: 500},
-			{id: 2, name: "Brede Baton Vert", type: Type.VEGETABLE, unitOfMeasure: "PACKET", averagePrice: 212, lowPrice: 223, highPrice: 564, totalSold: 500},
-			{id: 2, name: "Brede Chouchou", type: Type.VEGETABLE, unitOfMeasure: Unit.KG, averagePrice: 212, lowPrice: 223, highPrice: 564, totalSold: 500},
-			{id: 2, name: "Chou (Vert)", type: Type.VEGETABLE, unitOfMeasure: Unit.KG, averagePrice: 212, lowPrice: 223, highPrice: 564, totalSold: 12500},
-			{id: 2, name: "Carrots", type: Type.VEGETABLE, unitOfMeasure: "PACKET", averagePrice: 212, lowPrice: 223, highPrice: 564, totalSold: 500},
-			{id: 2, name: "Carrots", type: Type.VEGETABLE, unitOfMeasure: "PACKET", averagePrice: 212, lowPrice: 223, highPrice: 564, totalSold: 500},
-			{id: 2, name: "Carrots", type: Type.VEGETABLE, unitOfMeasure: Unit.KG, averagePrice: 212, lowPrice: 223, highPrice: 564, totalSold: 500},
-			{id: 2, name: "Carrots", type: Type.VEGETABLE, unitOfMeasure: "PACKET", averagePrice: 212, lowPrice: 223, highPrice: 564, totalSold: 500},
-			{id: 2, name: "Carrots", type: Type.VEGETABLE, unitOfMeasure: "PACKET", averagePrice: 212, lowPrice: 223, highPrice: 564, totalSold: 500}] as Vegetable[]);
+		console.log("table initialized");
 	}
 
 	nextDate(nextDate: ExtractionDate): void {
@@ -58,6 +38,10 @@ export class ItemTableComponent  implements OnInit {
 	}
 
 	previousDate(previousDate: ExtractionDate): void {
+		this.vegetables$ = this._cropsService.getVegetableByDate(previousDate);
+	}
+
+	currentDate(previousDate: ExtractionDate): void {
 		this.vegetables$ = this._cropsService.getVegetableByDate(previousDate);
 	}
 

@@ -5,7 +5,7 @@
 		</button>
 	</div>
 
-	<div *ngIf="dateDisplayed$ | async" class="date-display">
+	<div *ngIf="(yearToDisplay$ | async) !== 0" class="date-display">
 		<span class="day-date-row">
 			{{dayOfTheWeek$ | async}} {{dateToDisplay$ | async}}
 		</span>

@@ -2,11 +2,12 @@ import {Component, HostListener} from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import {ItemTableComponent} from "./components/item-table/item-table.component";
 import {NgClass} from "@angular/common";
+import {BrandNameComponent} from "./components/brand-name/brand-name.component";
 
 @Component({
 	selector: 'app-root',
 	standalone: true,
-	imports: [RouterOutlet, ItemTableComponent, NgClass],
+	imports: [RouterOutlet, ItemTableComponent, NgClass, BrandNameComponent],
 	templateUrl: './app.component.html',
 	styleUrl: './app.component.less',
 })
