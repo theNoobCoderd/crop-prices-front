@@ -24,6 +24,8 @@ export class NavigationComponent {
 	monthToDisplay$ = new BehaviorSubject<string>("");
 	dateToDisplay$ = new BehaviorSubject<string>("");
 	yearToDisplay$ = new BehaviorSubject<number>(0);
+	noNextItem$ = new BehaviorSubject<boolean>(true);
+	noPreviousItem$ = new BehaviorSubject<boolean>(false);
 
 	private _availableDates: ExtractionDate[] = [];
 	private _dateDisplayedIndex = 0
@@ -47,6 +49,8 @@ export class NavigationComponent {
 			this._calculateDayOfWeek();
 
 			this.changeDateAfter.next(this.dateDisplayed$.getValue());
+
+			this._updateArrowDisplay();
 		}
 	}
 
@@ -57,6 +61,8 @@ export class NavigationComponent {
 			this._calculateDayOfWeek();
 
 			this.changeDateBefore.next(this.dateDisplayed$.getValue());
+
+			this._updateArrowDisplay();
 		}
 	}
 
@@ -87,6 +93,20 @@ export class NavigationComponent {
 					this.monthToDisplay$.next(this._months[monthIndex]);
 				}
 			}
+		}
+	}
+
+	private _updateArrowDisplay(): void {
+		if (this._dateDisplayedIndex === this._availableDates.length - 1) {
+			this.noNextItem$.next(true);
+		} else {
+			this.noNextItem$.next(false);
+		}
+
+		if (this._dateDisplayedIndex === 0) {
+			this.noPreviousItem$.next(true);
+		} else {
+			this.noPreviousItem$.next(false);
 		}
 	}
 
