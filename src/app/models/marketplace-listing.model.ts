@@ -1,12 +1,22 @@
 export interface MarketplaceListing {
-	sellerId: string,
-	sellerName: string,
-	phone: string,
-	crop: string,
+	id: string,
 	quantity: number,
 	price: number,
-	description: string,
 	unit: string,
-	images: string[],
-	date: string
+	description: string,
+	imageUrl: string,
+	type: string,
+	creationDate: Date,
+	seller: {
+		id: string,
+		username: string,
+		phone: string,
+		region: string
+	}
+	produce: {
+		id: number,
+		name: string,
+		unitOfMeasure: string,
+		type: string,
+	}
 }

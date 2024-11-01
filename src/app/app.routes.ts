@@ -4,6 +4,7 @@ import {MarketplaceComponent} from "./components/marketplace/marketplace.compone
 import {CreateListingComponent} from "./components/marketplace/create-listing/create-listing.component";
 import {LoginComponent} from "./components/login/login.component";
 import {RegisterComponent} from "./components/register/register.component";
+import {UserProfileComponent} from "./components/user-profile/user-profile.component";
 
 export const routes: Routes = [
 	{ path: 'page1', component: ItemTableComponent },
@@ -11,4 +12,5 @@ export const routes: Routes = [
 	{ path: 'page3', component: CreateListingComponent },
 	{ path: 'page4', component: LoginComponent },
 	{ path: 'page5', component: RegisterComponent },
+	{ path: 'page6', component: UserProfileComponent },
 ];
