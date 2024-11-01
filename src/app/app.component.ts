@@ -19,18 +19,8 @@ export class AppComponent implements OnInit {
 	showElement = false;
 
 	ngOnInit(): void {
-		this.authService.user$.subscribe(user => {
-			if (user) {
-				this.authService.currentUserSignal.set({
-					email: user.email!,
-					username: user.displayName!,
-					phone: user.phoneNumber!
-				})
-			} else {
-				this.authService.currentUserSignal.set(null);
-			}
-
-			console.log("user signal", this.authService.currentUserSignal());
+		this.authService.firebaseUser$.subscribe(firebaseUser => {
+			console.log("user signal", firebaseUser);
 		})
 	}
 
