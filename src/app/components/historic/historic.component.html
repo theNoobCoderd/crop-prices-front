@@ -1,0 +1,3 @@
+@for (crop of crops$ | async; track crop) {
+	<p>{{ crop.name }} || {{ crop.averagePrice }} || {{ crop.totalSold }}</p>
+}

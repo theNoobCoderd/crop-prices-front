@@ -1,0 +1,18 @@
+<div>
+	<div>id: {{ currentUser?.id }}</div>
+	<div>authId: {{ currentUser?.authId }}</div>
+	<div>username: {{ currentUser?.username }}</div>
+	<div>email: {{ currentUser?.email }}</div>
+	<div>password: {{ currentUser?.password }}</div>
+	<div>phone: {{ currentUser?.phone }}</div>
+	<div>region: {{ currentUser?.region }}</div>
+</div>
+<div>
+	<button (click)="logout()">Logout</button>
+</div>
+<div>
+	@for(listing of userListings; track userListings) {
+		<span>{{ listing.id }}</span>
+		<br>
+	}
+</div>

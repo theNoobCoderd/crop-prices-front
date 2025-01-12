@@ -1,0 +1,43 @@
+<h2>Create Post Page</h2>
+<form class="create-post" [formGroup]="createListingForm" (ngSubmit)="onSubmit()">
+	<div>
+		<select id="crop" class="form-control" formControlName="crop">
+			<option value="" disabled selected>Choose...</option>
+			@for (item of DROP_DOWN_VALUE; track item) {
+				<option [value]="item.id"> {{ item.name }}</option>
+			}
+		</select>
+	</div>
+
+	<div>
+		<label for="quantity">Quantity:</label>
+		<input id="quantity" formControlName="quantity" type="number">
+	</div>
+
+	<div>
+		<label for="price">Price:</label>
+		<input id="price" formControlName="price" type="number">
+	</div>
+
+	<div>
+		<label for="description">Description:</label>
+		<input id="description" formControlName="description" type="text">
+	</div>
+
+	<div>
+		<label for="unit">Unit:</label>
+		<input id="unit" formControlName="unit" type="text">
+	</div>
+
+<!--	<div>-->
+<!--		<label for="phone">Phone:</label>-->
+<!--		<input id="phone" formControlName="phone" type="tel">-->
+<!--	</div>-->
+
+	<div>
+		<label for="images">Images:</label>
+		<input #imageInput id="images" formControlName="images" type="file" accept="image/jpeg" (change)="processImage(imageInput)">
+	</div>
+
+	<button type="submit">Submit</button>
+</form>
