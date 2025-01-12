@@ -1,0 +1,31 @@
+<div class="crp-container">
+	<button (click)="navToListing()" class="listing">
+		<img src="assets/svgs/main-nav-listing.svg" alt="Listing">
+		<div class="text">NWM PRICE</div>
+	</button>
+
+	<button (click)="navToMarketplace()" class="marketplace">
+		<img src="assets/svgs/main-nav-marketplace.svg" alt="Marketplace">
+		<div class="text">BUY & SELL</div>
+	</button>
+
+	<button (click)="navToHistoric()" class="historic">
+		<img src="assets/svgs/main-nav-marketplace.svg" alt="Historic">
+		<div class="text">STATS</div>
+	</button>
+
+	@if((authService.firebaseUser$ | async) === null) {
+		<button (click)="navToLogin()" class="marketplace">
+			<img src="assets/svgs/main-nav-marketplace.svg" alt="Marketplace">
+			<div class="text">LOGIN</div>
+		</button>
+	}
+
+	@if(authService.firebaseUser$ | async) {
+		<button (click)="navToProfile()" class="marketplace">
+			<img src="assets/svgs/main-nav-marketplace.svg" alt="Marketplace">
+			<div class="text">PROFILE</div>
+		</button>
+	}
+</div>
+
