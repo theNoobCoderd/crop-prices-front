@@ -7,11 +7,10 @@ import {ListingService} from "../../services/listing/listing.service";
 import {MarketplaceListing} from "../../models/marketplace-listing.model";
 
 @Component({
-	selector: "app-user-profile",
-	standalone: true,
-	imports: [],
-	templateUrl: "./user-profile.component.html",
-	styleUrl: "./user-profile.component.less"
+    selector: "app-user-profile",
+    imports: [],
+    templateUrl: "./user-profile.component.html",
+    styleUrl: "./user-profile.component.less"
 })
 export class UserProfileComponent implements OnInit {
 	authService = inject(AuthService);

@@ -5,13 +5,12 @@ import {Vegetable} from "../../models/vegetable.model";
 import {AsyncPipe} from "@angular/common";
 
 @Component({
-	selector: "app-historic",
-	standalone: true,
-	imports: [
-		AsyncPipe
-	],
-	templateUrl: "./historic.component.html",
-	styleUrl: "./historic.component.less"
+    selector: "app-historic",
+    imports: [
+        AsyncPipe
+    ],
+    templateUrl: "./historic.component.html",
+    styleUrl: "./historic.component.less"
 })
 export class HistoricComponent implements OnInit {
 

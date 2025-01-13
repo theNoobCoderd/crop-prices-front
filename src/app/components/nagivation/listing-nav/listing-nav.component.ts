@@ -5,14 +5,13 @@ import {ExtractionDatesService} from "../../../services/dates/extraction-dates.s
 import { AsyncPipe, NgIf } from "@angular/common";
 
 @Component({
-	selector: "app-listing-nav",
-	standalone: true,
-	imports: [
-		AsyncPipe,
-		NgIf
-	],
-	templateUrl: "./listing-nav.component.html",
-	styleUrl: "./listing-nav.component.less"
+    selector: "app-listing-nav",
+    imports: [
+        AsyncPipe,
+        NgIf
+    ],
+    templateUrl: "./listing-nav.component.html",
+    styleUrl: "./listing-nav.component.less"
 })
 export class ListingNavComponent {
 	@Output() changeDateBefore = new EventEmitter<ExtractionDate>();

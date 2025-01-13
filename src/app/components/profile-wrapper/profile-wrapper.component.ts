@@ -5,15 +5,14 @@ import {UserProfileComponent} from "../user-profile/user-profile.component";
 import {RegisterComponent} from "../register/register.component";
 
 @Component({
-	selector: "app-profile-wrapper",
-	standalone: true,
-	imports: [
-		AsyncPipe,
-		UserProfileComponent,
-		RegisterComponent
-	],
-	templateUrl: "./profile-wrapper.component.html",
-	styleUrl: "./profile-wrapper.component.less"
+    selector: "app-profile-wrapper",
+    imports: [
+        AsyncPipe,
+        UserProfileComponent,
+        RegisterComponent
+    ],
+    templateUrl: "./profile-wrapper.component.html",
+    styleUrl: "./profile-wrapper.component.less"
 })
 export class ProfileWrapperComponent {
 

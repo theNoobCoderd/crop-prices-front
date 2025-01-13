@@ -5,14 +5,13 @@ import {ExtractionDatesService} from "../../services/dates/extraction-dates.serv
 import { AsyncPipe, NgIf } from "@angular/common";
 
 @Component({
-	selector: "app-navigation",
-	standalone: true,
-	imports: [
-		AsyncPipe,
-		NgIf
-	],
-	templateUrl: "./navigation.component.html",
-	styleUrl: "./navigation.component.less"
+    selector: "app-navigation",
+    imports: [
+        AsyncPipe,
+        NgIf
+    ],
+    templateUrl: "./navigation.component.html",
+    styleUrl: "./navigation.component.less"
 })
 export class NavigationComponent implements OnDestroy {
 	@Output() changeDateBefore = new EventEmitter<ExtractionDate>();

@@ -5,13 +5,12 @@ import {AsyncPipe} from "@angular/common";
 import {ToastService} from "../../../services/ng-toast/toast.service";
 
 @Component({
-	selector: "app-main-nav",
-	standalone: true,
-	imports: [
-		AsyncPipe
-	],
-	templateUrl: "./main-nav.component.html",
-	styleUrl: "./main-nav.component.less"
+    selector: "app-main-nav",
+    imports: [
+        AsyncPipe
+    ],
+    templateUrl: "./main-nav.component.html",
+    styleUrl: "./main-nav.component.less"
 })
 export class MainNavComponent implements OnInit {
 	router = inject(Router);

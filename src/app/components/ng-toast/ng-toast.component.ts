@@ -4,14 +4,13 @@ import {NgbToast} from "@ng-bootstrap/ng-bootstrap";
 import {NgForOf} from "@angular/common";
 
 @Component({
-	selector: "app-toast",
-	standalone: true,
-	imports: [
-		NgbToast,
-		NgForOf
-	],
-	templateUrl: "./ng-toast.component.html",
-	styleUrl: "./ng-toast.component.less"
+    selector: "app-toast",
+    imports: [
+        NgbToast,
+        NgForOf
+    ],
+    templateUrl: "./ng-toast.component.html",
+    styleUrl: "./ng-toast.component.less"
 })
 export class NgToastComponent {
 

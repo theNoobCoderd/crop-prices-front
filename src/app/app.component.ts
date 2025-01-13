@@ -7,11 +7,10 @@ import {UserService} from "./services/user/user.service";
 import {NgToastComponent} from "./components/ng-toast/ng-toast.component";
 
 @Component({
-	selector: 'app-root',
-	standalone: true,
-	imports: [RouterOutlet, BrandNameComponent, MainNavComponent, NgToastComponent],
-	templateUrl: './app.component.html',
-	styleUrl: './app.component.less',
+    selector: 'app-root',
+    imports: [RouterOutlet, BrandNameComponent, MainNavComponent, NgToastComponent],
+    templateUrl: './app.component.html',
+    styleUrl: './app.component.less'
 })
 export class AppComponent implements OnInit {
 	authService = inject(AuthService);
