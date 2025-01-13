@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import {HttpClient} from "@angular/common/http";
+import { HttpClient } from "@angular/common/http";
 import {Observable} from "rxjs";
 import {ExtractionDate} from "../../models/extraction-date.model";
 import {environment} from "../../../environments/environment";
