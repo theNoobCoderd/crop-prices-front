@@ -8,13 +8,12 @@ import {ListingService} from "../../../services/listing/listing.service";
 import {Router} from "@angular/router";
 
 @Component({
-	selector: "app-create-listing",
-	standalone: true,
-	imports: [
-		ReactiveFormsModule
-	],
-	templateUrl: "./create-listing.component.html",
-	styleUrl: "./create-listing.component.less"
+    selector: "app-create-listing",
+    imports: [
+        ReactiveFormsModule
+    ],
+    templateUrl: "./create-listing.component.html",
+    styleUrl: "./create-listing.component.less"
 })
 export class CreateListingComponent {
 	createListingForm: FormGroup;

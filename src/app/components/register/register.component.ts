@@ -7,11 +7,10 @@ import {User} from "../../models/user.model";
 import {UserService} from "../../services/user/user.service";
 
 @Component({
-	selector: "app-register",
-	standalone: true,
-	imports: [ReactiveFormsModule],
-	templateUrl: "./register.component.html",
-	styleUrl: "./register.component.less"
+    selector: "app-register",
+    imports: [ReactiveFormsModule],
+    templateUrl: "./register.component.html",
+    styleUrl: "./register.component.less"
 })
 export class RegisterComponent {
 	formBuilder = inject(FormBuilder);

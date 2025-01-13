@@ -8,15 +8,14 @@ import {BehaviorSubject} from "rxjs";
 import {AsyncPipe} from "@angular/common";
 
 @Component({
-	selector: "app-marketplace",
-	standalone: true,
-	imports: [
-		MarketplaceItemComponent,
-		AddCropComponent,
-		AsyncPipe
-	],
-	templateUrl: "./marketplace.component.html",
-	styleUrl: "./marketplace.component.less"
+    selector: "app-marketplace",
+    imports: [
+        MarketplaceItemComponent,
+        AddCropComponent,
+        AsyncPipe
+    ],
+    templateUrl: "./marketplace.component.html",
+    styleUrl: "./marketplace.component.less"
 })
 export class MarketplaceComponent {
 

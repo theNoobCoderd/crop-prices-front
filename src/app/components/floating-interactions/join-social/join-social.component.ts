@@ -2,11 +2,10 @@ import {Component, HostListener} from "@angular/core";
 import {NgClass} from "@angular/common";
 
 @Component({
-	selector: "app-join-social",
-	standalone: true,
-	imports: [NgClass],
-	templateUrl: "./join-social.component.html",
-	styleUrl: "./join-social.component.less"
+    selector: "app-join-social",
+    imports: [NgClass],
+    templateUrl: "./join-social.component.html",
+    styleUrl: "./join-social.component.less"
 })
 export class JoinSocialComponent {
 	showElement = false;

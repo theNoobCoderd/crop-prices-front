@@ -11,19 +11,18 @@ import {ListingNavComponent} from "../nagivation/listing-nav/listing-nav.compone
 import {JoinSocialComponent} from "../floating-interactions/join-social/join-social.component";
 
 @Component({
-	selector: 'app-item-table',
-	standalone: true,
-	imports: [
-		AsyncPipe,
-		ListingNavComponent,
-		ReplaceBatonPipe,
-		NgxSkeletonLoaderModule,
-		NgSwitch,
-		NgSwitchCase,
-		JoinSocialComponent
-	],
-	templateUrl: './item-table.component.html',
-	styleUrl: './item-table.component.less'
+    selector: 'app-item-table',
+    imports: [
+        AsyncPipe,
+        ListingNavComponent,
+        ReplaceBatonPipe,
+        NgxSkeletonLoaderModule,
+        NgSwitch,
+        NgSwitchCase,
+        JoinSocialComponent
+    ],
+    templateUrl: './item-table.component.html',
+    styleUrl: './item-table.component.less'
 })
 export class ItemTableComponent  implements OnInit {
 	vegetables$: Observable<Vegetable[]> | undefined;

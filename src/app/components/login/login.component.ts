@@ -5,11 +5,10 @@ import {UserService} from "../../services/user/user.service";
 import {switchMap} from "rxjs";
 
 @Component({
-	selector: "app-login",
-	standalone: true,
-	imports: [],
-	templateUrl: "./login.component.html",
-	styleUrl: "./login.component.less"
+    selector: "app-login",
+    imports: [],
+    templateUrl: "./login.component.html",
+    styleUrl: "./login.component.less"
 })
 export class LoginComponent {
 	router = inject(Router);
