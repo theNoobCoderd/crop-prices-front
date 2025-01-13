@@ -1,6 +1,6 @@
 import {inject, Injectable} from "@angular/core";
 import {environment} from "../../../environments/environment";
-import {HttpClient} from "@angular/common/http";
+import { HttpClient } from "@angular/common/http";
 import {BehaviorSubject, Observable, tap} from "rxjs";
 import {User} from "../../models/user.model";
 import {Router} from "@angular/router";
