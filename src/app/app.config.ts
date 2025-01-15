@@ -5,6 +5,7 @@ import { routes } from './app.routes';
 import { provideHttpClient } from "@angular/common/http";
 import { initializeApp, provideFirebaseApp } from '@angular/fire/app';
 import { getAuth, provideAuth } from '@angular/fire/auth';
+import {provideCharts, withDefaultRegisterables} from "ng2-charts";
 
 const firebaseConfig = {
 	apiKey: "AIzaSyARgGd6p_9GsJwcn1tCU24eNztYUpdEQVc",
@@ -19,6 +20,7 @@ const firebaseConfig = {
 export const appConfig: ApplicationConfig = {
 	providers: [provideRouter(routes),
 		provideHttpClient(),
+		provideCharts(withDefaultRegisterables()),
 		provideFirebaseApp(() => initializeApp(firebaseConfig)),
 		provideAuth(() => getAuth())],
 };

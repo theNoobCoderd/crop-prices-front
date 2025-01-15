@@ -1,6 +1,32 @@
+import {MarketplaceListing} from "../../app/models/marketplace-listing.model";
 import {Vegetable} from "../../app/models/vegetable.model";
 import {Unit} from "../../app/models/unit.enum";
 import {Type} from "../../app/models/type.enum";
+
+export const MARKETPLACE_LISTING: MarketplaceListing[] = [
+	{
+		id: "string",
+		quantity: 123,
+		price: 123,
+		unit: "string",
+		description: "string",
+		imageUrl: "string",
+		type: "string",
+		creationDate: new Date(),
+		seller: {
+			id: "string",
+			username: "string",
+			phone: "string",
+			region: "string"
+		},
+		produce: {
+			id: 123,
+			name: "string",
+			unitOfMeasure: "string",
+			type: "string",
+		}
+	},
+];
 
 export const GRAPH_ONE: Vegetable[] = [
 	{
@@ -11,7 +37,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 40.0,
 		"highPrice": 60.0,
 		"averagePrice": 50.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-04-19"
 	},
 	{
 		"id": 1,
@@ -21,7 +48,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 40.0,
 		"highPrice": 60.0,
 		"averagePrice": 50.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-04-23"
 	},
 	{
 		"id": 1,
@@ -31,7 +59,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 40.0,
 		"highPrice": 50.0,
 		"averagePrice": 50.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-04-25"
 	},
 	{
 		"id": 1,
@@ -41,17 +70,19 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 50.0,
 		"highPrice": 60.0,
 		"averagePrice": 60.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-05-02"
 	},
 	{
-		"id": 4,
+		"id": 1,
 		"name": "Angive",
 		unitOfMeasure: Unit.KG,
 		"totalSold": 675.0,
 		"lowPrice": 60.0,
 		"highPrice": 70.0,
 		"averagePrice": 60.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-05-30"
 	},
 	{
 		"id": 1,
@@ -61,7 +92,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 50.0,
 		"highPrice": 70.0,
 		"averagePrice": 60.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-05-31"
 	},
 	{
 		"id": 1,
@@ -71,7 +103,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 30.0,
 		"highPrice": 60.0,
 		"averagePrice": 40.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-06-01"
 	},
 	{
 		"id": 1,
@@ -81,7 +114,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 60.0,
 		"highPrice": 60.0,
 		"averagePrice": 60.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-06-03"
 	},
 	{
 		"id": 1,
@@ -91,7 +125,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 50.0,
 		"highPrice": 70.0,
 		"averagePrice": 60.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-06-04"
 	},
 	{
 		"id": 1,
@@ -101,7 +136,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 50.0,
 		"highPrice": 70.0,
 		"averagePrice": 60.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-06-07"
 	},
 	{
 		"id": 1,
@@ -111,7 +147,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 25.0,
 		"highPrice": 40.0,
 		"averagePrice": 25.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-06-08"
 	},
 	{
 		"id": 1,
@@ -121,7 +158,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 70.0,
 		"highPrice": 80.0,
 		"averagePrice": 75.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-06-10"
 	},
 	{
 		"id": 1,
@@ -131,7 +169,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 70.0,
 		"highPrice": 70.0,
 		"averagePrice": 70.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-06-11"
 	},
 	{
 		"id": 1,
@@ -141,7 +180,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 60.0,
 		"highPrice": 70.0,
 		"averagePrice": 70.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-06-13"
 	},
 	{
 		"id": 1,
@@ -151,7 +191,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 60.0,
 		"highPrice": 80.0,
 		"averagePrice": 80.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-06-14"
 	},
 	{
 		"id": 1,
@@ -161,7 +202,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 40.0,
 		"highPrice": 80.0,
 		"averagePrice": 60.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-06-15"
 	},
 	{
 		"id": 1,
@@ -171,7 +213,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 60.0,
 		"highPrice": 80.0,
 		"averagePrice": 80.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-06-17"
 	},
 	{
 		"id": 1,
@@ -181,7 +224,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 70.0,
 		"highPrice": 80.0,
 		"averagePrice": 70.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-06-18"
 	},
 	{
 		"id": 1,
@@ -191,7 +235,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 60.0,
 		"highPrice": 80.0,
 		"averagePrice": 80.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-06-20"
 	},
 	{
 		"id": 1,
@@ -201,7 +246,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 70.0,
 		"highPrice": 80.0,
 		"averagePrice": 70.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-06-21"
 	},
 	{
 		"id": 1,
@@ -211,7 +257,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 70.0,
 		"highPrice": 80.0,
 		"averagePrice": 90.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-06-24"
 	},
 	{
 		"id": 1,
@@ -221,7 +268,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 70.0,
 		"highPrice": 80.0,
 		"averagePrice": 80.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-06-25"
 	},
 	{
 		"id": 1,
@@ -231,7 +279,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 70.0,
 		"highPrice": 80.0,
 		"averagePrice": 80.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-06-27"
 	},
 	{
 		"id": 1,
@@ -241,7 +290,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 70.0,
 		"highPrice": 80.0,
 		"averagePrice": 80.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-06-28"
 	},
 	{
 		"id": 1,
@@ -251,7 +301,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 70.0,
 		"highPrice": 80.0,
 		"averagePrice": 80.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-06-29"
 	},
 	{
 		"id": 1,
@@ -261,7 +312,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 70.0,
 		"highPrice": 80.0,
 		"averagePrice": 80.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-07-01"
 	},
 	{
 		"id": 1,
@@ -271,7 +323,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 70.0,
 		"highPrice": 80.0,
 		"averagePrice": 75.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-07-02"
 	},
 	{
 		"id": 1,
@@ -281,7 +334,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 70.0,
 		"highPrice": 80.0,
 		"averagePrice": 80.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-07-04"
 	},
 	{
 		"id": 1,
@@ -291,7 +345,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 80.0,
 		"highPrice": 90.0,
 		"averagePrice": 90.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-07-05"
 	},
 	{
 		"id": 1,
@@ -301,7 +356,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 70.0,
 		"highPrice": 80.0,
 		"averagePrice": 70.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-07-06"
 	},
 	{
 		"id": 1,
@@ -311,7 +367,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 0.0,
 		"highPrice": 0.0,
 		"averagePrice": 0.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-07-08"
 	},
 	{
 		"id": 1,
@@ -321,7 +378,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 0.0,
 		"highPrice": 0.0,
 		"averagePrice": 0.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-07-09"
 	},
 	{
 		"id": 1,
@@ -331,7 +389,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 80.0,
 		"highPrice": 90.0,
 		"averagePrice": 80.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-07-11"
 	},
 	{
 		"id": 1,
@@ -341,7 +400,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 70.0,
 		"highPrice": 80.0,
 		"averagePrice": 80.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-07-12"
 	},
 	{
 		"id": 1,
@@ -351,7 +411,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 70.0,
 		"highPrice": 80.0,
 		"averagePrice": 80.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-07-13"
 	},
 	{
 		"id": 1,
@@ -361,7 +422,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 70.0,
 		"highPrice": 80.0,
 		"averagePrice": 80.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-07-15"
 	},
 	{
 		"id": 1,
@@ -371,7 +433,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 70.0,
 		"highPrice": 80.0,
 		"averagePrice": 80.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-07-16"
 	},
 	{
 		"id": 1,
@@ -381,7 +444,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 80.0,
 		"highPrice": 90.0,
 		"averagePrice": 80.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-07-18"
 	},
 	{
 		"id": 1,
@@ -391,7 +455,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 70.0,
 		"highPrice": 80.0,
 		"averagePrice": 70.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-07-19"
 	},
 	{
 		"id": 1,
@@ -401,7 +466,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 70.0,
 		"highPrice": 80.0,
 		"averagePrice": 70.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-07-20"
 	},
 	{
 		"id": 1,
@@ -411,7 +477,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 0.0,
 		"highPrice": 0.0,
 		"averagePrice": 0.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-07-22"
 	},
 	{
 		"id": 1,
@@ -421,7 +488,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 70.0,
 		"highPrice": 80.0,
 		"averagePrice": 80.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-07-23"
 	},
 	{
 		"id": 1,
@@ -431,7 +499,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 70.0,
 		"highPrice": 80.0,
 		"averagePrice": 80.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-07-25"
 	},
 	{
 		"id": 1,
@@ -441,7 +510,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 80.0,
 		"highPrice": 80.0,
 		"averagePrice": 80.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-07-26"
 	},
 	{
 		"id": 1,
@@ -451,7 +521,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 60.0,
 		"highPrice": 80.0,
 		"averagePrice": 70.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-07-27"
 	},
 	{
 		"id": 1,
@@ -461,7 +532,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 70.0,
 		"highPrice": 80.0,
 		"averagePrice": 70.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-07-29"
 	},
 	{
 		"id": 1,
@@ -471,7 +543,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 60.0,
 		"highPrice": 80.0,
 		"averagePrice": 70.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-07-30"
 	},
 	{
 		"id": 1,
@@ -481,7 +554,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 60.0,
 		"highPrice": 80.0,
 		"averagePrice": 70.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-08-01"
 	},
 	{
 		"id": 1,
@@ -491,7 +565,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 60.0,
 		"highPrice": 80.0,
 		"averagePrice": 70.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-08-02"
 	},
 	{
 		"id": 1,
@@ -501,7 +576,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 60.0,
 		"highPrice": 80.0,
 		"averagePrice": 70.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-08-03"
 	},
 	{
 		"id": 1,
@@ -511,7 +587,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 0.0,
 		"highPrice": 0.0,
 		"averagePrice": 0.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-08-05"
 	},
 	{
 		"id": 1,
@@ -521,7 +598,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 0.0,
 		"highPrice": 0.0,
 		"averagePrice": 0.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-08-06"
 	},
 	{
 		"id": 1,
@@ -531,7 +609,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 60.0,
 		"highPrice": 80.0,
 		"averagePrice": 35.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-08-08"
 	},
 	{
 		"id": 1,
@@ -541,7 +620,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 40.0,
 		"highPrice": 70.0,
 		"averagePrice": 60.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-08-09"
 	},
 	{
 		"id": 1,
@@ -551,7 +631,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 60.0,
 		"highPrice": 80.0,
 		"averagePrice": 70.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-08-10"
 	},
 	{
 		"id": 1,
@@ -561,7 +642,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 60.0,
 		"highPrice": 70.0,
 		"averagePrice": 60.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-08-12"
 	},
 	{
 		"id": 1,
@@ -571,7 +653,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 60.0,
 		"highPrice": 70.0,
 		"averagePrice": 60.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-08-13"
 	},
 	{
 		"id": 1,
@@ -581,7 +664,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 60.0,
 		"highPrice": 80.0,
 		"averagePrice": 70.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-08-15"
 	},
 	{
 		"id": 1,
@@ -591,7 +675,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 60.0,
 		"highPrice": 80.0,
 		"averagePrice": 70.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-08-16"
 	},
 	{
 		"id": 1,
@@ -601,7 +686,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 60.0,
 		"highPrice": 70.0,
 		"averagePrice": 60.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-08-17"
 	},
 	{
 		"id": 1,
@@ -611,7 +697,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 50.0,
 		"highPrice": 60.0,
 		"averagePrice": 50.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-08-19"
 	},
 	{
 		"id": 1,
@@ -621,7 +708,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 40.0,
 		"highPrice": 60.0,
 		"averagePrice": 50.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-08-20"
 	},
 	{
 		"id": 1,
@@ -631,7 +719,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 50.0,
 		"highPrice": 60.0,
 		"averagePrice": 50.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-08-22"
 	},
 	{
 		"id": 1,
@@ -641,7 +730,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 40.0,
 		"highPrice": 50.0,
 		"averagePrice": 40.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-08-23"
 	},
 	{
 		"id": 1,
@@ -651,7 +741,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 40.0,
 		"highPrice": 50.0,
 		"averagePrice": 40.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-08-24"
 	},
 	{
 		"id": 1,
@@ -661,7 +752,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 40.0,
 		"highPrice": 50.0,
 		"averagePrice": 50.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-08-26"
 	},
 	{
 		"id": 1,
@@ -671,7 +763,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 40.0,
 		"highPrice": 50.0,
 		"averagePrice": 44.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-08-27"
 	},
 	{
 		"id": 1,
@@ -681,7 +774,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 40.0,
 		"highPrice": 50.0,
 		"averagePrice": 50.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-08-29"
 	},
 	{
 		"id": 1,
@@ -691,7 +785,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 40.0,
 		"highPrice": 50.0,
 		"averagePrice": 40.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-08-30"
 	},
 	{
 		"id": 1,
@@ -701,7 +796,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 40.0,
 		"highPrice": 50.0,
 		"averagePrice": 40.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-08-31"
 	},
 	{
 		"id": 1,
@@ -711,7 +807,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 40.0,
 		"highPrice": 50.0,
 		"averagePrice": 40.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-09-02"
 	},
 	{
 		"id": 1,
@@ -721,7 +818,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 40.0,
 		"highPrice": 50.0,
 		"averagePrice": 40.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-09-03"
 	},
 	{
 		"id": 1,
@@ -731,7 +829,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 30.0,
 		"highPrice": 60.0,
 		"averagePrice": 35.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-09-05"
 	},
 	{
 		"id": 1,
@@ -741,7 +840,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 40.0,
 		"highPrice": 50.0,
 		"averagePrice": 44.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-09-06"
 	},
 	{
 		"id": 1,
@@ -751,7 +851,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 30.0,
 		"highPrice": 50.0,
 		"averagePrice": 40.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-09-07"
 	},
 	{
 		"id": 1,
@@ -761,7 +862,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 7.0,
 		"highPrice": 10.0,
 		"averagePrice": 7.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-09-09"
 	},
 	{
 		"id": 1,
@@ -771,7 +873,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 30.0,
 		"highPrice": 40.0,
 		"averagePrice": 40.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-09-10"
 	},
 	{
 		"id": 1,
@@ -781,7 +884,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 30.0,
 		"highPrice": 40.0,
 		"averagePrice": 35.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-09-12"
 	},
 	{
 		"id": 1,
@@ -791,7 +895,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 30.0,
 		"highPrice": 40.0,
 		"averagePrice": 36.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-09-13"
 	},
 	{
 		"id": 1,
@@ -801,7 +906,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 40.0,
 		"highPrice": 40.0,
 		"averagePrice": 40.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-09-14"
 	},
 	{
 		"id": 1,
@@ -811,7 +917,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 30.0,
 		"highPrice": 40.0,
 		"averagePrice": 40.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-09-16"
 	},
 	{
 		"id": 1,
@@ -821,7 +928,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 30.0,
 		"highPrice": 40.0,
 		"averagePrice": 40.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-09-17"
 	},
 	{
 		"id": 1,
@@ -831,7 +939,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 30.0,
 		"highPrice": 40.0,
 		"averagePrice": 40.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-09-19"
 	},
 	{
 		"id": 1,
@@ -841,7 +950,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 30.0,
 		"highPrice": 40.0,
 		"averagePrice": 40.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-09-20"
 	},
 	{
 		"id": 1,
@@ -851,7 +961,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 30.0,
 		"highPrice": 40.0,
 		"averagePrice": 40.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-09-21"
 	},
 	{
 		"id": 1,
@@ -861,7 +972,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 30.0,
 		"highPrice": 40.0,
 		"averagePrice": 40.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-09-23"
 	},
 	{
 		"id": 1,
@@ -871,7 +983,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 30.0,
 		"highPrice": 35.0,
 		"averagePrice": 35.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-09-24"
 	},
 	{
 		"id": 1,
@@ -881,7 +994,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 30.0,
 		"highPrice": 40.0,
 		"averagePrice": 35.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-09-26"
 	},
 	{
 		"id": 1,
@@ -891,7 +1005,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 30.0,
 		"highPrice": 40.0,
 		"averagePrice": 40.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-09-27"
 	},
 	{
 		"id": 1,
@@ -901,7 +1016,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 30.0,
 		"highPrice": 40.0,
 		"averagePrice": 30.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-09-28"
 	},
 	{
 		"id": 1,
@@ -911,7 +1027,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 30.0,
 		"highPrice": 40.0,
 		"averagePrice": 40.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-09-30"
 	},
 	{
 		"id": 1,
@@ -921,7 +1038,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 40.0,
 		"highPrice": 50.0,
 		"averagePrice": 40.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-10-01"
 	},
 	{
 		"id": 1,
@@ -931,7 +1049,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 30.0,
 		"highPrice": 50.0,
 		"averagePrice": 40.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-10-03"
 	},
 	{
 		"id": 1,
@@ -941,7 +1060,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 30.0,
 		"highPrice": 44.0,
 		"averagePrice": 40.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-10-04"
 	},
 	{
 		"id": 1,
@@ -951,7 +1071,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 30.0,
 		"highPrice": 50.0,
 		"averagePrice": 40.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-10-05"
 	},
 	{
 		"id": 1,
@@ -961,7 +1082,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 40.0,
 		"highPrice": 50.0,
 		"averagePrice": 50.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-10-07"
 	},
 	{
 		"id": 1,
@@ -971,7 +1093,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 40.0,
 		"highPrice": 50.0,
 		"averagePrice": 50.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-10-08"
 	},
 	{
 		"id": 1,
@@ -981,7 +1104,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 40.0,
 		"highPrice": 50.0,
 		"averagePrice": 50.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-10-10"
 	},
 	{
 		"id": 1,
@@ -991,7 +1115,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 30.0,
 		"highPrice": 50.0,
 		"averagePrice": 40.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-10-11"
 	},
 	{
 		"id": 1,
@@ -1001,7 +1126,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 30.0,
 		"highPrice": 40.0,
 		"averagePrice": 30.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-10-12"
 	},
 	{
 		"id": 1,
@@ -1011,7 +1137,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 30.0,
 		"highPrice": 40.0,
 		"averagePrice": 35.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-10-14"
 	},
 	{
 		"id": 1,
@@ -1021,7 +1148,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 30.0,
 		"highPrice": 40.0,
 		"averagePrice": 40.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-10-15"
 	},
 	{
 		"id": 1,
@@ -1031,7 +1159,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 30.0,
 		"highPrice": 40.0,
 		"averagePrice": 34.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-10-17"
 	},
 	{
 		"id": 1,
@@ -1041,7 +1170,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 30.0,
 		"highPrice": 40.0,
 		"averagePrice": 36.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-10-18"
 	},
 	{
 		"id": 1,
@@ -1051,7 +1181,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 30.0,
 		"highPrice": 40.0,
 		"averagePrice": 30.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-10-19"
 	},
 	{
 		"id": 1,
@@ -1061,7 +1192,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 30.0,
 		"highPrice": 30.0,
 		"averagePrice": 30.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-10-21"
 	},
 	{
 		"id": 1,
@@ -1071,7 +1203,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 30.0,
 		"highPrice": 30.0,
 		"averagePrice": 30.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-10-22"
 	},
 	{
 		"id": 1,
@@ -1081,7 +1214,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 30.0,
 		"highPrice": 40.0,
 		"averagePrice": 30.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-10-24"
 	},
 	{
 		"id": 1,
@@ -1091,7 +1225,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 20.0,
 		"highPrice": 30.0,
 		"averagePrice": 24.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-10-25"
 	},
 	{
 		"id": 1,
@@ -1101,7 +1236,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 20.0,
 		"highPrice": 30.0,
 		"averagePrice": 30.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-10-26"
 	},
 	{
 		"id": 1,
@@ -1111,7 +1247,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 20.0,
 		"highPrice": 30.0,
 		"averagePrice": 30.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-10-28"
 	},
 	{
 		"id": 1,
@@ -1121,7 +1258,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 20.0,
 		"highPrice": 20.0,
 		"averagePrice": 20.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-10-29"
 	},
 	{
 		"id": 1,
@@ -1131,7 +1269,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 14.0,
 		"highPrice": 20.0,
 		"averagePrice": 20.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-11-01"
 	},
 	{
 		"id": 1,
@@ -1141,7 +1280,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 20.0,
 		"highPrice": 20.0,
 		"averagePrice": 20.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-11-02"
 	},
 	{
 		"id": 1,
@@ -1151,7 +1291,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 20.0,
 		"highPrice": 20.0,
 		"averagePrice": 20.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-11-04"
 	},
 	{
 		"id": 1,
@@ -1161,7 +1302,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 20.0,
 		"highPrice": 20.0,
 		"averagePrice": 20.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-11-05"
 	},
 	{
 		"id": 1,
@@ -1171,7 +1313,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 20.0,
 		"highPrice": 20.0,
 		"averagePrice": 20.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-11-07"
 	},
 	{
 		"id": 1,
@@ -1181,7 +1324,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 20.0,
 		"highPrice": 20.0,
 		"averagePrice": 20.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-11-08"
 	},
 	{
 		"id": 1,
@@ -1191,7 +1335,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 10.0,
 		"highPrice": 20.0,
 		"averagePrice": 15.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-11-09"
 	},
 	{
 		"id": 1,
@@ -1201,7 +1346,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 10.0,
 		"highPrice": 20.0,
 		"averagePrice": 15.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-11-11"
 	},
 	{
 		"id": 1,
@@ -1211,7 +1357,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 10.0,
 		"highPrice": 15.0,
 		"averagePrice": 15.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-11-12"
 	},
 	{
 		"id": 1,
@@ -1221,7 +1368,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 10.0,
 		"highPrice": 20.0,
 		"averagePrice": 15.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-11-14"
 	},
 	{
 		"id": 1,
@@ -1231,7 +1379,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 10.0,
 		"highPrice": 15.0,
 		"averagePrice": 10.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-11-15"
 	},
 	{
 		"id": 1,
@@ -1241,7 +1390,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 10.0,
 		"highPrice": 20.0,
 		"averagePrice": 16.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-11-16"
 	},
 	{
 		"id": 1,
@@ -1251,7 +1401,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 10.0,
 		"highPrice": 20.0,
 		"averagePrice": 15.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-11-18"
 	},
 	{
 		"id": 1,
@@ -1261,7 +1412,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 10.0,
 		"highPrice": 20.0,
 		"averagePrice": 20.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-11-19"
 	},
 	{
 		"id": 1,
@@ -1271,7 +1423,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 10.0,
 		"highPrice": 20.0,
 		"averagePrice": 20.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-11-21"
 	},
 	{
 		"id": 1,
@@ -1281,7 +1434,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 10.0,
 		"highPrice": 20.0,
 		"averagePrice": 20.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-11-22"
 	},
 	{
 		"id": 1,
@@ -1291,7 +1445,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 10.0,
 		"highPrice": 20.0,
 		"averagePrice": 20.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-11-23"
 	},
 	{
 		"id": 1,
@@ -1301,7 +1456,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 20.0,
 		"highPrice": 20.0,
 		"averagePrice": 20.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-11-25"
 	},
 	{
 		"id": 1,
@@ -1311,7 +1467,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 10.0,
 		"highPrice": 20.0,
 		"averagePrice": 14.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-11-26"
 	},
 	{
 		"id": 1,
@@ -1321,7 +1478,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 10.0,
 		"highPrice": 10.0,
 		"averagePrice": 10.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-11-28"
 	},
 	{
 		"id": 1,
@@ -1331,7 +1489,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 10.0,
 		"highPrice": 20.0,
 		"averagePrice": 10.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-11-29"
 	},
 	{
 		"id": 1,
@@ -1341,7 +1500,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 10.0,
 		"highPrice": 20.0,
 		"averagePrice": 20.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-12-02"
 	},
 	{
 		"id": 1,
@@ -1351,7 +1511,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 10.0,
 		"highPrice": 10.0,
 		"averagePrice": 10.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-12-03"
 	},
 	{
 		"id": 1,
@@ -1361,7 +1522,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 10.0,
 		"highPrice": 20.0,
 		"averagePrice": 14.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-12-05"
 	},
 	{
 		"id": 1,
@@ -1371,7 +1533,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 10.0,
 		"highPrice": 20.0,
 		"averagePrice": 10.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-12-06"
 	},
 	{
 		"id": 1,
@@ -1381,7 +1544,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 10.0,
 		"highPrice": 20.0,
 		"averagePrice": 10.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-12-07"
 	},
 	{
 		"id": 1,
@@ -1391,7 +1555,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 10.0,
 		"highPrice": 20.0,
 		"averagePrice": 10.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-12-09"
 	},
 	{
 		"id": 1,
@@ -1401,7 +1566,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 10.0,
 		"highPrice": 10.0,
 		"averagePrice": 10.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-12-10"
 	},
 	{
 		"id": 1,
@@ -1411,7 +1577,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 10.0,
 		"highPrice": 10.0,
 		"averagePrice": 10.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-12-12"
 	},
 	{
 		"id": 1,
@@ -1421,7 +1588,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 10.0,
 		"highPrice": 10.0,
 		"averagePrice": 10.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-12-13"
 	},
 	{
 		"id": 1,
@@ -1431,7 +1599,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 10.0,
 		"highPrice": 10.0,
 		"averagePrice": 10.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-12-14"
 	},
 	{
 		"id": 1,
@@ -1441,7 +1610,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 10.0,
 		"highPrice": 10.0,
 		"averagePrice": 10.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-12-16"
 	},
 	{
 		"id": 1,
@@ -1451,7 +1621,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 10.0,
 		"highPrice": 10.0,
 		"averagePrice": 10.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-12-17"
 	},
 	{
 		"id": 1,
@@ -1461,7 +1632,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 10.0,
 		"highPrice": 10.0,
 		"averagePrice": 10.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-12-19"
 	},
 	{
 		"id": 1,
@@ -1471,7 +1643,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 10.0,
 		"highPrice": 10.0,
 		"averagePrice": 10.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-12-20"
 	},
 	{
 		"id": 1,
@@ -1481,7 +1654,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 10.0,
 		"highPrice": 10.0,
 		"averagePrice": 10.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-12-21"
 	},
 	{
 		"id": 1,
@@ -1491,7 +1665,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 10.0,
 		"highPrice": 10.0,
 		"averagePrice": 10.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-12-23"
 	},
 	{
 		"id": 1,
@@ -1501,7 +1676,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 10.0,
 		"highPrice": 10.0,
 		"averagePrice": 10.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-12-24"
 	},
 	{
 		"id": 1,
@@ -1511,7 +1687,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 10.0,
 		"highPrice": 10.0,
 		"averagePrice": 10.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-12-26"
 	},
 	{
 		"id": 1,
@@ -1521,7 +1698,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 10.0,
 		"highPrice": 10.0,
 		"averagePrice": 10.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-12-27"
 	},
 	{
 		"id": 1,
@@ -1531,7 +1709,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 10.0,
 		"highPrice": 10.0,
 		"averagePrice": 10.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-12-28"
 	},
 	{
 		"id": 1,
@@ -1541,7 +1720,8 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 10.0,
 		"highPrice": 10.0,
 		"averagePrice": 10.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-12-30"
 	},
 	{
 		"id": 1,
@@ -1551,6 +1731,7 @@ export const GRAPH_ONE: Vegetable[] = [
 		"lowPrice": 10.0,
 		"highPrice": 10.0,
 		"averagePrice": 10.0,
-		type: Type.VEGETABLE
+		type: Type.VEGETABLE,
+		"date": "2024-12-31"
 	}
 ]

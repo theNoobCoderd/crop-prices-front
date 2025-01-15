@@ -10,4 +10,5 @@ export interface Vegetable {
 	highPrice: number;
 	averagePrice: number;
 	type: Type;
+	date: string;
 }
