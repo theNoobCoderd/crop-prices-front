@@ -1,21 +1,28 @@
-<div style="display: block;">
-	<canvas baseChart width="400" height="400"
-					[type]="'line'"
-					[data]="lineChartData"
-					[options]="lineChartOptions"
-					[legend]="lineChartLegend">
-	</canvas>
-</div>
+<div class="historic">
+	<div style="display: block;">
+		<canvas baseChart width="400" height="400"
+						[type]="'line'"
+						[data]="lineChartData"
+						[options]="lineChartOptions"
+						[legend]="lineChartLegend">
+		</canvas>
+	</div>
 
-<div style="display: block;">
-	<canvas baseChart width="400" height="400"
-					[type]="'bar'"
-					[data]="barChartData"
-					[options]="barChartOptions"
-					[legend]="lineChartLegend">
-	</canvas>
-</div>
+	<div style="display: block;">
+		<canvas baseChart width="400" height="400"
+						[type]="'bar'"
+						[data]="barChartData"
+						[options]="barChartOptions"
+						[legend]="lineChartLegend">
+		</canvas>
+	</div>
 
-@for (crop of crops$ | async; track crop) {
-	<p>{{ crop.name }} || {{ crop.averagePrice }} || {{ crop.totalSold }} || {{ crop.date }}</p>
-}
+	<div style="display: block;">
+		<canvas baseChart width="400" height="400"
+						[type]="'line'"
+						[data]="averageRevenuChart"
+						[options]="lineChartOptions"
+						[legend]="lineChartLegend">
+		</canvas>
+	</div>
+</div>

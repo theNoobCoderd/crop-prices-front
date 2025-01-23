@@ -15,6 +15,5 @@ import {RegisterComponent} from "../register/register.component";
     styleUrl: "./profile-wrapper.component.less"
 })
 export class ProfileWrapperComponent {
-
 	userService = inject(UserService);
 }
