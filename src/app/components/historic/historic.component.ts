@@ -2,7 +2,6 @@ import {Component, OnInit} from "@angular/core";
 import {HistoricService} from "../../services/historic/historic.service";
 import {Observable, of} from "rxjs";
 import {Vegetable} from "../../models/vegetable.model";
-import {AsyncPipe} from "@angular/common";
 import {ChartConfiguration, ChartOptions} from "chart.js";
 import {BaseChartDirective} from "ng2-charts";
 import {GRAPH_ONE} from "../../../assets/mocks/mock-data";
@@ -10,7 +9,6 @@ import {GRAPH_ONE} from "../../../assets/mocks/mock-data";
 @Component({
     selector: "app-historic",
 	imports: [
-		AsyncPipe,
 		BaseChartDirective
 	],
     templateUrl: "./historic.component.html",
@@ -21,6 +19,8 @@ export class HistoricComponent implements OnInit {
 	lineChartData: ChartConfiguration<'line'>['data'] | undefined;
 
 	barChartData: ChartConfiguration<'bar'>['data'] | undefined;
+
+	averageRevenuChart: ChartConfiguration<'line'>['data'] | undefined;
 
 	// @ts-ignore
 	lineChartOptions: ChartOptions<'line'> = {
@@ -110,6 +110,8 @@ export class HistoricComponent implements OnInit {
 
 			var totalSold = crops.map((crop) => crop.totalSold);
 
+			var averageRevenu = crops.map((crop) => crop.averagePrice * crop.totalSold);
+
 			this.lineChartData = {
 				labels: dates,
 				datasets: [
@@ -157,6 +159,22 @@ export class HistoricComponent implements OnInit {
 					}
 				]
 			}
+
+			this.averageRevenuChart = {
+				labels: dates,
+				datasets: [
+					{
+						data: averageRevenu,
+						label: 'Revenu',
+						tension: 0.3,
+						borderColor: 'rgba(59, 130, 246, 1)',
+						borderWidth: 1,
+						fill: true,
+						backgroundColor: 'rgba(142,180,246, 0.3)'
+					}
+				]
+			};
+
 		}));
 	}
 
