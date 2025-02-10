@@ -1,22 +1,27 @@
 <div class="mrk-item-container">
 	<div class="item-image">
-		<img src="assets/images/carrots.jpg" alt="."/>
+		<img [src]="item?.imageUrl" alt="assets/images/carrots.jpg"/>
 	</div>
 	<div class="item-info">
 		<span class="date">
-			<div>{{item?.creationDate}}</div>
+			<div>Posted: {{item?.creationDate | date: 'dd MMM. yyyy / hh:mm'}}</div>
 		</span>
 
 		<span class="crp-info">
-			<div>Item: {{item?.produce?.name}}</div>
-			<div>Volume: {{item?.quantity}} {{item?.unit}}</div>
-			<div>Price: {{item?.price}} / {{item?.unit}}</div>
+			<div class="crp-name">Item: {{item?.produce?.name}}</div>
+			<div>
+				<span class="crp-price">Price: {{item?.price}} / {{item?.unit}}</span>
+				<span>Qty: {{item?.quantity}} {{item?.unit}}</span>
+			</div>
 		</span>
 
 		<span class="seller-info">
-			<div>Call: {{item?.seller?.phone}}</div>
-			<div>Region: {{item?.seller?.region}}</div>
+			<div class="region">Region: {{item?.seller?.region}}</div>
 			<div>Locality: {{item?.seller?.region}}</div>
+		</span>
+
+		<span class="call-info">
+			<div>Call {{item?.seller?.username}} on {{item?.seller?.phone}}</div>
 		</span>
 
 	</div>

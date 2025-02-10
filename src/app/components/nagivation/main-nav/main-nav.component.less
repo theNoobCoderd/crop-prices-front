@@ -3,32 +3,35 @@
 	bottom: 0;
 	left: 0;
 	right: 0;
-}
 
-.crp-container {
-	display: flex;
-	align-items: center;
-	justify-content: center;
-	flex-flow: row nowrap;
+	background-color: #333333;
 	color: #E3E3E3;
 	font-weight: 700;
 	font-size: 12px;
+}
 
-	padding-block: 0.75rem;
-
-	background-color: #333333;
-
-	position: sticky;
-	bottom: 0;
-
-	.listing, .marketplace, .historic {
-		.text {
-			margin-top: 7px;
-		}
+.crp-container {
+	.navigation {
 		display: flex;
-		flex-grow: 1;
 		align-items: center;
-		flex-flow: column nowrap;
+		justify-content: space-evenly;
+		flex-flow: row nowrap;
+
+		.navigation-item {
+			width: 5rem;
+			padding-block: 0.75rem;
+			display: flex;
+			align-items: center;
+			flex-flow: column nowrap;
+
+			.text {
+				margin-top: 7px;
+			}
+		}
+	}
+
+	.navigation-item.selected {
+		border-top: #5EBB47 solid 3px;
 	}
 
 	button {

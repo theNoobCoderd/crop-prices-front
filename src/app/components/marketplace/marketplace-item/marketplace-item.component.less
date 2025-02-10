@@ -1,17 +1,21 @@
 :host {
-	font-size: 15px;
+	font-size: 14px;
 	line-height: 19px;
 }
 
 .mrk-item-container {
 	display: flex;
 	min-height: 172px;
+	min-width: 380px;
 
-	border-radius: 6px;
+	border-radius: 3px;
 	background-color: #F0F0F0;
+
+	border-bottom: 2px solid #292929;
 }
 
 .item-image {
+	min-width: 150px;
 	max-width: 150px;
 	img {
 		width: 100%;
@@ -26,20 +30,49 @@
 	display: flex;
 	flex-flow: column nowrap;
 	flex-grow: 1;
-	margin-left: 14px;
 
 	.date {
-		font-size: 14px;
+		font-size: 11px;
 		margin-top: 7px;
+
+		padding-bottom: 7px;
+		padding-left: 15px;
+
+		border-bottom: 1px solid #DBDBDB;
 	}
 
 	.crp-info {
-		padding-top: 6px;
+		padding-top: 9px;
 		padding-bottom: 12px;
-		border-bottom: 1px solid #E1E1E1;
+		padding-left: 15px;
+
+		border-bottom: 1px solid #DBDBDB;
+
+		.crp-name {
+			font-weight: bold;
+			padding-bottom: 3px;
+		}
+
+		.crp-price {
+			margin-right: 24px;
+		}
 	}
 
 	.seller-info {
-		margin-top: 6px;
+		padding-left: 15px;
+		padding-block: 9px;
+
+		.region {
+			padding-bottom: 3px;
+		}
+	}
+
+	.call-info {
+		padding-left: 15px;
+		padding-block: 9px;
+		border-top: 1px solid #DBDBDB;
+		background-color: #E3E3E3;
+
+		font-weight: bold;
 	}
 }

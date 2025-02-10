@@ -5,27 +5,269 @@ import {Type} from "../../app/models/type.enum";
 
 export const MARKETPLACE_LISTING: MarketplaceListing[] = [
 	{
-		id: "string",
-		quantity: 123,
-		price: 123,
-		unit: "string",
-		description: "string",
-		imageUrl: "string",
-		type: "string",
-		creationDate: new Date(),
-		seller: {
-			id: "string",
-			username: "string",
-			phone: "string",
-			region: "string"
+		"id": "3e215ef4-dace-4eb6-aea1-b4408e0561e3",
+		"quantity": 25.0,
+		"price": 20.0,
+		"unit": "KG",
+		"description": "desc RAV",
+		"imageUrl": "https://firebasestorage.googleapis.com/v0/b/fir-crops-main.firebasestorage.app/o/uploads%2Ftest1.jpg?alt=media&token=c5ec65d5-b404-4144-8a9e-7d50341f4014",
+		"type": "",
+		"seller": {
+			"id": "3056ef11-dab2-4dce-9910-9b1c45485b30",
+			"username": "ism",
+			"phone": "123123123",
+			"region": "North"
 		},
-		produce: {
-			id: 123,
-			name: "string",
-			unitOfMeasure: "string",
-			type: "string",
-		}
+		"produce": {
+			"id": 70,
+			"name": "Romarin",
+			"unitOfMeasure": "",
+			"type": "VEGETABLE"
+		},
+		"creationDate": new Date("2024-11-04")
 	},
+	{
+		"id": "593869f0-a00d-4055-a84a-413087606e2a",
+		"quantity": 5.0,
+		"price": 39.0,
+		"unit": "KG",
+		"description": "good stuff",
+		"imageUrl": "",
+		"type": "",
+		"seller": {
+			"id": "777aa2c8-1e16-489a-808a-3a68eeec239d",
+			"username": "opskin",
+			"phone": "58224207",
+			"region": "North"
+		},
+		"produce": {
+			"id": 45,
+			"name": "Lepois Carré",
+			"unitOfMeasure": "",
+			"type": "VEGETABLE"
+		},
+		"creationDate": new Date("2024-11-16")
+	},
+	{
+		"id": "6411bb51-7123-4eb3-b38b-82830ec95f77",
+		"quantity": 55.0,
+		"price": 12.0,
+		"unit": "KG",
+		"description": "desc",
+		"imageUrl": "",
+		"type": "",
+		"seller": {
+			"id": "",
+			"username": "",
+			"phone": "",
+			"region": ""
+		},
+		"produce": {
+			"id": 75,
+			"name": "Ti Piment",
+			"unitOfMeasure": "",
+			"type": "VEGETABLE"
+		},
+		"creationDate": new Date("2024-11-04")
+	},
+	{
+		"id": "73d94748-e4a3-4afe-9ec0-bc7374ae8323",
+		"quantity": 25.0,
+		"price": 2.0,
+		"unit": "KG",
+		"description": "desc",
+		"imageUrl": "",
+		"type": "",
+		"seller": {
+			"id": "3056ef11-dab2-4dce-9910-9b1c45485b30",
+			"username": "ism",
+			"phone": "123123123",
+			"region": "North"
+		},
+		"produce": {
+			"id": 13,
+			"name": "Brede Tom Pouce",
+			"unitOfMeasure": "",
+			"type": "VEGETABLE"
+		},
+		"creationDate": new Date("2024-11-04")
+	},
+	{
+		"id": "9ece14c6-6b07-43bd-8718-f99eac8e78c9",
+		"quantity": 999.0,
+		"price": 250.0,
+		"unit": "KG",
+		"description": "Poivron Laserre",
+		"imageUrl": "",
+		"type": "",
+		"seller": {
+			"id": "3056ef11-dab2-4dce-9910-9b1c45485b30",
+			"username": "ism",
+			"phone": "123123123",
+			"region": "North"
+		},
+		"produce": {
+			"id": 64,
+			"name": "Poivron (Vert)",
+			"unitOfMeasure": "",
+			"type": "VEGETABLE"
+		},
+		"creationDate": new Date("2024-09-06")
+	},
+	{
+		"id": "a18423d7-d73b-406f-ba41-0b3b25bd84c6",
+		"quantity": 22.0,
+		"price": 23.0,
+		"unit": "KG",
+		"description": "desc",
+		"imageUrl": "",
+		"type": "",
+		"seller": {
+			"id": "3056ef11-dab2-4dce-9910-9b1c45485b30",
+			"username": "ism",
+			"phone": "123123123",
+			"region": "North"
+		},
+		"produce": {
+			"id": 17,
+			"name": "Butternut",
+			"unitOfMeasure": "",
+			"type": "VEGETABLE"
+		},
+		"creationDate": new Date("2024-09-06")
+	},
+	{
+		"id": "be1128da-f79d-4135-86b9-6560c20f7638",
+		"quantity": 557.0,
+		"price": 50.0,
+		"unit": "KG",
+		"description": "desc potato",
+		"imageUrl": "",
+		"type": "",
+		"seller": {
+			"id": "3056ef11-dab2-4dce-9910-9b1c45485b30",
+			"username": "ism",
+			"phone": "123123123",
+			"region": "North"
+		},
+		"produce": {
+			"id": 68,
+			"name": "Radis",
+			"unitOfMeasure": "",
+			"type": "VEGETABLE"
+		},
+		"creationDate": new Date("2024-11-04")
+	},
+	{
+		"id": "c2ada2f6-bbec-4a7f-b81d-a47900915df1",
+		"quantity": 23.0,
+		"price": 221.0,
+		"unit": "KG",
+		"description": "desc",
+		"imageUrl": "",
+		"type": "",
+		"seller": {
+			"id": "3056ef11-dab2-4dce-9910-9b1c45485b30",
+			"username": "ism",
+			"phone": "123123123",
+			"region": "North"
+		},
+		"produce": {
+			"id": 6,
+			"name": "Brede Baton Vert",
+			"unitOfMeasure": "",
+			"type": "VEGETABLE"
+		},
+		"creationDate": new Date("2024-11-04")
+	},
+	{
+		"id": "d3631e80-f432-4218-89a0-ee03cabd8c10",
+		"quantity": 54.0,
+		"price": 55.0,
+		"unit": "KG",
+		"description": "desc",
+		"imageUrl": "",
+		"type": "",
+		"seller": {
+			"id": "3056ef11-dab2-4dce-9910-9b1c45485b30",
+			"username": "ism",
+			"phone": "123123123",
+			"region": "North"
+		},
+		"produce": {
+			"id": 19,
+			"name": "Calebasse chinois",
+			"unitOfMeasure": "",
+			"type": "VEGETABLE"
+		},
+		"creationDate": new Date("2024-10-27")
+	},
+	{
+		"id": "d464e48c-25c3-4cbe-a08d-a193f7174cb6",
+		"quantity": 22.0,
+		"price": 22.0,
+		"unit": "KG",
+		"description": "22",
+		"imageUrl": "",
+		"type": "",
+		"seller": {
+			"id": "3056ef11-dab2-4dce-9910-9b1c45485b30",
+			"username": "ism",
+			"phone": "123123123",
+			"region": "North"
+		},
+		"produce": {
+			"id": 76,
+			"name": "Ti Pois",
+			"unitOfMeasure": "",
+			"type": "VEGETABLE"
+		},
+		"creationDate": new Date("2024-11-07")
+	},
+	{
+		"id": "d82f4318-4629-4c95-afd7-016e69c66a5c",
+		"quantity": 23.0,
+		"price": 76.0,
+		"unit": "KG",
+		"description": "desc",
+		"imageUrl": "",
+		"type": "",
+		"seller": {
+			"id": "3056ef11-dab2-4dce-9910-9b1c45485b30",
+			"username": "ism",
+			"phone": "123123123",
+			"region": "North"
+		},
+		"produce": {
+			"id": 11,
+			"name": "Brede Songe",
+			"unitOfMeasure": "",
+			"type": "VEGETABLE"
+		},
+		"creationDate": new Date("2024-10-27")
+	},
+	{
+		"id": "f435385d-c3a3-43c2-9edc-2e7cf89945b9",
+		"quantity": 22.0,
+		"price": 22.0,
+		"unit": "KG",
+		"description": "desc",
+		"imageUrl": "",
+		"type": "",
+		"seller": {
+			"id": "3056ef11-dab2-4dce-9910-9b1c45485b30",
+			"username": "ism",
+			"phone": "123123123",
+			"region": "North"
+		},
+		"produce": {
+			"id": 2,
+			"name": "Arouille",
+			"unitOfMeasure": "",
+			"type": "VEGETABLE"
+		},
+		"creationDate": new Date("2024-09-06")
+	}
 ];
 
 export const GRAPH_ONE: Vegetable[] = [
