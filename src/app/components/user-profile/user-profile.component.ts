@@ -26,9 +26,9 @@ export class UserProfileComponent implements OnInit {
 		this.currentUser = this.userService.currentUser$.getValue();
 
 		if (this.currentUser) {
-			this.listingService.getListingsByUserId(this.currentUser.id).subscribe(listings => {
-				this.userListings = listings;
-			})
+			// this.listingService.getListingsByUserId(this.currentUser.id).subscribe(listings => {
+			// 	this.userListings = listings;
+			// });
 		}
 	}
 

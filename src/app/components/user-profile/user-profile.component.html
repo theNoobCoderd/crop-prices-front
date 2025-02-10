@@ -1,18 +1,34 @@
-<div>
-	<div>id: {{ currentUser?.id }}</div>
-	<div>authId: {{ currentUser?.authId }}</div>
-	<div>username: {{ currentUser?.username }}</div>
-	<div>email: {{ currentUser?.email }}</div>
-	<div>password: {{ currentUser?.password }}</div>
-	<div>phone: {{ currentUser?.phone }}</div>
-	<div>region: {{ currentUser?.region }}</div>
-</div>
-<div>
-	<button (click)="logout()">Logout</button>
-</div>
-<div>
-	@for(listing of userListings; track userListings) {
-		<span>{{ listing.id }}</span>
-		<br>
-	}
+<div class="user-profile-container">
+	<div class="header">
+		<img src="assets/svgs/user-profile-icon.svg" alt="profile icon">
+		<span>About You</span>
+	</div>
+
+	<div class="user-info">
+		<div class="username">
+			<span>Username: {{ currentUser?.username }}</span>
+		</div>
+		<div class="additional-info">
+			<span>email: {{ currentUser?.email }}</span>
+			<span>password: *****</span>
+			<span>phone: {{ currentUser?.phone }}</span>
+			<span>region: {{ currentUser?.region }}</span>
+		</div>
+	</div>
+
+	<div>
+		<button (click)="logout()">Logout</button>
+	</div>
+
+	<div>
+		@for(listing of userListings; track userListings) {
+			<span>{{ listing.id }}</span>
+			<br>
+		}
+	</div>
+
+	<span>
+		<div>id: {{ currentUser?.id }}</div>
+		<div>authId: {{ currentUser?.authId }}</div>
+	</span>
 </div>

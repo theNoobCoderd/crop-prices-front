@@ -1,9 +1,12 @@
 import {Component, Input, OnInit} from "@angular/core";
 import {MarketplaceListing} from "../../../models/marketplace-listing.model";
+import {DatePipe} from "@angular/common";
 
 @Component({
     selector: "app-marketplace-item",
-    imports: [],
+	imports: [
+		DatePipe
+	],
     templateUrl: "./marketplace-item.component.html",
     styleUrl: "./marketplace-item.component.less"
 })

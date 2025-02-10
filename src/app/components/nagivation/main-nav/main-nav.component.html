@@ -1,31 +1,18 @@
 <div class="crp-container">
-	<button (click)="navToListing()" class="listing">
-		<img src="assets/svgs/main-nav-listing.svg" alt="Listing">
-		<div class="text">NWM PRICE</div>
-	</button>
-
-	<button (click)="navToMarketplace()" class="marketplace">
-		<img src="assets/svgs/main-nav-marketplace.svg" alt="Marketplace">
-		<div class="text">BUY & SELL</div>
-	</button>
-
-	<button (click)="navToHistoric()" class="historic">
-		<img src="assets/svgs/main-nav-marketplace.svg" alt="Historic">
-		<div class="text">STATS</div>
-	</button>
-
-	@if((authService.firebaseUser$ | async) === null) {
-		<button (click)="navToLogin()" class="marketplace">
-			<img src="assets/svgs/main-nav-marketplace.svg" alt="Marketplace">
-			<div class="text">LOGIN</div>
+	<div class="navigation">
+		<button (click)="navToListing()" class="navigation-item" [class.selected] = "(pagesService.selectedPage$ | async) === NavigationPage.LISTING">
+			<img src="assets/svgs/main-nav-listing.svg" alt="Listing">
+			<div class="text">NWM PRICE</div>
 		</button>
-	}
 
-	@if(authService.firebaseUser$ | async) {
-		<button (click)="navToProfile()" class="marketplace">
+		<button (click)="navToMarketplace()" class="navigation-item" [class.selected] = "(pagesService.selectedPage$ | async) === NavigationPage.MARKETPLACE">
 			<img src="assets/svgs/main-nav-marketplace.svg" alt="Marketplace">
-			<div class="text">PROFILE</div>
+			<div class="text">BUY & SELL</div>
 		</button>
-	}
+
+		<button (click)="navToHistoric()" class="navigation-item" [class.selected] = "(pagesService.selectedPage$ | async) === NavigationPage.STATS">
+			<img src="assets/svgs/main-nav-marketplace.svg" alt="Historic">
+			<div class="text">STATS</div>
+		</button>
 </div>
 

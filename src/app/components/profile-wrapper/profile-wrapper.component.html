@@ -1,7 +1,7 @@
-@if ((userService.currentUser$ | async)) {
+@if ((userService.userLoggedIn$ | async) === true) {
 	<app-user-profile></app-user-profile>
 }
 
-@if (!(userService.currentUser$ | async)) {
+@if ((userService.userLoggedIn$ | async) === false) {
 	<app-register></app-register>
 }

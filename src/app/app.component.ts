@@ -2,32 +2,33 @@ import {Component, HostListener, inject, OnInit} from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import {BrandNameComponent} from "./components/brand-name/brand-name.component";
 import {MainNavComponent} from "./components/nagivation/main-nav/main-nav.component";
-import {AuthService} from "./services/authentication/auth.service";
 import {UserService} from "./services/user/user.service";
 import {NgToastComponent} from "./components/ng-toast/ng-toast.component";
+import {TopBarComponent} from "./components/top-bar/top-bar.component";
 
 @Component({
     selector: 'app-root',
-    imports: [RouterOutlet, BrandNameComponent, MainNavComponent, NgToastComponent],
+	imports: [RouterOutlet, BrandNameComponent, MainNavComponent, NgToastComponent, TopBarComponent],
     templateUrl: './app.component.html',
     styleUrl: './app.component.less'
 })
 export class AppComponent implements OnInit {
-	authService = inject(AuthService);
 	userService = inject(UserService);
 
 	showElement = false;
 
 	private _currentUser: string  | null = null;
+	private _isUserLoggedIn: string | null = null;
 
 	ngOnInit(): void {
-		this.authService.firebaseUser$.subscribe(firebaseUser => {
-			console.log("user signal", firebaseUser);
-		});
-
 		this._currentUser = localStorage.getItem("currentUser");
+		this._isUserLoggedIn = localStorage.getItem("isUserLoggedIn");
 		if (this._currentUser) {
 			this.userService.currentUser$.next(JSON.parse(this._currentUser));
+		}
+
+		if (this._isUserLoggedIn) {
+			this.userService.userLoggedIn$.next(JSON.parse(this._isUserLoggedIn));
 		}
 	}
 

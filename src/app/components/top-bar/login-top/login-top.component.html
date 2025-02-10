@@ -1,0 +1,13 @@
+@if ((authService.firebaseUser$ | async) === null) {
+	<button class="login-icon" (click)="navToLogin()">
+		<div class="text">LOG IN</div>
+		<img src="assets/svgs/profile.svg" alt="profile-logo">
+	</button>
+}
+
+@if ((authService.firebaseUser$ | async)) {
+	<button class="login-icon" (click)="navToProfile()">
+		<div class="text">{{ (authService.firebaseUser$ | async)?.displayName }}</div>
+		<img src="assets/svgs/profile.svg" alt="profile-logo">
+	</button>
+}
