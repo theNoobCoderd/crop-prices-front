@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component} from '@angular/core';
 import {CropsService} from "../../services/crops/crops.service";
 import {Vegetable} from "../../models/vegetable.model";
 import {AsyncPipe, NgSwitch, NgSwitchCase} from "@angular/common";
@@ -23,14 +23,10 @@ import {NgxSkeletonLoaderModule} from "ngx-skeleton-loader";
 	templateUrl: './item-table.component.html',
 	styleUrl: './item-table.component.less'
 })
-export class ItemTableComponent  implements OnInit {
+export class ItemTableComponent {
 	vegetables$: Observable<Vegetable[]> | undefined
 
 	constructor(private _cropsService: CropsService) {
-	}
-
-	ngOnInit(): void {
-		console.log("table initialized");
 	}
 
 	nextDate(nextDate: ExtractionDate): void {
