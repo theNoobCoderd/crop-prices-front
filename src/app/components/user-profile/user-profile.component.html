@@ -4,8 +4,9 @@
 		<span>About You</span>
 	</div>
 
-	<div class="user-info">
-		<div class="username">
+	<span>
+		<div class="user-info">
+			<div class="username">
 			<span>Username: {{ currentUser?.username }}</span>
 		</div>
 		<div class="additional-info">
@@ -14,21 +15,19 @@
 			<span>phone: {{ currentUser?.phone }}</span>
 			<span>region: {{ currentUser?.region }}</span>
 		</div>
-	</div>
+		</div>
+		<div class="logout-button">
+			<button (click)="logout()">LOG OUT</button>
+		</div>
+	</span>
 
 	<div>
-		<button (click)="logout()">Logout</button>
 	</div>
 
-	<div>
-		@for(listing of userListings; track userListings) {
-			<span>{{ listing.id }}</span>
-			<br>
+	<div class="my-listing">
+		<span class="header">My Listings</span>
+		@for (item of userListings; track item.id) {
+			<app-marketplace-item [item]="item"></app-marketplace-item>
 		}
 	</div>
-
-	<span>
-		<div>id: {{ currentUser?.id }}</div>
-		<div>authId: {{ currentUser?.authId }}</div>
-	</span>
 </div>

@@ -270,6 +270,75 @@ export const MARKETPLACE_LISTING: MarketplaceListing[] = [
 	}
 ];
 
+export const USER_LISTING: MarketplaceListing[] = [
+	{
+		"id": "4a359467-bf47-4909-ae1a-adb6c0129001",
+		"quantity": 22.0,
+		"price": 22.0,
+		"unit": "KG",
+		"description": "desc",
+		"imageUrl": "",
+		"type": "VEGETABLE",
+		"seller": {
+			"id": "2a9c40c1-f911-4203-86be-c36d87598d93",
+			"username": "test",
+			"phone": "1232216767",
+			"region": "North"
+		},
+		"produce": {
+			"id": 15,
+			"name": "Bringelle (Rond)",
+			"unitOfMeasure": "Kg",
+			"type": "VEGETABLE"
+		},
+		"creationDate": new Date("2024-09-06")
+	},
+	{
+		"id": "e17e37e6-726b-49ae-8668-ba8c15472bb8",
+		"quantity": 22.0,
+		"price": 22.0,
+		"unit": "KG",
+		"description": "desc",
+		"imageUrl": "https://firebasestorage.googleapis.com/v0/b/fir-crops-main.firebasestorage.app/o/uploads%2Ftest1.jpg?alt=media&token=c5ec65d5-b404-4144-8a9e-7d50341f4014",
+		"type": "VEGETABLE",
+		"seller": {
+			"id": "2a9c40c1-f911-4203-86be-c36d87598d93",
+			"username": "test",
+			"phone": "1232216767",
+			"region": "North"
+		},
+		"produce": {
+			"id": 62,
+			"name": "Turnip",
+			"unitOfMeasure": "Kg",
+			"type": "VEGETABLE"
+		},
+		"creationDate": new Date("2024-09-06")
+	},
+	{
+		"id": "eadeab4a-cd48-4579-9ba0-8e87ca5b7995",
+		"quantity": 22.0,
+		"price": 22.0,
+		"unit": "KG",
+		"description": "desc",
+		"imageUrl": "",
+		"type": "VEGETABLE",
+		"seller": {
+			"id": "2a9c40c1-f911-4203-86be-c36d87598d93",
+			"username": "test",
+			"phone": "1232216767",
+			"region": "North"
+		},
+		"produce": {
+			"id": 18,
+			"name": "Calebasse",
+			"unitOfMeasure": "Kg",
+			"type": "VEGETABLE"
+		},
+		"creationDate": new Date("2024-09-06")
+	}
+]
+
 export const GRAPH_ONE: Vegetable[] = [
 	{
 		"id": 1,
