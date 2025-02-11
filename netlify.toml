@@ -1,8 +1,2 @@
 [build.environment]
 NODE_VERSION = "18"  # or whatever version you're using
-
-[context.production.environment]
-FIREBASE_API_KEY = "from-netlify-env"
-FIREBASE_AUTH_DOMAIN = "from-netlify-env"
-FIREBASE_MESSAGE_SENDER_ID = "from-netlify-env"
-FIREBASE_APP_ID = "from-netlify-env"
