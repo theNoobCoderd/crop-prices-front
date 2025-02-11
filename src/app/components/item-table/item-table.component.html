@@ -25,6 +25,15 @@
         <td class="col font-bold">{{ vegetable.averagePrice }}</td>
 				<td class="col">{{ vegetable.totalSold }}</td>
       </tr>
+			@if (vegetable.id === 4) {
+				<tr>
+					<td class="ads-row" colspan="6">
+						<div class="image-container">
+							<img class="responsive-image" src="assets/images/ads/kozpri_temp_ads.jpg" alt="ads">
+						</div>
+					</td>
+				</tr>
+			}
     } @empty {
 			<td colspan="12">
 				<ngx-skeleton-loader class="skeleton col-12" count="30" appearance="line" [theme]="{ 'height.px': 45,'background-color': '#F2F2F2'}"/>
