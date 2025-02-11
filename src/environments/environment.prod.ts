@@ -4,7 +4,7 @@ export const environment = {
 	fireApiKey: '#{FIREBASE_API_KEY}',
 	fireAuthDomain: '#{FIREBASE_AUTH_DOMAIN}',
 	fireProjectId: "fir-crops-main",
-	fireStorageBucket: '#{FIREBASE_MESSAGE_SENDER_ID}',
-	fireMessageSenderId: process.env["FIREBASE_MESSAGE_SENDER_ID"],
+	fireStorageBucket: "fir-crops-main.firebasestorage.app",
+	fireMessageSenderId: '#{FIREBASE_MESSAGE_SENDER_ID}',
 	fireAppId: '#{FIREBASE_APP_ID}'
 };
