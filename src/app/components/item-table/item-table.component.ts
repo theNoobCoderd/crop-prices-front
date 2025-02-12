@@ -35,15 +35,15 @@ export class ItemTableComponent  implements OnInit {
 	}
 
 	nextDate(nextDate: ExtractionDate): void {
-		// this.vegetables$ = this._cropsService.getVegetableByDate(nextDate);
+		this.vegetables$ = this._cropsService.getVegetableByDate(nextDate);
 	}
 
 	previousDate(previousDate: ExtractionDate): void {
-		// this.vegetables$ = this._cropsService.getVegetableByDate(previousDate);
+		this.vegetables$ = this._cropsService.getVegetableByDate(previousDate);
 	}
 
 	currentDate(previousDate: ExtractionDate): void {
-		// this.vegetables$ = this._cropsService.getVegetableByDate(previousDate);
+		this.vegetables$ = this._cropsService.getVegetableByDate(previousDate);
 	}
 
 	protected readonly Unit = Unit;
