@@ -1,5 +1,5 @@
 <div class="crp-container">
-	@for (item of (mockMarketPlaceItems); track item) {
+	@for (item of (marketPlaceItems$ | async); track item) {
 		<app-marketplace-item [item]="item"></app-marketplace-item>
 	}
 
