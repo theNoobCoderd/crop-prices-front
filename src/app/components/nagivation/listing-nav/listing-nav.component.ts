@@ -31,14 +31,14 @@ export class ListingNavComponent {
 	private _days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 	private _months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 	constructor(private _extractionDateService: ExtractionDatesService) {
-		this._extractionDateService.getAllAvailableDates().subscribe(result => {
-			this.dateDisplayed$.next(result[result.length - 1]);
-			this._calculateDayOfWeek();
-			this._availableDates = result;
-			this._dateDisplayedIndex = result.length - 1;
-
-			this.currentDate.next(this.dateDisplayed$.getValue());
-		});
+		// this._extractionDateService.getAllAvailableDates().subscribe(result => {
+		// 	this.dateDisplayed$.next(result[result.length - 1]);
+		// 	this._calculateDayOfWeek();
+		// 	this._availableDates = result;
+		// 	this._dateDisplayedIndex = result.length - 1;
+		//
+		// 	this.currentDate.next(this.dateDisplayed$.getValue());
+		// });
 	}
 
 	nextDate(): void {

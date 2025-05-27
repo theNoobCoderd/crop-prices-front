@@ -39,11 +39,11 @@ export class ItemTableComponent  implements OnInit {
 	}
 
 	previousDate(previousDate: ExtractionDate): void {
-		this.vegetables$ = this._cropsService.getVegetableByDate(previousDate);
+		// this.vegetables$ = this._cropsService.getVegetableByDate(previousDate);
 	}
 
 	currentDate(previousDate: ExtractionDate): void {
-		this.vegetables$ = this._cropsService.getVegetableByDate(previousDate);
+		// this.vegetables$ = this._cropsService.getVegetableByDate(previousDate);
 	}
 
 	protected readonly Unit = Unit;

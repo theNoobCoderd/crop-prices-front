@@ -14,7 +14,7 @@ export class HistoricService {
 	constructor(private _http: HttpClient) { }
 
 	getHistoricByName(name: string): Observable<Vegetable[]> {
-		const url = `${this._apiUrl}/test?name=${name}`;
+		const url = `${this._apiUrl}/crop/${name}`;
 		return this._http.get<Vegetable[]>(url);
 	}
 }

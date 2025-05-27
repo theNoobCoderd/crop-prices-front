@@ -1,37 +1,37 @@
-<h1>Register</h1>
+<span class="header">
+	<h2>Almost there! 🎉</h2>
+	<p>Just a few more details to make your experience better</p>
+</span>
 
 @if (errorMessage) {
 	<div>{{errorMessage}}</div>
 }
 
-<form [formGroup]="form" (ngSubmit)="onSubmitPhone()">
-	<div>
-		<input type="text" placeholder="Username" formControlName="username" />
-	</div>
+<form class="form" [formGroup]="form" (ngSubmit)="onSubmitPhone()">
+	<span class="input-form">
+			<input class="basic-input" type="text" placeholder="Username" formControlName="username" />
 
-	<div>
-		<input type="text" placeholder="Email" formControlName="email" />
-	</div>
+			<input class="basic-input" type="text" placeholder="Email" formControlName="email" />
 
-	<div>
-		<input type="password" placeholder="Password" formControlName="password" />
-	</div>
+			<input class="basic-input" type="password" placeholder="Password" formControlName="password" />
 
-	<div>
-		<input type="text" placeholder="Phone Number" formControlName="phone" />
-	</div>
+			<input class="basic-input" type="text" placeholder="Phone Number" formControlName="phone" />
 
-	<div>
-		<select id="region" class="form-control" formControlName="region">
-			<option value="" disabled selected>Choose region</option>
-			@for (region of REGIONS; track region) {
-				<option [value]="region">{{ region }}</option>
-			}
-		</select>
-	</div>
+			<span class="drop-down">
+				<select id="region" class="form-control" formControlName="region">
+					<option value="" disabled selected>Choose region</option>
+						@for (region of REGIONS; track region) {
+							<option [value]="region">{{ region }}</option>
+						}
+				</select>
 
-	<div>
-		<button type="submit">Sign Up</button>
-	</div>
-
+				<div class="custom-arrows">
+					<img src="assets/svgs/chevron-down.svg" alt="Up" class="arrow-icon arrow-up" />
+				</div>
+			</span>
+	</span>
 </form>
+
+<div class="sign-up-button">
+	<button type="submit">Sign Up</button>
+</div>

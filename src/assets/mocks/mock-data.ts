@@ -24,7 +24,7 @@ export const MARKETPLACE_LISTING: MarketplaceListing[] = [
 			"unitOfMeasure": "KG",
 			"type": "VEGETABLE"
 		},
-		"creationDate": new Date("2025-02-13")
+		"creationDate": new Date("2025-02-13T18:09:22.417Z")
 	},
 	{
 		"id": "182808eb-93f9-4bd1-9ee1-013a4f74134c",
@@ -46,7 +46,7 @@ export const MARKETPLACE_LISTING: MarketplaceListing[] = [
 			"unitOfMeasure": "KG",
 			"type": "VEGETABLE"
 		},
-		"creationDate": new Date("2025-02-13")
+		"creationDate": new Date("2025-02-13T17:59:15.668Z")
 	},
 	{
 		"id": "3e215ef4-dace-4eb6-aea1-b4408e0561e3",
@@ -68,7 +68,7 @@ export const MARKETPLACE_LISTING: MarketplaceListing[] = [
 			"unitOfMeasure": "KG",
 			"type": "VEGETABLE"
 		},
-		"creationDate": new Date("2024-11-04")
+		"creationDate": new Date("2024-11-04T17:36:48.390Z")
 	},
 	{
 		"id": "4a359467-bf47-4909-ae1a-adb6c0129001",

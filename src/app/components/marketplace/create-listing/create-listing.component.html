@@ -1,49 +1,88 @@
 @if (userService.currentUser$ | async) {
-	<h2>Create Post Page</h2>
+	<span class="header">
+		<h2>Create Post Page</h2>
+	</span>
+
 	<form class="create-post" [formGroup]="createListingForm" (ngSubmit)="onSubmit()">
-		<div>
-			<select id="crop" class="form-control" formControlName="crop">
-				<option value="" disabled selected>Choose...</option>
-				@for (item of DROP_DOWN_VALUE; track item) {
-					<option [value]="item.id"> {{ item.name }}</option>
-				}
-			</select>
-		</div>
+		<span class="input-form">
+			<span class="category-group">
+				<h3>Crop Details</h3>
+				<span class="details">
+					<span class="drop-down">
+						<select id="crop" class="form-control" formControlName="crop">
+							<option value="" disabled selected>Select Crop</option>
+							@for (item of DROP_DOWN_VALUE; track item) {
+								<option [value]="item.id"> {{ item.name }}</option>
+							}
+						</select>
 
-		<div>
-			<label for="quantity">Quantity:</label>
-			<input id="quantity" formControlName="quantity" type="number">
-		</div>
+						<div class="custom-arrows">
+							<img src="assets/svgs/chevron-down.svg" alt="Up" class="arrow-icon arrow-up"/>
+						</div>
+					</span>
 
-		<div>
-			<label for="price">Price:</label>
-			<input id="price" formControlName="price" type="number">
-		</div>
+					<input placeholder="Description"
+								 class="basic-input" id="description" formControlName="description" type="text">
+				</span>
+			</span>
 
-		<div>
-			<label for="description">Description:</label>
-			<input id="description" formControlName="description" type="text">
-		</div>
+			<span class="category-group">
+				<h3>Pricing & Quantity</h3>
 
-		<div>
-			<label for="unit">Unit:</label>
-			<input id="unit" formControlName="unit" type="text">
-		</div>
+				<span class="details">
+					<span class="price-unit">
+						<input placeholder="Price" class="basic-input" id="price" formControlName="price" type="number">
+						<span class="drop-down">
+						<select id="unit" class="form-control" formControlName="unit">
+							<option value="" disabled selected>/ Unit</option>
+							<option value="Kg">Kg</option>
+							<option value="Packet">Packet</option>
+							<option value="Unit">Unit</option>
+							<option value="Box">Box</option>
+						</select>
 
-		<!--	<div>-->
-		<!--		<label for="phone">Phone:</label>-->
-		<!--		<input id="phone" formControlName="phone" type="tel">-->
-		<!--	</div>-->
+						<div class="custom-arrows">
+							<img src="assets/svgs/chevron-down.svg" alt="Up" class="arrow-icon arrow-up"/>
+						</div>
+					</span>
+					</span>
 
-		<div>
-			<label for="images">Images:</label>
-			<input #imageInput id="images" formControlName="images" type="file" accept="image/jpeg" (change)="processImage(imageInput)">
-		</div>
+					<input placeholder="Quantity" class="basic-input" id="quantity" formControlName="quantity" type="number">
+				</span>
+			</span>
 
-		@if (uploadProgress > 0) {
-			<p>Upload Progress: {{ uploadProgress | number: '1.0-0' }}%</p>
-		}
-		<button type="submit">Submit</button>
+			<span class="category-group">
+				<h3>Seller Info</h3>
+
+				<span class="details">
+					<input placeholder="Farmer Name" class="basic-input" id="farmer-name" formControlName="farmer-name" type="text">
+					<input placeholder="Contact Info" class="basic-input" id="phone" formControlName="phone" type="tel">
+					<input placeholder="Region" class="basic-input" id="region" formControlName="region" type="text">
+				</span>
+			</span>
+
+			<span class="category-group">
+				<span class="details">
+					<span class="drop-container">
+						<span>Upload Images</span>
+						<span>Add up to 3 images of your item</span>
+						<label for="images" class="custom-file-upload">
+							Upload
+							<input #imageInput id="images" formControlName="images" type="file" accept="image/jpeg"
+										 (change)="processImage(imageInput)">
+						</label>
+							@if (uploadProgress > 0) {
+								<p>Upload Progress: {{ uploadProgress | number: '1.0-0' }}%</p>
+							}
+					</span>
+				</span>
+			</span>
+
+			<span class="sign-up-button">
+				<button type="submit">Add Crop</button>
+			</span>
+
+		</span>
 	</form>
 }
 

@@ -5,11 +5,14 @@ import {Vegetable} from "../../models/vegetable.model";
 import {ChartConfiguration, ChartOptions} from "chart.js";
 import {BaseChartDirective} from "ng2-charts";
 import {GRAPH_ONE} from "../../../assets/mocks/mock-data";
+import {ReactiveFormsModule} from "@angular/forms";
+import {DROP_DOWN_VALUE} from "../../constants/drop-down-values";
 
 @Component({
     selector: "app-historic",
 	imports: [
-		BaseChartDirective
+		BaseChartDirective,
+		ReactiveFormsModule
 	],
     templateUrl: "./historic.component.html",
     styleUrl: "./historic.component.less"
@@ -20,7 +23,7 @@ export class HistoricComponent implements OnInit {
 
 	barChartData: ChartConfiguration<'bar'>['data'] | undefined;
 
-	averageRevenuChart: ChartConfiguration<'line'>['data'] | undefined;
+	averageRevenueChart: ChartConfiguration<'line'>['data'] | undefined;
 
 	// @ts-ignore
 	lineChartOptions: ChartOptions<'line'> = {
@@ -160,7 +163,7 @@ export class HistoricComponent implements OnInit {
 				]
 			}
 
-			this.averageRevenuChart = {
+			this.averageRevenueChart = {
 				labels: dates,
 				datasets: [
 					{
@@ -178,4 +181,5 @@ export class HistoricComponent implements OnInit {
 		}));
 	}
 
+	protected readonly DROP_DOWN_VALUE = DROP_DOWN_VALUE;
 }
