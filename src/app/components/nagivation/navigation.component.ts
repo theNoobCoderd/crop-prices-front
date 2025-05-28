@@ -3,6 +3,7 @@ import {BehaviorSubject, Subject, takeUntil} from "rxjs";
 import {ExtractionDate} from "../../models/extraction-date.model";
 import {ExtractionDatesService} from "../../services/dates/extraction-dates.service";
 import { AsyncPipe, NgIf } from "@angular/common";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
 	selector: "app-navigation",
@@ -34,7 +35,8 @@ export class NavigationComponent implements OnDestroy {
 	private _days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 	private _months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 	private readonly limit = 10;
-	constructor(private _extractionDateService: ExtractionDatesService) {
+
+	constructor(private _extractionDateService: ExtractionDatesService, private _snackBar: MatSnackBar) {
 		this._extractionDateService.getAllAvailableDates().pipe(takeUntil(this._destroy$)).subscribe(result => {
 			this.dateDisplayed$.next(result[result.length - 1]);
 			this._calculateDayOfWeek();
@@ -65,7 +67,6 @@ export class NavigationComponent implements OnDestroy {
 
 	previousDate(): void {
 		if (this._availableDates[this._dateDisplayedIndex - 1] && this.dates$.getValue() <= this.limit) {
-			console.log("====> ", this.dates$.getValue());
 			this._dateDisplayedIndex--;
 			this.dateDisplayed$.next(this._availableDates[this._dateDisplayedIndex]);
 			this._calculateDayOfWeek();
@@ -74,8 +75,6 @@ export class NavigationComponent implements OnDestroy {
 			this.changeDateBefore.next(this.dateDisplayed$.getValue());
 
 			this._updateArrowDisplay();
-		} else {
-			console.log("NOT==>  ", this.dates$.getValue());
 		}
 	}
 
@@ -118,6 +117,7 @@ export class NavigationComponent implements OnDestroy {
 
 		if (this._dateDisplayedIndex === 0 || this.dates$.getValue() >= this.limit) {
 			this.noPreviousItem$.next(true);
+			this._snackBar.open("Limit Reached - Contact Us for more info: 59335318", 'x', {duration: 9000, panelClass: "snackbar-warning"});
 		} else {
 			this.noPreviousItem$.next(false);
 		}
