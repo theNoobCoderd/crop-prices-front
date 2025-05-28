@@ -12,7 +12,7 @@
 		</tr>
   </thead>
   <tbody>
-    @for (vegetable of vegetables$ | async; track vegetable.id) {
+    @for (vegetable of vegetables$ | async; track vegetable.name) {
       <tr>
         <td class="col-5 font-bold">{{ vegetable.name | replaceBaton }}</td>
 				<td [ngSwitch]="vegetable.unitOfMeasure" class="col">

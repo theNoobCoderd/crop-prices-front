@@ -26,12 +26,14 @@ export class NavigationComponent implements OnDestroy {
 	yearToDisplay$ = new BehaviorSubject<number>(0);
 	noNextItem$ = new BehaviorSubject<boolean>(true);
 	noPreviousItem$ = new BehaviorSubject<boolean>(false);
+	dates$ = new BehaviorSubject<number>(0);
 
 	private _destroy$ = new Subject<void>();
 	private _availableDates: ExtractionDate[] = [];
 	private _dateDisplayedIndex = 0
 	private _days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 	private _months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+	private readonly limit = 10;
 	constructor(private _extractionDateService: ExtractionDatesService) {
 		this._extractionDateService.getAllAvailableDates().pipe(takeUntil(this._destroy$)).subscribe(result => {
 			this.dateDisplayed$.next(result[result.length - 1]);
@@ -54,6 +56,7 @@ export class NavigationComponent implements OnDestroy {
 			this.dateDisplayed$.next(this._availableDates[this._dateDisplayedIndex]);
 			this._calculateDayOfWeek();
 
+			this.dates$.next(this.dates$.getValue() - 1);
 			this.changeDateAfter.next(this.dateDisplayed$.getValue());
 
 			this._updateArrowDisplay();
@@ -61,14 +64,18 @@ export class NavigationComponent implements OnDestroy {
 	}
 
 	previousDate(): void {
-		if (this._availableDates[this._dateDisplayedIndex - 1]) {
+		if (this._availableDates[this._dateDisplayedIndex - 1] && this.dates$.getValue() <= this.limit) {
+			console.log("====> ", this.dates$.getValue());
 			this._dateDisplayedIndex--;
 			this.dateDisplayed$.next(this._availableDates[this._dateDisplayedIndex]);
 			this._calculateDayOfWeek();
 
+			this.dates$.next(this.dates$.getValue() + 1);
 			this.changeDateBefore.next(this.dateDisplayed$.getValue());
 
 			this._updateArrowDisplay();
+		} else {
+			console.log("NOT==>  ", this.dates$.getValue());
 		}
 	}
 
@@ -109,7 +116,7 @@ export class NavigationComponent implements OnDestroy {
 			this.noNextItem$.next(false);
 		}
 
-		if (this._dateDisplayedIndex === 0) {
+		if (this._dateDisplayedIndex === 0 || this.dates$.getValue() >= this.limit) {
 			this.noPreviousItem$.next(true);
 		} else {
 			this.noPreviousItem$.next(false);
