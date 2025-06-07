@@ -2,7 +2,6 @@ import {Component, inject, OnInit} from "@angular/core";
 import {Router} from "@angular/router";
 import {AuthService} from "../../../services/authentication/auth.service";
 import {AsyncPipe} from "@angular/common";
-import {ToastService} from "../../../services/ng-toast/toast.service";
 import {NavigationPage} from "../../../models/navigation-page.enum";
 import {PagesService} from "../../../services/pages.service";
 
@@ -18,7 +17,6 @@ export class MainNavComponent implements OnInit {
 	router = inject(Router);
 	authService = inject(AuthService);
 	pagesService = inject(PagesService);
-	toastService = inject(ToastService);
 
 	ngOnInit(): void {
 		this.router.navigate(["/page1"], { skipLocationChange: true });
@@ -34,7 +32,6 @@ export class MainNavComponent implements OnInit {
 	navToMarketplace() : void {
 		this.pagesService.changePageTo(NavigationPage.MARKETPLACE);
 
-		// this.toastService.show("message", 500000, "info");
 		this.router.navigate(["/page2"], { skipLocationChange: true });
 	}
 

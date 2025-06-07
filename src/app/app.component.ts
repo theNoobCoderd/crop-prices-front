@@ -3,12 +3,11 @@ import { RouterOutlet } from '@angular/router';
 import {BrandNameComponent} from "./components/brand-name/brand-name.component";
 import {MainNavComponent} from "./components/nagivation/main-nav/main-nav.component";
 import {UserService} from "./services/user/user.service";
-import {NgToastComponent} from "./components/ng-toast/ng-toast.component";
 import {TopBarComponent} from "./components/top-bar/top-bar.component";
 
 @Component({
     selector: 'app-root',
-	imports: [RouterOutlet, BrandNameComponent, MainNavComponent, NgToastComponent, TopBarComponent],
+	imports: [RouterOutlet, BrandNameComponent, MainNavComponent, TopBarComponent],
     templateUrl: './app.component.html',
     styleUrl: './app.component.less'
 })

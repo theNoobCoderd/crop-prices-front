@@ -6,10 +6,11 @@ import {MarketplaceListing} from "../../../models/marketplace-listing.model";
 import {UserService} from "../../../services/user/user.service";
 import {ListingService} from "../../../services/listing/listing.service";
 import {Router} from "@angular/router";
-import {AsyncPipe, DecimalPipe, NgIf} from "@angular/common";
+import {AsyncPipe, DecimalPipe} from "@angular/common";
 import {FileUploadService} from "../../../services/file-upload/file-upload.service";
 import {getDownloadURL} from "@angular/fire/storage";
 import {LoginComponent} from "../../login/login.component";
+import {DropDownComponent} from "../../lib/drop-down/drop-down.component";
 
 @Component({
     selector: "app-create-listing",
@@ -18,6 +19,7 @@ import {LoginComponent} from "../../login/login.component";
 		AsyncPipe,
 		DecimalPipe,
 		LoginComponent,
+		DropDownComponent,
 	],
     templateUrl: "./create-listing.component.html",
     styleUrl: "./create-listing.component.less"
@@ -34,25 +36,28 @@ export class CreateListingComponent {
 							private _router: Router, private _fileUploadService: FileUploadService) {
 		this.createListingForm = this._formBuilder.group({
 			crop: [''],
+			description: [''],
 			quantity: [''],
 			price: [''],
 			unit: [''],
-			description: [''],
 			images: [''],
+			farmername: [this.userService.currentUser$.getValue()?.username],
+			phone: [this.userService.currentUser$.getValue()?.phone],
+			region: [this.userService.currentUser$.getValue()?.region]
 		});
 
-		this.createListingForm.get("crop")?.valueChanges.subscribe((selectedId) => {
-			this.selectedCrop = this.DROP_DOWN_VALUE.at(selectedId - 1);
-		});
+		// this.createListingForm.get("crop")?.valueChanges.subscribe((selectedId) => {
+		// 	this.selectedCrop = this.DROP_DOWN_VALUE.at(selectedId - 1);
+		// });
 	}
 
 	onSubmit(): void {
 		const listingModel = this._mapFormToListing();
-		this._listingService.createListing(listingModel).subscribe((response: boolean) => {
-			if (response) {
-				this._router.navigate(["/page2"], { skipLocationChange: true });
-			}
-		});
+		// this._listingService.createListing(listingModel).subscribe((response: boolean) => {
+		// 	if (response) {
+		// 		this._router.navigate(["/page2"], { skipLocationChange: true });
+		// 	}
+		// });
 		console.log(listingModel);
 	}
 
@@ -98,7 +103,7 @@ export class CreateListingComponent {
 				region: this.userService.currentUser$.getValue()?.region,
 			},
 			produce: {
-				id: this.selectedCrop?.id,
+				id: formValue.crop,
 				name: this.selectedCrop?.name,
 				type: this.selectedCrop?.type,
 			}

@@ -5,14 +5,18 @@ import {Vegetable} from "../../models/vegetable.model";
 import {ChartConfiguration, ChartOptions} from "chart.js";
 import {BaseChartDirective} from "ng2-charts";
 import {GRAPH_ONE} from "../../../assets/mocks/mock-data";
-import {ReactiveFormsModule} from "@angular/forms";
+import {FormBuilder, FormGroup, ReactiveFormsModule} from "@angular/forms";
 import {DROP_DOWN_VALUE} from "../../constants/drop-down-values";
+import {DropDownComponent} from "../lib/drop-down/drop-down.component";
+import {NgForOf} from "@angular/common";
 
 @Component({
     selector: "app-historic",
 	imports: [
 		BaseChartDirective,
-		ReactiveFormsModule
+		ReactiveFormsModule,
+		DropDownComponent,
+		NgForOf
 	],
     templateUrl: "./historic.component.html",
     styleUrl: "./historic.component.less"
@@ -24,6 +28,14 @@ export class HistoricComponent implements OnInit {
 	barChartData: ChartConfiguration<'bar'>['data'] | undefined;
 
 	averageRevenueChart: ChartConfiguration<'line'>['data'] | undefined;
+
+	historyParamForm: FormGroup;
+	timeOptions = [
+		{ label: '7 Days', value: '7' },
+		{ label: '30 Days', value: '30' },
+		{ label: '90 Days', value: '90' },
+		{ label: 'All Time', value: '1000' }
+	];
 
 	// @ts-ignore
 	lineChartOptions: ChartOptions<'line'> = {
@@ -93,7 +105,14 @@ export class HistoricComponent implements OnInit {
 
 	lineChartLegend = true;
 
-	constructor(private _historicService: HistoricService) { }
+	constructor(private _historicService: HistoricService, private _formBuilder: FormBuilder) {
+		this.historyParamForm = this._formBuilder.group({
+			crop: [''],
+			timeRange: ['7']
+		});
+
+		console.log(this.historyParamForm.get('timeRange')?.value);
+	}
 
 	crops$: Observable<Vegetable[]> | undefined;
 
@@ -179,6 +198,14 @@ export class HistoricComponent implements OnInit {
 			};
 
 		}));
+	}
+
+	onSubmit(): void {
+		console.log("test");
+	}
+
+	selectTime(value: string) {
+		this.historyParamForm.get('timeRange')?.setValue(value);
 	}
 
 	protected readonly DROP_DOWN_VALUE = DROP_DOWN_VALUE;

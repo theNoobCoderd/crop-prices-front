@@ -1,68 +1,76 @@
-<div class="historic" xmlns="http://www.w3.org/1999/html">
-	<div>
-		<span>Select Crop</span>
-		<select id="crop" class="form-control" formControlName="crop">
-			<option value="" disabled selected>Choose...</option>
-			@for (item of DROP_DOWN_VALUE; track item) {
-				<option [value]="item.id"> {{ item.name }}</option>
-			}
-		</select>
-	</div>
-
-	<div>
-		<span>Date Range</span>
-		<span class="date-ranges">
-			<div class="date-range-each">7 days</div>
-			<div class="date-range-each">30 days</div>
-			<div class="date-range-each">90 days</div>
-			<div class="date-range-each">All Time</div>
+<form class="form" [formGroup]="historyParamForm" (ngSubmit)="onSubmit()">
+	<span class="container">
+		<span class="category-group">
+			<label>Select Crop</label>
+			<app-drop-down
+				[options]="DROP_DOWN_VALUE"
+				formControlName="crop"
+				id="crop"
+				placeholder="Select Crop">
+			</app-drop-down>
 		</span>
-	</div>
 
-	<div>
-		<span>Price Statistics</span>
+		<span class="category-group">
+			<label>Date Range</label>
+			<div class="segmented-control">
+				<button
+					type="button"
+					class="segment"
+					*ngFor="let option of timeOptions"
+					[class.active]="historyParamForm.get('timeRange')?.value === option.value"
+					(click)="selectTime(option.value)">
+					{{ option.label }}
+				</button>
+			</div>
+		</span>
+	</span>
+</form>
+
+<span class="container">
+	<span class="category-group">
+		<label>Price Statistics</label>
 		<span class="price-statistics">
-			<div class="price-statistic">
-				<span>25</span>
-				<span>Lowest Price</span>
+			<div class="price-statistic slight-green">
+				<span class="medium-label-bold">25 / Kg</span>
+				<label class="small-label">Lowest</label>
 			</div>
 
-			<div class="price-statistic">
-				<span>35</span>
-				<span>Average Price</span>
+			<div class="price-statistic slight-blue">
+				<span class="medium-label-bold">35 / Kg</span>
+				<label class="small-label">Average</label>
 			</div>
 
-			<div class="price-statistic">
-				<span>55</span>
-				<span>Highest Price</span>
+			<div class="price-statistic slight-red">
+				<span class="medium-label-bold">55 / Kg</span>
+				<label class="small-label">Highest</label>
 			</div>
 		</span>
-	</div>
+	</span>
+</span>
 
-	<div style="display: block;">
-		<canvas baseChart width="400" height="400"
-						[type]="'line'"
-						[data]="lineChartData"
-						[options]="lineChartOptions"
-						[legend]="lineChartLegend">
-		</canvas>
-	</div>
+<div style="display: block;">
+	<canvas [data]="lineChartData" [legend]="lineChartLegend" [options]="lineChartOptions"
+					[type]="'line'"
+					baseChart
+					height="400"
+					width="400">
+	</canvas>
+</div>
 
-	<div style="display: block;">
-		<canvas baseChart width="400" height="400"
-						[type]="'bar'"
-						[data]="barChartData"
-						[options]="barChartOptions"
-						[legend]="lineChartLegend">
-		</canvas>
-	</div>
+<div style="display: block;">
+	<canvas [data]="barChartData" [legend]="lineChartLegend" [options]="barChartOptions"
+					[type]="'bar'"
+					baseChart
+					height="400"
+					width="400">
+	</canvas>
+</div>
 
-	<div style="display: block;">
-		<canvas baseChart width="400" height="400"
-						[type]="'line'"
-						[data]="averageRevenueChart"
-						[options]="lineChartOptions"
-						[legend]="lineChartLegend">
-		</canvas>
-	</div>
+<div style="display: block;">
+	<canvas [data]="averageRevenueChart" [legend]="lineChartLegend" [options]="lineChartOptions"
+					[type]="'line'"
+					baseChart
+					height="400"
+					width="400">
+	</canvas>
 </div>
