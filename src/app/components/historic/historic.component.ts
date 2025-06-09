@@ -120,19 +120,20 @@ export class HistoricComponent implements OnInit {
 		// this.crops$ = this._historicService.getHistoricByName("Angive");
 		this.crops$ = of(GRAPH_ONE);
 		this.crops$.subscribe((crops => {
-			var dates = crops.map((crop) => crop.date);
-			var averagePrices = crops
+			var limitedDates = crops.slice(1, 20);
+			var dates = limitedDates.map((crop) => crop.date);
+			var averagePrices = limitedDates
 				.map((crop) => crop.averagePrice === 0 ? null : crop.averagePrice);
 
-			var highPrices = crops
+			var highPrices = limitedDates
 				.map((crop) => crop.highPrice === 0 ? null : crop.highPrice);
 
-			var lowPrices = crops
+			var lowPrices = limitedDates
 				.map((crop) => crop.lowPrice === 0 ? null : crop.lowPrice);
 
-			var totalSold = crops.map((crop) => crop.totalSold);
+			var totalSold = limitedDates.map((crop) => crop.totalSold);
 
-			var averageRevenu = crops.map((crop) => crop.averagePrice * crop.totalSold);
+			var averageRevenu = limitedDates.map((crop) => crop.averagePrice * crop.totalSold);
 
 			this.lineChartData = {
 				labels: dates,
