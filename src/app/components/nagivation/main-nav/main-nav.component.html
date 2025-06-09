@@ -14,5 +14,9 @@
 			<img src="assets/svgs/main-nav-stats.svg" alt="Stats">
 			<div class="text">STATS</div>
 		</button>
+
+		<span (click)="navToProfile()"  class="navigation-item" [class.selected] = "(pagesService.selectedPage$ | async) === NavigationPage.PROFILE">
+			<app-login-top></app-login-top>
+		</span>
 	</div>
 </div>

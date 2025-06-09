@@ -1,12 +1,13 @@
 import {Component, inject} from "@angular/core";
 import {AuthService} from "../../../services/authentication/auth.service";
 import {Router} from "@angular/router";
-import {AsyncPipe} from "@angular/common";
+import {AsyncPipe, UpperCasePipe} from "@angular/common";
 
 @Component({
   selector: "app-login-top",
 	imports: [
-		AsyncPipe
+		AsyncPipe,
+		UpperCasePipe
 	],
   templateUrl: "./login-top.component.html",
   styleUrl: "./login-top.component.less"

@@ -4,12 +4,14 @@ import {AuthService} from "../../../services/authentication/auth.service";
 import {AsyncPipe} from "@angular/common";
 import {NavigationPage} from "../../../models/navigation-page.enum";
 import {PagesService} from "../../../services/pages.service";
+import {LoginTopComponent} from "../../top-bar/login-top/login-top.component";
 
 @Component({
     selector: "app-main-nav",
-    imports: [
-        AsyncPipe
-    ],
+	imports: [
+		AsyncPipe,
+		LoginTopComponent
+	],
     templateUrl: "./main-nav.component.html",
     styleUrl: "./main-nav.component.less"
 })
@@ -49,8 +51,6 @@ export class MainNavComponent implements OnInit {
 
 	navToProfile() : void {
 		this.pagesService.changePageTo(NavigationPage.PROFILE);
-
-		this.router.navigate(["/page5"], { skipLocationChange: true });
 	}
 
 	protected readonly NavigationPage = NavigationPage;
