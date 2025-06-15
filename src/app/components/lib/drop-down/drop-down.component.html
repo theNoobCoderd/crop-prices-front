@@ -9,7 +9,7 @@
         <option value="" disabled>{{ placeholder }}</option>
         <option
 					*ngFor="let option of options; trackBy: trackByFn"
-					[value]="option.id">
+					[value]="option.name">
           {{ option.name }}
         </option>
       </select>

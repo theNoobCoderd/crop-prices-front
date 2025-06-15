@@ -117,10 +117,16 @@ export class HistoricComponent implements OnInit {
 	crops$: Observable<Vegetable[]> | undefined;
 
 	ngOnInit(): void {
+	}
+
+	onSubmit(): void {
+		const formValue = this.historyParamForm.value;
+		console.log(formValue);
+
 		// this.crops$ = this._historicService.getHistoricByName("Angive");
 		this.crops$ = of(GRAPH_ONE);
 		this.crops$.subscribe((crops => {
-			var limitedDates = crops.slice(1, 20);
+			var limitedDates = crops.slice(1, 10);
 			var dates = limitedDates.map((crop) => crop.date);
 			var averagePrices = limitedDates
 				.map((crop) => crop.averagePrice === 0 ? null : crop.averagePrice);
@@ -199,10 +205,6 @@ export class HistoricComponent implements OnInit {
 			};
 
 		}));
-	}
-
-	onSubmit(): void {
-		console.log("test");
 	}
 
 	selectTime(value: string) {
