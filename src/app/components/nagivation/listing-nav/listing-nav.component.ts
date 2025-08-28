@@ -3,6 +3,7 @@ import {BehaviorSubject, Subject, takeUntil} from "rxjs";
 import {ExtractionDate} from "../../../models/extraction-date.model";
 import {ExtractionDatesService} from "../../../services/dates/extraction-dates.service";
 import { AsyncPipe, NgIf } from "@angular/common";
+import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
     selector: "app-listing-nav",
@@ -25,13 +26,16 @@ export class ListingNavComponent implements OnDestroy {
 	yearToDisplay$ = new BehaviorSubject<number>(0);
 	noNextItem$ = new BehaviorSubject<boolean>(true);
 	noPreviousItem$ = new BehaviorSubject<boolean>(false);
+	dates$ = new BehaviorSubject<number>(0);
 
 	private _destroy$ = new Subject<void>();
 	private _availableDates: ExtractionDate[] = [];
 	private _dateDisplayedIndex = 0
 	private _days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 	private _months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-	constructor(private _extractionDateService: ExtractionDatesService) {
+	private readonly limit = 10;
+
+	constructor(private _extractionDateService: ExtractionDatesService, private _snackBar: MatSnackBar) {
 		this._extractionDateService.getAllAvailableDates()
 			.pipe(takeUntil(this._destroy$))
 			.subscribe(result => {
@@ -110,8 +114,9 @@ export class ListingNavComponent implements OnDestroy {
 			this.noNextItem$.next(false);
 		}
 
-		if (this._dateDisplayedIndex === 0) {
+		if (this._dateDisplayedIndex === 0 || this.dates$.getValue() >= this.limit) {
 			this.noPreviousItem$.next(true);
+			this._snackBar.open("Limit Reached - Contact Us for more info: 59335318", 'x', {duration: 9000, panelClass: "snackbar-warning"});
 		} else {
 			this.noPreviousItem$.next(false);
 		}

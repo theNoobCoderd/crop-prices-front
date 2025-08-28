@@ -24,26 +24,10 @@ body {
 	font-family: "Roboto Condensed", sans-serif;
 }
 
-@import "@angular/material/prebuilt-themes/indigo-pink.css";
+@import "@angular/material/prebuilt-themes/deeppurple-amber.css";
 
 /* Custom theme overrides */
-body {
-	--primary-color: #1ac000;  /* Material indigo */
-	--accent-color: #ff4081;   /* Material pink */
-	--warn-color: #f44336;     /* Material red */
-}
-
 /* Form field customization */
 .mat-form-field {
 	width: 100%;
-
-	&.mat-focused {
-		.mat-form-field-label {
-			color: var(--primary-color);
-		}
-
-		.mat-form-field-ripple {
-			background-color: blueviolet;
-		}
-	}
 }
