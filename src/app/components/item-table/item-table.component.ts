@@ -2,23 +2,25 @@ import {Component} from '@angular/core';
 import {CropsService} from "../../services/crops/crops.service";
 import {Vegetable} from "../../models/vegetable.model";
 import {AsyncPipe, NgSwitch, NgSwitchCase} from "@angular/common";
-import {NavigationComponent} from "../nagivation/navigation.component";
 import {Observable} from "rxjs";
 import {ExtractionDate} from "../../models/extraction-date.model";
 import {Unit} from "../../models/unit.enum";
 import {ReplaceBatonPipe} from "../../pipes/replace-baton.pipe";
 import {NgxSkeletonLoaderModule} from "ngx-skeleton-loader";
+import {ListingNavComponent} from "../nagivation/listing-nav/listing-nav.component";
+import {JoinSocialComponent} from "../floating-interactions/join-social/join-social.component";
 
 @Component({
 	selector: 'app-item-table',
 	standalone: true,
 	imports: [
 		AsyncPipe,
-		NavigationComponent,
 		ReplaceBatonPipe,
 		NgxSkeletonLoaderModule,
 		NgSwitch,
-		NgSwitchCase
+		NgSwitchCase,
+		ListingNavComponent,
+		JoinSocialComponent
 	],
 	templateUrl: './item-table.component.html',
 	styleUrl: './item-table.component.less'

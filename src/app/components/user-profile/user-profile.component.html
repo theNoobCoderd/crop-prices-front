@@ -1,0 +1,26 @@
+<div class="user-profile-container">
+	<div class="header">
+		<img src="assets/svgs/user-profile-icon.svg" alt="profile icon">
+		<span>About You</span>
+	</div>
+
+	<span>
+		<div class="user-info">
+			<div class="username">
+			<span>Username: {{ currentUser?.username }}</span>
+		</div>
+		<div class="additional-info">
+			<span>email: {{ currentUser?.email }}</span>
+			<span>password: *****</span>
+			<span>phone: {{ currentUser?.phone }}</span>
+			<span>region: {{ currentUser?.region }}</span>
+		</div>
+		</div>
+		<div class="logout-button">
+			<button (click)="logout()">LOG OUT</button>
+		</div>
+	</span>
+
+	<div>
+	</div>
+</div>

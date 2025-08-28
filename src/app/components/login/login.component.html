@@ -1,0 +1,40 @@
+<div class="login-container">
+	@if (!(errorMessage$ | async)) {
+		<span class="login-image">
+			<img src="assets/svgs/login-disabled.svg" alt="login icon">
+			<p>Oops you are not logged in</p>
+		</span>
+
+		<div class="login-message">
+			@if ((loading$ | async)) {
+				<p>Please Wait...</p>
+				<app-loading-spinner></app-loading-spinner>
+			}
+
+			@if (!(loading$ | async)) {
+				<p>Please log in to add an item to the marketplace.</p>
+			}
+
+		</div>
+		@if (!(loading$ | async)) {
+			<div class="login-buttons">
+				<button (click)="signInWithGoogle()">LOGIN with Google</button>
+			</div>
+		}
+	}
+
+	@if (errorMessage$ | async) {
+		<span class="login-image">
+			<img src="assets/svgs/login-failed.svg" alt="login failed icon">
+			<p>Login failed</p>
+		</span>
+
+		<div class="login-message">
+			<p>Please enter a valid email address</p>
+		</div>
+
+		<div class="login-buttons">
+			<button (click)="signInWithGoogle()">LOGIN with Google</button>
+		</div>
+	}
+</div>
