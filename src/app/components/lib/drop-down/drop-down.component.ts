@@ -8,13 +8,14 @@ export interface DropdownOption {
 }
 
 @Component({
-  selector: 'app-drop-down',
+	selector: 'app-drop-down',
 	imports: [
 		ReactiveFormsModule,
 		NgForOf
 	],
-  templateUrl: './drop-down.component.html',
-  styleUrl: './drop-down.component.less',
+	templateUrl: './drop-down.component.html',
+	styleUrl: './drop-down.component.less',
+	standalone: true,
 	providers: [
 		{
 			provide: NG_VALUE_ACCESSOR,
