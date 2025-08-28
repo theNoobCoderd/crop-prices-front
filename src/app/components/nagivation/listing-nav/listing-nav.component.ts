@@ -1,5 +1,5 @@
-import {Component, EventEmitter, Output} from "@angular/core";
-import {BehaviorSubject} from "rxjs";
+import {Component, EventEmitter, OnDestroy, Output} from "@angular/core";
+import {BehaviorSubject, Subject, takeUntil} from "rxjs";
 import {ExtractionDate} from "../../../models/extraction-date.model";
 import {ExtractionDatesService} from "../../../services/dates/extraction-dates.service";
 import { AsyncPipe, NgIf } from "@angular/common";
@@ -13,7 +13,7 @@ import { AsyncPipe, NgIf } from "@angular/common";
     templateUrl: "./listing-nav.component.html",
     styleUrl: "./listing-nav.component.less"
 })
-export class ListingNavComponent {
+export class ListingNavComponent implements OnDestroy {
 	@Output() changeDateBefore = new EventEmitter<ExtractionDate>();
 	@Output() changeDateAfter = new EventEmitter<ExtractionDate>();
 	@Output() currentDate = new EventEmitter<ExtractionDate>();
@@ -26,12 +26,15 @@ export class ListingNavComponent {
 	noNextItem$ = new BehaviorSubject<boolean>(true);
 	noPreviousItem$ = new BehaviorSubject<boolean>(false);
 
+	private _destroy$ = new Subject<void>();
 	private _availableDates: ExtractionDate[] = [];
 	private _dateDisplayedIndex = 0
 	private _days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
 	private _months = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
 	constructor(private _extractionDateService: ExtractionDatesService) {
-		this._extractionDateService.getAllAvailableDates().subscribe(result => {
+		this._extractionDateService.getAllAvailableDates()
+			.pipe(takeUntil(this._destroy$))
+			.subscribe(result => {
 			this.dateDisplayed$.next(result[result.length - 1]);
 			this._calculateDayOfWeek();
 			this._availableDates = result;
@@ -40,6 +43,11 @@ export class ListingNavComponent {
 			this.currentDate.next(this.dateDisplayed$.getValue());
 		});
 	}
+
+	ngOnDestroy(): void {
+		this._destroy$.next();
+		this._destroy$.complete();
+    }
 
 	nextDate(): void {
 		if (this._availableDates[this._dateDisplayedIndex + 1]) {
