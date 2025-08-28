@@ -1,6 +1,6 @@
 import {Component, inject, OnDestroy} from "@angular/core";
 import {HistoricService} from "../../services/historic/historic.service";
-import {BehaviorSubject, Observable, of, Subject, takeUntil, timer} from "rxjs";
+import {BehaviorSubject, Observable, Subject, takeUntil} from "rxjs";
 import {Vegetable} from "../../models/vegetable.model";
 import {ChartConfiguration, ChartOptions} from "chart.js";
 import {BaseChartDirective} from "ng2-charts";
@@ -10,7 +10,6 @@ import {DropDownComponent} from "../lib/drop-down/drop-down.component";
 import {MatTableModule} from "@angular/material/table";
 import {HistoryGraphModel} from "../../models/history-graph.model";
 import {Type} from "../../models/type.enum";
-import {DATE_RANGES} from "../../constants/date-ranges";
 import {AsyncPipe, DecimalPipe, NgForOf} from "@angular/common";
 import {average} from "@angular/fire/firestore";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
@@ -265,6 +264,5 @@ export class HistoricComponent implements OnDestroy {
 	}
 
 	protected readonly DROP_DOWN_VALUE = DROP_DOWN_VALUE;
-	protected readonly DATE_RANGES = DATE_RANGES;
 	protected readonly average = average;
 }
