@@ -537,6 +537,50 @@ export const USER_LISTING: MarketplaceListing[] = [
 	}
 ]
 
+export const GRAPH_TWO: any = {
+	"vegetableName": "Angive",
+	"unit": "KG",
+	"lowestPrices": [
+		50.0,
+		50.0,
+		40.0,
+		50.0
+	],
+	"mostCommonPrices": [
+		50.0,
+		50.0,
+		50.0,
+		50.0
+	],
+	"highestPrices": [
+		60.0,
+		70.0,
+		60.0,
+		60.0
+	],
+	"totalSoldList": [
+		925.0,
+		855.0,
+		650.0,
+		865.0
+	],
+	"dates": [
+		"2025-06-09",
+		"2025-06-10",
+		"2025-06-12",
+		"2025-06-13"
+	],
+	"revenue": [
+		46250.0,
+		42750.0,
+		32500.0,
+		43250.0
+	],
+	"highestPrice": 70.0,
+	"lowestPrice": 40.0,
+	"averagePrice": 50.0
+}
+
 export const GRAPH_ONE: Vegetable[] = [
 	{
 		"id": 1,
