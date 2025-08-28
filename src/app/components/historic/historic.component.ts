@@ -10,6 +10,7 @@ import {DropDownComponent} from "../lib/drop-down/drop-down.component";
 import {MatTableModule} from "@angular/material/table";
 import {HistoryGraphModel} from "../../models/history-graph.model";
 import {Type} from "../../models/type.enum";
+import {DATE_RANGES} from "../../constants/date-ranges";
 import {AsyncPipe, DecimalPipe, NgForOf} from "@angular/common";
 import {average} from "@angular/fire/firestore";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
@@ -264,5 +265,6 @@ export class HistoricComponent implements OnDestroy {
 	}
 
 	protected readonly DROP_DOWN_VALUE = DROP_DOWN_VALUE;
+	protected readonly DATE_RANGES = DATE_RANGES;
 	protected readonly average = average;
 }
