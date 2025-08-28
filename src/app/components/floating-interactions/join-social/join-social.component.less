@@ -1,0 +1,28 @@
+.floating-btn {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+
+	position: fixed;
+	right: 20px;
+	bottom: 80px;
+
+	width: 56px;
+	height: 56px;
+	border-radius: 50%;
+	background-color: #25D366;
+
+	text-decoration: none;
+
+	opacity: 0;
+	transition: opacity 0.3s ease-in-out;
+
+	.icon {
+		width: 27px;
+		height: 27px;
+	}
+
+	&.show {
+		opacity: 0.95;
+	}
+}

@@ -1,0 +1,41 @@
+:host {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	right: 0;
+
+	background-color: #333333;
+	color: #E3E3E3;
+	font-weight: 700;
+	font-size: 10px;
+}
+
+.crp-container {
+	.navigation {
+		display: flex;
+		align-items: center;
+		justify-content: space-evenly;
+		flex-flow: row nowrap;
+
+		.navigation-item {
+			width: 5rem;
+			padding-block: 0.25rem;
+			display: flex;
+			align-items: center;
+			flex-flow: column nowrap;
+
+			.text {
+				margin-top: 7px;
+			}
+		}
+	}
+
+	.navigation-item.selected {
+		border-top: #5EBB47 solid 3px;
+	}
+
+	button {
+		all: unset;
+	}
+
+}

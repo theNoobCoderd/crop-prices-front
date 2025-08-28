@@ -1,0 +1,17 @@
+<div class="crp-container">
+	<div class="navigation">
+		<button (click)="navToListing()" class="navigation-item" [class.selected] = "(pagesService.selectedPage$ | async) === NavigationPage.LISTING">
+			<img src="assets/svgs/main-nav-listing.svg" alt="Listing">
+			<div class="text">NWM PRICE</div>
+		</button>
+
+		<button (click)="navToHistoric()" class="navigation-item" [class.selected] = "(pagesService.selectedPage$ | async) === NavigationPage.STATS">
+			<img src="assets/svgs/main-nav-stats.svg" alt="Stats">
+			<div class="text">STATS</div>
+		</button>
+
+		<span (click)="navToProfile()"  class="navigation-item" [class.selected] = "(pagesService.selectedPage$ | async) === NavigationPage.PROFILE">
+			<app-login-top></app-login-top>
+		</span>
+	</div>
+</div>

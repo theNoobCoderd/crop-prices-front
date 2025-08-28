@@ -1,18 +1,34 @@
-import {Component, HostListener} from '@angular/core';
-import {ItemTableComponent} from "./components/item-table/item-table.component";
-import {NgClass} from "@angular/common";
+import {Component, HostListener, inject, OnInit} from '@angular/core';
+import { RouterOutlet } from '@angular/router';
 import {BrandNameComponent} from "./components/brand-name/brand-name.component";
+import {MainNavComponent} from "./components/nagivation/main-nav/main-nav.component";
+import {UserService} from "./services/user/user.service";
 
 @Component({
-	selector: 'app-root',
-	standalone: true,
-	imports: [ItemTableComponent, NgClass, BrandNameComponent],
-	templateUrl: './app.component.html',
-	styleUrl: './app.component.less',
+    selector: 'app-root',
+	imports: [RouterOutlet, BrandNameComponent, MainNavComponent],
+    templateUrl: './app.component.html',
+    styleUrl: './app.component.less'
 })
-export class AppComponent {
+export class AppComponent implements OnInit {
+	userService = inject(UserService);
 
 	showElement = false;
+
+	private _currentUser: string  | null = null;
+	private _isUserLoggedIn: string | null = null;
+
+	ngOnInit(): void {
+		this._currentUser = localStorage.getItem("currentUser");
+		this._isUserLoggedIn = localStorage.getItem("isUserLoggedIn");
+		if (this._currentUser) {
+			this.userService.currentUser$.next(JSON.parse(this._currentUser));
+		}
+
+		if (this._isUserLoggedIn) {
+			this.userService.userLoggedIn$.next(JSON.parse(this._isUserLoggedIn));
+		}
+	}
 
 	@HostListener('window:scroll', [])
 	onWindowScroll() {

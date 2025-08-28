@@ -1,18 +1,18 @@
 import { ComponentFixture, TestBed } from "@angular/core/testing";
 
-import { NavigationComponent } from "./navigation.component";
+import { JoinSocialComponent } from "./join-social.component";
 
-describe("NagivationComponent", () => {
-	let component: NavigationComponent;
-	let fixture: ComponentFixture<NavigationComponent>;
+describe("JoinSocialComponent", () => {
+	let component: JoinSocialComponent;
+	let fixture: ComponentFixture<JoinSocialComponent>;
 
 	beforeEach(async () => {
 		await TestBed.configureTestingModule({
-			imports: [NavigationComponent]
+			imports: [JoinSocialComponent]
 		})
 			.compileComponents();
 
-		fixture = TestBed.createComponent(NavigationComponent);
+		fixture = TestBed.createComponent(JoinSocialComponent);
 		component = fixture.componentInstance;
 		fixture.detectChanges();
 	});

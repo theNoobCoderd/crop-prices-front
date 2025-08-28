@@ -1,21 +1,20 @@
 import {Component, EventEmitter, OnDestroy, Output} from "@angular/core";
 import {BehaviorSubject, Subject, takeUntil} from "rxjs";
-import {ExtractionDate} from "../../models/extraction-date.model";
-import {ExtractionDatesService} from "../../services/dates/extraction-dates.service";
+import {ExtractionDate} from "../../../models/extraction-date.model";
+import {ExtractionDatesService} from "../../../services/dates/extraction-dates.service";
 import { AsyncPipe, NgIf } from "@angular/common";
 import {MatSnackBar} from "@angular/material/snack-bar";
 
 @Component({
-	selector: "app-navigation",
-	standalone: true,
-	imports: [
-		AsyncPipe,
-		NgIf
-	],
-	templateUrl: "./navigation.component.html",
-	styleUrl: "./navigation.component.less"
+    selector: "app-listing-nav",
+    imports: [
+        AsyncPipe,
+        NgIf
+    ],
+    templateUrl: "./listing-nav.component.html",
+    styleUrl: "./listing-nav.component.less"
 })
-export class NavigationComponent implements OnDestroy {
+export class ListingNavComponent implements OnDestroy {
 	@Output() changeDateBefore = new EventEmitter<ExtractionDate>();
 	@Output() changeDateAfter = new EventEmitter<ExtractionDate>();
 	@Output() currentDate = new EventEmitter<ExtractionDate>();
@@ -37,20 +36,22 @@ export class NavigationComponent implements OnDestroy {
 	private readonly limit = 10;
 
 	constructor(private _extractionDateService: ExtractionDatesService, private _snackBar: MatSnackBar) {
-		this._extractionDateService.getAllAvailableDates().pipe(takeUntil(this._destroy$)).subscribe(result => {
+		this._extractionDateService.getAllAvailableDates()
+			.pipe(takeUntil(this._destroy$))
+			.subscribe(result => {
 			this.dateDisplayed$.next(result[result.length - 1]);
 			this._calculateDayOfWeek();
 			this._availableDates = result;
 			this._dateDisplayedIndex = result.length - 1;
 
 			this.currentDate.next(this.dateDisplayed$.getValue());
-		})
+		});
 	}
 
 	ngOnDestroy(): void {
 		this._destroy$.next();
 		this._destroy$.complete();
-	}
+    }
 
 	nextDate(): void {
 		if (this._availableDates[this._dateDisplayedIndex + 1]) {
@@ -58,7 +59,6 @@ export class NavigationComponent implements OnDestroy {
 			this.dateDisplayed$.next(this._availableDates[this._dateDisplayedIndex]);
 			this._calculateDayOfWeek();
 
-			this.dates$.next(this.dates$.getValue() - 1);
 			this.changeDateAfter.next(this.dateDisplayed$.getValue());
 
 			this._updateArrowDisplay();
@@ -66,12 +66,11 @@ export class NavigationComponent implements OnDestroy {
 	}
 
 	previousDate(): void {
-		if (this._availableDates[this._dateDisplayedIndex - 1] && this.dates$.getValue() <= this.limit) {
+		if (this._availableDates[this._dateDisplayedIndex - 1]) {
 			this._dateDisplayedIndex--;
 			this.dateDisplayed$.next(this._availableDates[this._dateDisplayedIndex]);
 			this._calculateDayOfWeek();
 
-			this.dates$.next(this.dates$.getValue() + 1);
 			this.changeDateBefore.next(this.dateDisplayed$.getValue());
 
 			this._updateArrowDisplay();
