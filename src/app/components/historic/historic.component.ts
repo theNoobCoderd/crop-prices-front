@@ -1,10 +1,9 @@
-import {Component, OnDestroy} from "@angular/core";
+import {Component, inject, OnDestroy} from "@angular/core";
 import {HistoricService} from "../../services/historic/historic.service";
 import {BehaviorSubject, Observable, of, Subject, takeUntil, timer} from "rxjs";
 import {Vegetable} from "../../models/vegetable.model";
 import {ChartConfiguration, ChartOptions} from "chart.js";
 import {BaseChartDirective} from "ng2-charts";
-import {GRAPH_TWO} from "../../../assets/mocks/mock-data";
 import {FormBuilder, FormGroup, ReactiveFormsModule} from "@angular/forms";
 import {DROP_DOWN_VALUE} from "../../constants/drop-down-values";
 import {DropDownComponent} from "../lib/drop-down/drop-down.component";
@@ -12,11 +11,15 @@ import {MatTableModule} from "@angular/material/table";
 import {HistoryGraphModel} from "../../models/history-graph.model";
 import {Type} from "../../models/type.enum";
 import {DATE_RANGES} from "../../constants/date-ranges";
-import {AsyncPipe, NgForOf} from "@angular/common";
+import {AsyncPipe, DecimalPipe, NgForOf} from "@angular/common";
 import {average} from "@angular/fire/firestore";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import {MatSelectModule} from "@angular/material/select";
 import {UserService} from "../../services/user/user.service";
+import {
+	MatDialog,
+} from '@angular/material/dialog';
+import {MatDialogComponent} from "../lib/mat-dialog/mat-dialog.component";
 
 @Component({
 	selector: "app-historic",
@@ -28,7 +31,8 @@ import {UserService} from "../../services/user/user.service";
 		NgForOf,
 		AsyncPipe,
 		MatProgressSpinnerModule,
-		MatSelectModule
+		MatSelectModule,
+		DecimalPipe
 	],
 	templateUrl: "./historic.component.html",
 	standalone: true,
@@ -40,6 +44,8 @@ export class HistoricComponent implements OnDestroy {
 	lineChartData: ChartConfiguration<'line'>['data'] | undefined;
 	barChartData: ChartConfiguration<'bar'>['data'] | undefined;
 	averageRevenueChart: ChartConfiguration<'line'>['data'] | undefined;
+
+	readonly dialog = inject(MatDialog);
 
 	// @ts-ignore
 	lineChartOptions: ChartOptions<'line'> = {
@@ -148,8 +154,6 @@ export class HistoricComponent implements OnDestroy {
 		this.hasData$.next(false);
 		this.isLoading$.next(true);
 
-		const formValue = this.historyParamForm.value;
-
 		this.cropHistory$ = this._historicService.getHistoricByName(this.historyParamForm.get('crop')?.value, this.historyParamForm.get('timeRange')?.value);
 		this.cropHistory$.pipe(takeUntil(this._destroy$)).subscribe((crops => {
 
@@ -230,6 +234,9 @@ export class HistoricComponent implements OnDestroy {
 	}
 
 	selectTime(value: string) {
+		if (value != "7") {
+			this.dialog.open(MatDialogComponent);
+		}
 		this.historyParamForm.get('timeRange')?.setValue(value);
 	}
 
