@@ -16,6 +16,7 @@ import {AsyncPipe, NgForOf} from "@angular/common";
 import {average} from "@angular/fire/firestore";
 import {MatProgressSpinnerModule} from "@angular/material/progress-spinner";
 import {MatSelectModule} from "@angular/material/select";
+import {UserService} from "../../services/user/user.service";
 
 @Component({
 	selector: "app-historic",
@@ -131,13 +132,11 @@ export class HistoricComponent implements OnDestroy {
 
 	private _destroy$ = new Subject<void>();
 
-	constructor(private _historicService: HistoricService, private _formBuilder: FormBuilder) {
+	constructor(private _historicService: HistoricService, private _formBuilder: FormBuilder, private _userService: UserService) {
 		this.historyParamForm = this._formBuilder.group({
 			crop: [''],
 			timeRange: ['7']
 		});
-
-		console.log(this.historyParamForm.get('timeRange')?.value);
 	}
 
 	ngOnDestroy(): void {
@@ -150,11 +149,8 @@ export class HistoricComponent implements OnDestroy {
 		this.isLoading$.next(true);
 
 		const formValue = this.historyParamForm.value;
-		console.log(formValue);
 
-
-		// this.crops$ = this._historicService.getHistoricByName("Angive");
-		this.cropHistory$ = of(GRAPH_TWO);
+		this.cropHistory$ = this._historicService.getHistoricByName(this.historyParamForm.get('crop')?.value, this.historyParamForm.get('timeRange')?.value);
 		this.cropHistory$.pipe(takeUntil(this._destroy$)).subscribe((crops => {
 
 			setTimeout(()=>{
