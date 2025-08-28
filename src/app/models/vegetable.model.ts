@@ -11,4 +11,5 @@ export interface Vegetable {
 	averagePrice: number;
 	type: Type;
 	date: string;
+	revenue?: number;
 }
