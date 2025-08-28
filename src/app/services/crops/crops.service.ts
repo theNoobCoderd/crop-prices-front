@@ -9,16 +9,12 @@ import {environment} from "../../../environments/environment";
 	providedIn: 'root'
 })
 export class CropsService {
-	private apiUrl = environment.apiUrl + "/api/v1/crops";
+	private apiUrl = environment.apiUrl + "/api/v1/free/crops";
 
 	constructor(private _http: HttpClient) { }
 
 	getVegetableByDate(date: ExtractionDate): Observable<Vegetable[]> {
 		const url = `${this.apiUrl}/all/date?date=${date}`;
 		return this._http.get<Vegetable[]>(url);
-	}
-
-	getVegetableByMostRecentDate(): Observable<Vegetable[]> {
-		return this._http.get<Vegetable[]>(this.apiUrl);
 	}
 }
