@@ -4,7 +4,7 @@ import {BehaviorSubject, Observable, of, Subject, takeUntil, timer} from "rxjs";
 import {Vegetable} from "../../models/vegetable.model";
 import {ChartConfiguration, ChartOptions} from "chart.js";
 import {BaseChartDirective} from "ng2-charts";
-import {FormBuilder, FormGroup, ReactiveFormsModule} from "@angular/forms";
+import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {DROP_DOWN_VALUE} from "../../constants/drop-down-values";
 import {DropDownComponent} from "../lib/drop-down/drop-down.component";
 import {MatTableModule} from "@angular/material/table";
@@ -20,6 +20,7 @@ import {
 	MatDialog,
 } from '@angular/material/dialog';
 import {MatDialogComponent} from "../lib/mat-dialog/mat-dialog.component";
+import {LoginComponent} from "../login/login.component";
 
 @Component({
 	selector: "app-historic",
@@ -32,7 +33,8 @@ import {MatDialogComponent} from "../lib/mat-dialog/mat-dialog.component";
 		AsyncPipe,
 		MatProgressSpinnerModule,
 		MatSelectModule,
-		DecimalPipe
+		DecimalPipe,
+		LoginComponent
 	],
 	templateUrl: "./historic.component.html",
 	standalone: true,
@@ -40,10 +42,14 @@ import {MatDialogComponent} from "../lib/mat-dialog/mat-dialog.component";
 })
 export class HistoricComponent implements OnDestroy {
 
+	userService = inject(UserService);
+
 	// chart settings
 	lineChartData: ChartConfiguration<'line'>['data'] | undefined;
 	barChartData: ChartConfiguration<'bar'>['data'] | undefined;
 	averageRevenueChart: ChartConfiguration<'line'>['data'] | undefined;
+
+	premiumOptionSelected$ = new BehaviorSubject<boolean>(false);
 
 	readonly dialog = inject(MatDialog);
 
@@ -138,10 +144,10 @@ export class HistoricComponent implements OnDestroy {
 
 	private _destroy$ = new Subject<void>();
 
-	constructor(private _historicService: HistoricService, private _formBuilder: FormBuilder, private _userService: UserService) {
+	constructor(private _historicService: HistoricService, private _formBuilder: FormBuilder) {
 		this.historyParamForm = this._formBuilder.group({
-			crop: [''],
-			timeRange: ['7']
+			crop: ['', Validators.required],
+			timeRange: ['7', Validators.required],
 		});
 	}
 
@@ -157,7 +163,7 @@ export class HistoricComponent implements OnDestroy {
 		this.cropHistory$ = this._historicService.getHistoricByName(this.historyParamForm.get('crop')?.value, this.historyParamForm.get('timeRange')?.value);
 		this.cropHistory$.pipe(takeUntil(this._destroy$)).subscribe((crops => {
 
-			setTimeout(()=>{
+			setTimeout(()=> {
 				this.lowestPrice$.next(crops.lowestPrice);
 				this.highestPrice$.next(crops.highestPrice);
 				this.averagePrice$.next(crops.averagePrice);
@@ -236,6 +242,9 @@ export class HistoricComponent implements OnDestroy {
 	selectTime(value: string) {
 		if (value != "7") {
 			this.dialog.open(MatDialogComponent);
+			this.premiumOptionSelected$.next(true);
+		} else {
+			this.premiumOptionSelected$.next(false);
 		}
 		this.historyParamForm.get('timeRange')?.setValue(value);
 	}

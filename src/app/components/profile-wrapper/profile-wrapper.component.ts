@@ -12,10 +12,6 @@ import {UserProfileComponent} from "../user-profile/user-profile.component";
     templateUrl: "./profile-wrapper.component.html",
     styleUrl: "./profile-wrapper.component.less"
 })
-export class ProfileWrapperComponent implements OnInit {
+export class ProfileWrapperComponent {
 	userService = inject(UserService);
-
-	ngOnInit(): void {
-		console.log("Component ngOnInit", this.userService.currentUser$.getValue());
-	}
 }

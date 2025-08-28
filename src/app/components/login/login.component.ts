@@ -37,10 +37,8 @@ export class LoginComponent {
 					this.loading$.next(false);
 
 					if (response) {
-						console.log("user already exists");
 						this.router.navigate(["/page1"], { skipLocationChange: true });
 					} else {
-						console.log("user does not exists");
 						this.router.navigate(["/page5"], { skipLocationChange: true });
 					}
 				},

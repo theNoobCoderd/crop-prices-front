@@ -19,11 +19,7 @@ export class UserProfileComponent implements OnInit {
 	currentUser: User | null = null;
 
 	ngOnInit(): void {
-		console.log("user service: ", this.userService.currentUser$.getValue());
 		this.currentUser = this.userService.currentUser$.getValue();
-
-		if (this.currentUser) {
-		}
 	}
 
 	logout(): void {

@@ -1,4 +1,4 @@
-:host {
+.cont {
 	padding-inline: 0.625rem;
 
 	font-family: Roboto, sans-serif;
@@ -43,7 +43,6 @@
 .category-group.test {
 	display: flex;
 	flex-flow: column;
-	align-items: center;
 	background-color: #f6f6f6;
 	border-radius: var(--bs-border-radius);
 	padding-inline: 5px;
@@ -51,6 +50,10 @@
 	padding-bottom: 30px;
 
 	font-size: 1.25rem;
+
+	&.stats {
+		align-items: center;
+	}
 
 	h3 {
 		font-family: Roboto, sans-serif;
@@ -160,6 +163,10 @@
 		color: #444444;
 
 		margin-top: 1rem;
+	}
+
+	button:disabled {
+	background-color: #c2c2c2;
 	}
 }
 
