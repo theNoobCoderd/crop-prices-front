@@ -4,22 +4,31 @@
 		<span>About You</span>
 	</div>
 
-	<span>
+	<span class="span-group">
 		<div class="user-info">
 			<div class="username">
 			<span>Username: {{ currentUser?.username }}</span>
-		</div>
-		<div class="additional-info">
-			<span>email: {{ currentUser?.email }}</span>
-			<span>phone: {{ currentUser?.phone }}</span>
-			<span>region: {{ currentUser?.region }}</span>
-		</div>
-		</div>
-		<div class="logout-button">
-			<button (click)="logout()">LOG OUT</button>
+			</div>
+			<div class="additional-info">
+				<span>email: {{ currentUser?.email }}</span>
+				<span>phone: {{ currentUser?.phone }}</span>
+				<span>region: {{ currentUser?.region }}</span>
+			</div>
+
+			<div class="logout-button">
+				<button (click)="logout()">LOG OUT</button>
+			</div>
 		</div>
 	</span>
 
-	<div>
-	</div>
+
+	<span class="span-group">
+			<span class="category-group">
+				<h3>Crop Details</h3>
+				<span class="details">
+					<div>This is an example</div>
+				</span>
+			</span>
+	</span>
+
 </div>
