@@ -18,7 +18,8 @@ import {MatProgressSpinner} from "@angular/material/progress-spinner";
 	imports: [
 		MatTableModule,
 		AsyncPipe,
-		MatProgressSpinner
+		MatProgressSpinner,
+		MarketplaceItemComponent
 	],
     templateUrl: "./user-profile.component.html",
     styleUrl: "./user-profile.component.less"
@@ -28,6 +29,7 @@ export class UserProfileComponent implements OnInit, OnDestroy {
 	userService = inject(UserService);
 	pagesService = inject(PagesService);
 	userPurchaseService = inject(UserPurchaseService);
+	listingService = inject(ListingService);
 	router = inject(Router);
 
 	displayedColumns: string[] = ['crop', 'rangeStartDate', 'rangeEndDate'];
@@ -37,6 +39,7 @@ export class UserProfileComponent implements OnInit, OnDestroy {
 	datasource: UserPurchaseModel[] = [];
 
 	private _destroy$ = new Subject<void>();
+	userListings: MarketplaceListing[] = [];
 
 	ngOnInit(): void {
 		this.currentUser = this.userService.currentUser$.getValue();
@@ -49,6 +52,13 @@ export class UserProfileComponent implements OnInit, OnDestroy {
 					});
 				}
 			});
+		}
+
+		if (this.currentUser) {
+			// this.listingService.getListingsByUserId(this.currentUser.id).subscribe(listings => {
+			// 	this.userListings = listings;
+			// });
+			this.userListings = USER_LISTING;
 		}
 	}
 

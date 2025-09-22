@@ -1,20 +1,21 @@
 <span class="drop-down">
-      <select
+	<select
 				[id]="id"
 				class="form-control"
 				[value]="value"
 				(change)="onSelectionChange($event)"
-				(blur)="onTouched()"
-				[disabled]="disabled">
+				(blur)="onBlur()"
+				[disabled]="disabled"
+				[class.invalid-field]="formControl?.invalid && formControl?.touched">
         <option value="" disabled>{{ placeholder }}</option>
         <option
 					*ngFor="let option of options; trackBy: trackByFn"
-					[value]="option.name">
+					[value]="option.value">
           {{ option.name }}
         </option>
-      </select>
+  </select>
 
-      <div class="custom-arrows">
-        <img src="assets/svgs/chevron-down.svg" alt="Down" class="arrow-icon arrow-up"/>
-      </div>
-    </span>
+  <div class="custom-arrows">
+		<img src="assets/svgs/chevron-down.svg" alt="Down" class="arrow-icon arrow-up"/>
+  </div>
+</span>

@@ -21,6 +21,15 @@
 		</div>
 	</span>
 
+	<div>
+	</div>
+
+	<div class="my-listing">
+		<span class="header">My Listings</span>
+		@for (item of userListings; track item.id) {
+			<app-marketplace-item [item]="item"></app-marketplace-item>
+		}
+	</div>
 
 	@if(currentUser?.roles?.includes("ROLE_PREMIUM1") || currentUser?.roles?.includes("ROLE_ADMIN")) {
 		<span class="span-group">

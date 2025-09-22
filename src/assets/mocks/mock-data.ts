@@ -1,6 +1,541 @@
+import {MarketplaceListing} from "../../app/models/marketplace-listing.model";
 import {Vegetable} from "../../app/models/vegetable.model";
 import {Unit} from "../../app/models/unit.enum";
 import {Type} from "../../app/models/type.enum";
+
+export const MARKETPLACE_LISTING: MarketplaceListing[] = [
+	{
+		"id": "138f9852-51b9-4707-9178-9686a0323fa8",
+		"quantity": 99855.0,
+		"price": 885.0,
+		"unit": "KG",
+		"description": "Desc",
+		"imageUrl": "",
+		"type": "VEGETABLE",
+		"seller": {
+			"id": "2a9c40c1-f911-4203-86be-c36d87598d93",
+			"username": "test",
+			"phone": "1232216767",
+			"region": "North"
+		},
+		"produce": {
+			"id": 21,
+			"name": "Carry Poulet",
+			"unitOfMeasure": "KG",
+			"type": "VEGETABLE"
+		},
+		"creationDate": new Date("2025-02-13T18:09:22.417Z")
+	},
+	{
+		"id": "182808eb-93f9-4bd1-9ee1-013a4f74134c",
+		"quantity": 222.0,
+		"price": 333.0,
+		"unit": "KG",
+		"description": "safrron",
+		"imageUrl": "https://firebasestorage.googleapis.com/v0/b/fir-crops-main.firebasestorage.app/o/uploads%2FKOZPRI_X_DIY_GEOTEXTILES%402x.jpg?alt=media&token=35b05589-5ce0-4d2a-bafd-866e47809d90",
+		"type": "VEGETABLE",
+		"seller": {
+			"id": "2a9c40c1-f911-4203-86be-c36d87598d93",
+			"username": "test",
+			"phone": "1232216767",
+			"region": "North"
+		},
+		"produce": {
+			"id": 72,
+			"name": "Sans Fils (Haricot)",
+			"unitOfMeasure": "KG",
+			"type": "VEGETABLE"
+		},
+		"creationDate": new Date("2025-02-13T17:59:15.668Z")
+	},
+	{
+		"id": "3e215ef4-dace-4eb6-aea1-b4408e0561e3",
+		"quantity": 25.0,
+		"price": 20.0,
+		"unit": "KG",
+		"description": "desc RAV",
+		"imageUrl": "",
+		"type": "VEGETABLE",
+		"seller": {
+			"id": "3056ef11-dab2-4dce-9910-9b1c45485b30",
+			"username": "ism",
+			"phone": "123123123",
+			"region": "North"
+		},
+		"produce": {
+			"id": 70,
+			"name": "Romarin",
+			"unitOfMeasure": "KG",
+			"type": "VEGETABLE"
+		},
+		"creationDate": new Date("2024-11-04T17:36:48.390Z")
+	},
+	{
+		"id": "4a359467-bf47-4909-ae1a-adb6c0129001",
+		"quantity": 22.0,
+		"price": 22.0,
+		"unit": "KG",
+		"description": "desc",
+		"imageUrl": "",
+		"type": "VEGETABLE",
+		"seller": {
+			"id": "2a9c40c1-f911-4203-86be-c36d87598d93",
+			"username": "test",
+			"phone": "1232216767",
+			"region": "North"
+		},
+		"produce": {
+			"id": 15,
+			"name": "Bringelle (Rond)",
+			"unitOfMeasure": "KG",
+			"type": "VEGETABLE"
+		},
+		"creationDate": new Date("2025-01-29")
+	},
+	{
+		"id": "593869f0-a00d-4055-a84a-413087606e2a",
+		"quantity": 5.0,
+		"price": 39.0,
+		"unit": "KG",
+		"description": "good stuff",
+		"imageUrl": "",
+		"type": "VEGETABLE",
+		"seller": {
+			"id": "777aa2c8-1e16-489a-808a-3a68eeec239d",
+			"username": "opskin",
+			"phone": "58224207",
+			"region": "North"
+		},
+		"produce": {
+			"id": 45,
+			"name": "Lepois Carré",
+			"unitOfMeasure": "KG",
+			"type": "VEGETABLE"
+		},
+		"creationDate": new Date("2024-11-16")
+	},
+	{
+		"id": "6411bb51-7123-4eb3-b38b-82830ec95f77",
+		"quantity": 55.0,
+		"price": 12.0,
+		"unit": "KG",
+		"description": "desc",
+		"imageUrl": "",
+		"type": "VEGETABLE",
+		"seller": {
+			"id": "",
+			"username": "",
+			"phone": "",
+			"region": ""
+		},
+		"produce": {
+			"id": 75,
+			"name": "Ti Piment",
+			"unitOfMeasure": "KG",
+			"type": "VEGETABLE"
+		},
+		"creationDate": new Date("2024-11-04")
+	},
+	{
+		"id": "6ae0cf71-7e2b-4e21-91d9-b16aeb11ffec",
+		"quantity": 999.0,
+		"price": 996.0,
+		"unit": "KG",
+		"description": "Desc",
+		"imageUrl": "https://firebasestorage.googleapis.com/v0/b/fir-crops-main.firebasestorage.app/o/uploads%2F1000021896.jpg?alt=media&token=2d1ecc2a-2006-40af-a429-6c2ba502a6df",
+		"type": "VEGETABLE",
+		"seller": {
+			"id": "2a9c40c1-f911-4203-86be-c36d87598d93",
+			"username": "test",
+			"phone": "1232216767",
+			"region": "North"
+		},
+		"produce": {
+			"id": 75,
+			"name": "Ti Piment",
+			"unitOfMeasure": "KG",
+			"type": "VEGETABLE"
+		},
+		"creationDate": new Date("2025-02-13")
+	},
+	{
+		"id": "73d94748-e4a3-4afe-9ec0-bc7374ae8323",
+		"quantity": 25.0,
+		"price": 2.0,
+		"unit": "KG",
+		"description": "desc",
+		"imageUrl": "",
+		"type": "VEGETABLE",
+		"seller": {
+			"id": "3056ef11-dab2-4dce-9910-9b1c45485b30",
+			"username": "ism",
+			"phone": "123123123",
+			"region": "North"
+		},
+		"produce": {
+			"id": 13,
+			"name": "Brede Tom Pouce",
+			"unitOfMeasure": "KG",
+			"type": "VEGETABLE"
+		},
+		"creationDate": new Date("2024-11-04")
+	},
+	{
+		"id": "7de789bd-0fac-453f-8853-5f82ef65c87f",
+		"quantity": 500.0,
+		"price": 50.0,
+		"unit": "KG",
+		"description": "None",
+		"imageUrl": "https://firebasestorage.googleapis.com/v0/b/fir-crops-main.firebasestorage.app/o/uploads%2F1000050629.jpg?alt=media&token=a9611f56-d143-4259-bf3f-3067e961e8e1",
+		"type": "VEGETABLE",
+		"seller": {
+			"id": "",
+			"username": "Oumar",
+			"phone": "57418855",
+			"region": "South"
+		},
+		"produce": {
+			"id": 10,
+			"name": "Brede National",
+			"unitOfMeasure": "KG",
+			"type": "VEGETABLE"
+		},
+		"creationDate": new Date("2025-02-13")
+	},
+	{
+		"id": "901cb7b9-6841-4d10-8eb8-8881608101fa",
+		"quantity": 25.0,
+		"price": 256.0,
+		"unit": "KG",
+		"description": "Gros laitue",
+		"imageUrl": "",
+		"type": "VEGETABLE",
+		"seller": {
+			"id": "2a9c40c1-f911-4203-86be-c36d87598d93",
+			"username": "test",
+			"phone": "1232216767",
+			"region": "North"
+		},
+		"produce": {
+			"id": 41,
+			"name": "Lalo",
+			"unitOfMeasure": "KG",
+			"type": "VEGETABLE"
+		},
+		"creationDate": new Date("2025-02-13")
+	},
+	{
+		"id": "9ece14c6-6b07-43bd-8718-f99eac8e78c9",
+		"quantity": 999.0,
+		"price": 250.0,
+		"unit": "KG",
+		"description": "Poivron Laserre",
+		"imageUrl": "",
+		"type": "VEGETABLE",
+		"seller": {
+			"id": "3056ef11-dab2-4dce-9910-9b1c45485b30",
+			"username": "ism",
+			"phone": "123123123",
+			"region": "North"
+		},
+		"produce": {
+			"id": 64,
+			"name": "Poivron (Vert)",
+			"unitOfMeasure": "KG",
+			"type": "VEGETABLE"
+		},
+		"creationDate": new Date("2024-09-06")
+	},
+	{
+		"id": "a18423d7-d73b-406f-ba41-0b3b25bd84c6",
+		"quantity": 22.0,
+		"price": 23.0,
+		"unit": "KG",
+		"description": "desc",
+		"imageUrl": "",
+		"type": "VEGETABLE",
+		"seller": {
+			"id": "3056ef11-dab2-4dce-9910-9b1c45485b30",
+			"username": "ism",
+			"phone": "123123123",
+			"region": "North"
+		},
+		"produce": {
+			"id": 17,
+			"name": "Butternut",
+			"unitOfMeasure": "KG",
+			"type": "VEGETABLE"
+		},
+		"creationDate": new Date("2024-09-06")
+	},
+	{
+		"id": "be1128da-f79d-4135-86b9-6560c20f7638",
+		"quantity": 557.0,
+		"price": 50.0,
+		"unit": "KG",
+		"description": "desc potato",
+		"imageUrl": "",
+		"type": "VEGETABLE",
+		"seller": {
+			"id": "3056ef11-dab2-4dce-9910-9b1c45485b30",
+			"username": "ism",
+			"phone": "123123123",
+			"region": "North"
+		},
+		"produce": {
+			"id": 68,
+			"name": "Radis",
+			"unitOfMeasure": "KG",
+			"type": "VEGETABLE"
+		},
+		"creationDate": new Date("2024-11-04")
+	},
+	{
+		"id": "c2ada2f6-bbec-4a7f-b81d-a47900915df1",
+		"quantity": 23.0,
+		"price": 221.0,
+		"unit": "KG",
+		"description": "desc",
+		"imageUrl": "",
+		"type": "VEGETABLE",
+		"seller": {
+			"id": "3056ef11-dab2-4dce-9910-9b1c45485b30",
+			"username": "ism",
+			"phone": "123123123",
+			"region": "North"
+		},
+		"produce": {
+			"id": 6,
+			"name": "Brede Baton Vert",
+			"unitOfMeasure": "KG",
+			"type": "VEGETABLE"
+		},
+		"creationDate": new Date("2024-11-04")
+	},
+	{
+		"id": "d3631e80-f432-4218-89a0-ee03cabd8c10",
+		"quantity": 54.0,
+		"price": 55.0,
+		"unit": "KG",
+		"description": "desc",
+		"imageUrl": "",
+		"type": "VEGETABLE",
+		"seller": {
+			"id": "3056ef11-dab2-4dce-9910-9b1c45485b30",
+			"username": "ism",
+			"phone": "123123123",
+			"region": "North"
+		},
+		"produce": {
+			"id": 19,
+			"name": "Calebasse chinois",
+			"unitOfMeasure": "KG",
+			"type": "VEGETABLE"
+		},
+		"creationDate": new Date("2024-10-27")
+	},
+	{
+		"id": "d464e48c-25c3-4cbe-a08d-a193f7174cb6",
+		"quantity": 22.0,
+		"price": 22.0,
+		"unit": "KG",
+		"description": "22",
+		"imageUrl": "",
+		"type": "VEGETABLE",
+		"seller": {
+			"id": "3056ef11-dab2-4dce-9910-9b1c45485b30",
+			"username": "ism",
+			"phone": "123123123",
+			"region": "North"
+		},
+		"produce": {
+			"id": 76,
+			"name": "Ti Pois",
+			"unitOfMeasure": "KG",
+			"type": "VEGETABLE"
+		},
+		"creationDate": new Date("2024-11-07")
+	},
+	{
+		"id": "d82f4318-4629-4c95-afd7-016e69c66a5c",
+		"quantity": 23.0,
+		"price": 76.0,
+		"unit": "KG",
+		"description": "desc",
+		"imageUrl": "",
+		"type": "VEGETABLE",
+		"seller": {
+			"id": "3056ef11-dab2-4dce-9910-9b1c45485b30",
+			"username": "ism",
+			"phone": "123123123",
+			"region": "North"
+		},
+		"produce": {
+			"id": 11,
+			"name": "Brede Songe",
+			"unitOfMeasure": "KG",
+			"type": "VEGETABLE"
+		},
+		"creationDate": new Date("2024-10-27")
+	},
+	{
+		"id": "e17e37e6-726b-49ae-8668-ba8c15472bb8",
+		"quantity": 22.0,
+		"price": 22.0,
+		"unit": "KG",
+		"description": "desc",
+		"imageUrl": "https://firebasestorage.googleapis.com/v0/b/fir-crops-main.firebasestorage.app/o/uploads%2Ftest1.jpg?alt=media&token=c5ec65d5-b404-4144-8a9e-7d50341f4014",
+		"type": "VEGETABLE",
+		"seller": {
+			"id": "2a9c40c1-f911-4203-86be-c36d87598d93",
+			"username": "test",
+			"phone": "1232216767",
+			"region": "North"
+		},
+		"produce": {
+			"id": 62,
+			"name": "Turnip",
+			"unitOfMeasure": "KG",
+			"type": "VEGETABLE"
+		},
+		"creationDate": new Date("2025-01-29")
+	},
+	{
+		"id": "eadeab4a-cd48-4579-9ba0-8e87ca5b7995",
+		"quantity": 22.0,
+		"price": 22.0,
+		"unit": "KG",
+		"description": "desc",
+		"imageUrl": "",
+		"type": "VEGETABLE",
+		"seller": {
+			"id": "2a9c40c1-f911-4203-86be-c36d87598d93",
+			"username": "test",
+			"phone": "1232216767",
+			"region": "North"
+		},
+		"produce": {
+			"id": 18,
+			"name": "Calebasse",
+			"unitOfMeasure": "KG",
+			"type": "VEGETABLE"
+		},
+		"creationDate": new Date("2025-01-29")
+	},
+	{
+		"id": "f435385d-c3a3-43c2-9edc-2e7cf89945b9",
+		"quantity": 22.0,
+		"price": 22.0,
+		"unit": "KG",
+		"description": "desc",
+		"imageUrl": "",
+		"type": "VEGETABLE",
+		"seller": {
+			"id": "3056ef11-dab2-4dce-9910-9b1c45485b30",
+			"username": "ism",
+			"phone": "123123123",
+			"region": "North"
+		},
+		"produce": {
+			"id": 2,
+			"name": "Arouille",
+			"unitOfMeasure": "KG",
+			"type": "VEGETABLE"
+		},
+		"creationDate": new Date("2024-09-06")
+	},
+	{
+		"id": "f62f1828-3776-4185-8659-fc8763fe8339",
+		"quantity": 999.0,
+		"price": 999.0,
+		"unit": "KG",
+		"description": "Desc",
+		"imageUrl": "",
+		"type": "VEGETABLE",
+		"seller": {
+			"id": "2a9c40c1-f911-4203-86be-c36d87598d93",
+			"username": "test",
+			"phone": "1232216767",
+			"region": "North"
+		},
+		"produce": {
+			"id": 77,
+			"name": "Tomate",
+			"unitOfMeasure": "KG",
+			"type": "VEGETABLE"
+		},
+		"creationDate": new Date("2025-02-13")
+	}
+]
+
+export const USER_LISTING: MarketplaceListing[] = [
+	{
+		"id": "4a359467-bf47-4909-ae1a-adb6c0129001",
+		"quantity": 22.0,
+		"price": 22.0,
+		"unit": "KG",
+		"description": "desc",
+		"imageUrl": "",
+		"type": "VEGETABLE",
+		"seller": {
+			"id": "2a9c40c1-f911-4203-86be-c36d87598d93",
+			"username": "test",
+			"phone": "1232216767",
+			"region": "North"
+		},
+		"produce": {
+			"id": 15,
+			"name": "Bringelle (Rond)",
+			"unitOfMeasure": "Kg",
+			"type": "VEGETABLE"
+		},
+		"creationDate": new Date("2024-09-06")
+	},
+	{
+		"id": "e17e37e6-726b-49ae-8668-ba8c15472bb8",
+		"quantity": 22.0,
+		"price": 22.0,
+		"unit": "KG",
+		"description": "desc",
+		"imageUrl": "https://firebasestorage.googleapis.com/v0/b/fir-crops-main.firebasestorage.app/o/uploads%2Ftest1.jpg?alt=media&token=c5ec65d5-b404-4144-8a9e-7d50341f4014",
+		"type": "VEGETABLE",
+		"seller": {
+			"id": "2a9c40c1-f911-4203-86be-c36d87598d93",
+			"username": "test",
+			"phone": "1232216767",
+			"region": "North"
+		},
+		"produce": {
+			"id": 62,
+			"name": "Turnip",
+			"unitOfMeasure": "Kg",
+			"type": "VEGETABLE"
+		},
+		"creationDate": new Date("2024-09-06")
+	},
+	{
+		"id": "eadeab4a-cd48-4579-9ba0-8e87ca5b7995",
+		"quantity": 22.0,
+		"price": 22.0,
+		"unit": "KG",
+		"description": "desc",
+		"imageUrl": "",
+		"type": "VEGETABLE",
+		"seller": {
+			"id": "2a9c40c1-f911-4203-86be-c36d87598d93",
+			"username": "test",
+			"phone": "1232216767",
+			"region": "North"
+		},
+		"produce": {
+			"id": 18,
+			"name": "Calebasse",
+			"unitOfMeasure": "Kg",
+			"type": "VEGETABLE"
+		},
+		"creationDate": new Date("2024-09-06")
+	}
+]
 
 export const GRAPH_TWO: any = {
 	"vegetableName": "Angive",

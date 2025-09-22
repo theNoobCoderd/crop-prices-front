@@ -1,0 +1,7 @@
+<div class="crp-container">
+	@for ((item of marketPlaceItems$ | async); track item) {
+		<app-marketplace-item [item]="item"></app-marketplace-item>
+	}
+
+	<app-add-crop></app-add-crop>
+</div>
