@@ -5,6 +5,8 @@ import {UserService} from "../../services/user/user.service";
 import {BehaviorSubject, switchMap} from "rxjs";
 import {AsyncPipe} from "@angular/common";
 import {LoadingSpinnerComponent} from "../loading-spinner/loading-spinner.component";
+import {PagesService} from "../../services/pages.service";
+import {NavigationPage} from "../../models/navigation-page.enum";
 
 @Component({
     selector: "app-login",
@@ -19,6 +21,7 @@ export class LoginComponent {
 	router = inject(Router);
 	authService = inject(AuthService);
 	userService = inject(UserService);
+	pagesService = inject(PagesService);
 
 	errorMessage$ = new BehaviorSubject<string>("");
 	loading$ = new BehaviorSubject<boolean>(false);
@@ -37,8 +40,10 @@ export class LoginComponent {
 					this.loading$.next(false);
 
 					if (response) {
+						this.pagesService.changePageTo(NavigationPage.LISTING);
 						this.router.navigate(["/page1"], { skipLocationChange: true });
 					} else {
+						this.pagesService.changePageTo(NavigationPage.PROFILE);
 						this.router.navigate(["/page5"], { skipLocationChange: true });
 					}
 				},

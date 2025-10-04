@@ -27,7 +27,6 @@ export class MainNavComponent implements OnInit {
 
 	navToListing() : void {
 		this.pagesService.changePageTo(NavigationPage.LISTING);
-
 		this.router.navigate(["/page1"], { skipLocationChange: true });
 	}
 
@@ -38,6 +37,12 @@ export class MainNavComponent implements OnInit {
 	}
 
 	navToHistoric(): void {
+		this.pagesService.changePageTo(NavigationPage.STATS);
+
+		this.router.navigate(["/page7"], { skipLocationChange: true });
+	}
+
+	navToHistoricWithParam(): void {
 		this.pagesService.changePageTo(NavigationPage.STATS);
 
 		this.router.navigate(["/page7"], { skipLocationChange: true });
