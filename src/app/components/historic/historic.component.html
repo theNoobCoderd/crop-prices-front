@@ -1,39 +1,40 @@
 @if ((userService.userLoggedIn$ | async) === true) {
 	<span class="cont">
 
-	<form class="form" [formGroup]="historyParamForm" (ngSubmit)="onSubmit()">
-	<span class="crp-container">
-		<span class="category-group">
-			<label>Select Crop</label>
-			<app-drop-down
-				[options]="DROP_DOWN_VALUE"
-				formControlName="crop"
-				id="crop"
-				placeholder="Select Crop">
-			</app-drop-down>
-		</span>
+	@if (!historicDataAsInput) {
+		<form class="form" [formGroup]="historyParamForm" (ngSubmit)="onSubmit()">
+			<span class="crp-container">
+				<span class="category-group">
+					<label>Select Crop</label>
+					<app-drop-down
+						[options]="DROP_DOWN_VALUE"
+						formControlName="crop"
+						id="crop"
+						placeholder="Select Crop">
+					</app-drop-down>
+				</span>
 
-		<span class="category-group">
-			<label>Date Range</label>
-			<div class="segmented-control">
-				<button
-					type="button"
-					class="segment"
-					*ngFor="let option of DATE_RANGES"
-					[class.active]="historyParamForm.get('timeRange')?.value === option.value"
-					(click)="selectTime(option.value)">
-					{{ option.label }}
-				</button>
-			</div>
-			<span class="extra-small-label">Locked options requires a premium account to have access</span>
-		</span>
+				<span class="category-group">
+					<label>Date Range</label>
+					<div class="segmented-control">
+						<button
+							type="button"
+							class="segment"
+							*ngFor="let option of DATE_RANGES"
+							[class.active]="historyParamForm.get('timeRange')?.value === option.value"
+							(click)="selectTime(option.value)">
+							{{ option.label }}
+						</button>
+					</div>
+					<span class="extra-small-label">Locked options requires a premium account to have access</span>
+				</span>
 
-		<span class="sign-up-button">
-			<button [disabled]="(isLoading$ | async) || (!historyParamForm.valid) || (premiumOptionSelected$ | async)" type="submit">Generate Stats</button>
-		</span>
-	</span>
-	</form>
-
+				<span class="sign-up-button">
+					<button [disabled]="(isLoading$ | async) || (!historyParamForm.valid) || (premiumOptionSelected$ | async)" type="submit">Generate Stats</button>
+				</span>
+			</span>
+		</form>
+	}
 	@if (hasData$ | async) {
 		<span>
 			<span class="category-group test stats">
@@ -58,7 +59,7 @@
 		</span>
 
 		<div class="historic-table">
-			<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+			<table mat-table [dataSource]="displayedData" class="mat-elevation-z8">
 
 				<!-- most common Column -->
 				<ng-container matColumnDef="date">
@@ -99,6 +100,12 @@
 				<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
 				<tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
 			</table>
+
+			@if (displayedData.length < dataSource.length) {
+				<div class="text-center mt-3 segmented-control">
+					<button class="segment" (click)="showMore()">Show more</button>
+				</div>
+			}
 		</div>
 
 		<span class="charts-section">

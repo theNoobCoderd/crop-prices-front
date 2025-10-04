@@ -1,4 +1,4 @@
-import {Component, inject, OnDestroy} from "@angular/core";
+import {Component, inject, input, Input, OnDestroy, OnInit} from "@angular/core";
 import {HistoricService} from "../../services/historic/historic.service";
 import {BehaviorSubject, Observable, Subject, takeUntil} from "rxjs";
 import {Vegetable} from "../../models/vegetable.model";
@@ -21,6 +21,8 @@ import {
 } from '@angular/material/dialog';
 import {MatDialogComponent} from "../lib/mat-dialog/mat-dialog.component";
 import {LoginComponent} from "../login/login.component";
+import {Router} from "@angular/router";
+import {barChartOptions, lineChartOptions} from "./chart-settings/chart-settings";
 
 @Component({
 	selector: "app-historic",
@@ -43,6 +45,7 @@ import {LoginComponent} from "../login/login.component";
 export class HistoricComponent implements OnDestroy {
 
 	userService = inject(UserService);
+	router = inject(Router);
 
 	// chart settings
 	lineChartData: ChartConfiguration<'line'>['data'] | undefined;
@@ -51,86 +54,14 @@ export class HistoricComponent implements OnDestroy {
 
 	premiumOptionSelected$ = new BehaviorSubject<boolean>(false);
 
-	readonly dialog = inject(MatDialog);
+	historicDataAsInput!: HistoryGraphModel;
 
-	// @ts-ignore
-	lineChartOptions: ChartOptions<'line'> = {
-		plugins: {
-			legend: {
-				position: "bottom",
-			}
-		},
-		responsive: true,
-		maintainAspectRatio: false,
-		spanGaps: true,
-		elements: {
-			point: {
-				radius: 0,
-				backgroundColor: 'rgba(255, 255, 255, 1)',
-			}
-		},
-		scales: {
-			x: {
-				border: {
-					dash: [5, 5]
-				},
-			},
-			y: {
-				suggestedMax: 100,
-				suggestedMin: 10,
-				border: {
-					dash: [5, 5]
-				},
-			}
-		},
-		interaction: {
-			mode: "index",
-			intersect: false
-		},
-	};
-	barChartOptions: ChartOptions<'bar'> = {
-		plugins: {
-			legend: {
-				position: "bottom",
-			}
-		},
-		responsive: true,
-		maintainAspectRatio: false,
-		interaction: {
-			mode: "index",
-			intersect: false
-		},
-		scales: {
-			// Primary y-axis (for bar charts)
-			y: {
-				type: 'linear',
-				position: 'left',
-				title: {
-					display: true,
-					text: 'Bar Chart Values'
-				},
-				grid: {
-					drawOnChartArea: false // only show grid lines for primary y-axis
-				}
-			},
-			// Secondary y-axis (for line chart)
-			y1: {
-				type: 'linear',
-				position: 'right',
-				title: {
-					display: true,
-					text: 'Line Chart Values'
-				},
-				grid: {
-					drawOnChartArea: false
-				}
-			}
-		},
-	};
+	readonly dialog = inject(MatDialog);
 
 	// table settings
 	displayedColumns: string[] = ['date', 'lowPrice', 'highPrice', 'averagePrice', 'totalSold', 'revenue'];
 	dataSource: Vegetable[] = [];
+	displayedData: Vegetable[] = [];
 
 	historyParamForm: FormGroup;
 
@@ -143,12 +74,29 @@ export class HistoricComponent implements OnDestroy {
 	hasData$ = new BehaviorSubject<boolean>(false);
 
 	private _destroy$ = new Subject<void>();
+	private readonly pageSize = 10;
+	private currentIndex = 10;
 
 	constructor(private _historicService: HistoricService, private _formBuilder: FormBuilder) {
 		this.historyParamForm = this._formBuilder.group({
 			crop: ['', Validators.required],
 			timeRange: ['7', Validators.required],
 		});
+
+		const navigation = this.router.getCurrentNavigation();
+		if (navigation?.extras?.state) {
+			const inputData = navigation.extras.state['data'];
+			this.historicDataAsInput = inputData.historyDTO;
+
+			if (this.historicDataAsInput) {
+				this.dataSource = this._transformData(this.historicDataAsInput);
+				this.displayedData = this.dataSource.slice(0, this.pageSize);
+				this._buildCharts(this.historicDataAsInput);
+
+				this.isLoading$.next(false);
+				this.hasData$.next(true);
+			}
+		}
 	}
 
 	ngOnDestroy(): void {
@@ -164,74 +112,9 @@ export class HistoricComponent implements OnDestroy {
 		this.cropHistory$.pipe(takeUntil(this._destroy$)).subscribe((crops => {
 
 			setTimeout(()=> {
-				this.lowestPrice$.next(crops.lowestPrice);
-				this.highestPrice$.next(crops.highestPrice);
-				this.averagePrice$.next(crops.averagePrice);
-
 				this.dataSource = this._transformData(crops);
 
-				this.lineChartData = {
-					labels: crops.dates,
-					datasets: [
-						{
-							data: crops.mostCommonPrices,
-							label: 'Average',
-							tension: 0.3,
-							borderColor: 'rgba(59, 130, 246, 1)',
-							borderWidth: 1,
-						},
-						{
-							data: crops.highestPrices,
-							label: 'High',
-							tension: 0.3,
-							borderColor: 'rgba(130, 202, 157, .6)',
-							borderWidth: 1,
-						},
-						{
-							data: crops.lowestPrices,
-							label: 'Low',
-							tension: 0.3,
-							borderColor: 'rgba(246,181,59, .6)',
-							borderWidth: 1,
-						}
-					]
-				};
-
-				this.barChartData = {
-					labels: crops.dates,
-					datasets: [
-						{
-							type: "bar" as const,
-							data: crops.totalSoldList,
-							label: 'total sold',
-							yAxisID: "y"
-						},
-						{
-							// @ts-ignore
-							type: "line" as const,
-							spanGaps: true,
-							data: crops.mostCommonPrices,
-							tension: 0.3,
-							label: 'average',
-							yAxisID: "y1"
-						}
-					]
-				}
-
-				this.averageRevenueChart = {
-					labels: crops.dates,
-					datasets: [
-						{
-							data: crops.revenue,
-							label: 'Revenue',
-							tension: 0.3,
-							borderColor: 'rgba(59, 130, 246, 1)',
-							borderWidth: 1,
-							fill: true,
-							backgroundColor: 'rgba(142,180,246, 0.3)'
-						}
-					]
-				};
+				this._buildCharts(crops)
 
 				this.isLoading$.next(false);
 				this.hasData$.next(true);
@@ -247,6 +130,80 @@ export class HistoricComponent implements OnDestroy {
 			this.premiumOptionSelected$.next(false);
 		}
 		this.historyParamForm.get('timeRange')?.setValue(value);
+	}
+
+	showMore() {
+		this.currentIndex += (this.pageSize * 3);
+		this.displayedData = this.dataSource.slice(0, this.currentIndex);
+	}
+
+	private _buildCharts(crops: HistoryGraphModel): void {
+		this.lowestPrice$.next(crops.lowestPrice);
+		this.highestPrice$.next(crops.highestPrice);
+		this.averagePrice$.next(crops.averagePrice);
+
+		this.lineChartData = {
+			labels: crops.dates,
+			datasets: [
+				{
+					data: crops.mostCommonPrices,
+					label: 'Average',
+					tension: 0.3,
+					borderColor: 'rgba(59, 130, 246, 1)',
+					borderWidth: 1,
+				},
+				{
+					data: crops.highestPrices,
+					label: 'High',
+					tension: 0.3,
+					borderColor: 'rgba(130, 202, 157, .6)',
+					borderWidth: 1,
+				},
+				{
+					data: crops.lowestPrices,
+					label: 'Low',
+					tension: 0.3,
+					borderColor: 'rgba(246,181,59, .6)',
+					borderWidth: 1,
+				}
+			]
+		};
+
+		this.barChartData = {
+			labels: crops.dates,
+			datasets: [
+				{
+					type: "bar" as const,
+					data: crops.totalSoldList,
+					label: 'total sold',
+					yAxisID: "y"
+				},
+				{
+					// @ts-ignore
+					type: "line" as const,
+					spanGaps: true,
+					data: crops.mostCommonPrices,
+					tension: 0.3,
+					label: 'average',
+					yAxisID: "y1"
+				}
+			]
+		}
+
+		this.averageRevenueChart = {
+			labels: crops.dates,
+			datasets: [
+				{
+					data: crops.revenue,
+					label: 'Revenue',
+					tension: 0.3,
+					borderColor: 'rgba(59, 130, 246, 1)',
+					borderWidth: 1,
+					fill: true,
+					backgroundColor: 'rgba(142,180,246, 0.3)'
+				}
+			]
+		};
 	}
 
 	private _transformData(data: HistoryGraphModel): Vegetable[] {
@@ -267,4 +224,6 @@ export class HistoricComponent implements OnDestroy {
 	protected readonly DROP_DOWN_VALUE = DROP_DOWN_VALUE;
 	protected readonly DATE_RANGES = DATE_RANGES;
 	protected readonly average = average;
+	protected readonly lineChartOptions = lineChartOptions;
+	protected readonly barChartOptions = barChartOptions;
 }

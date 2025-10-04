@@ -4,22 +4,64 @@
 		<span>About You</span>
 	</div>
 
-	<span>
+	<span class="span-group">
 		<div class="user-info">
 			<div class="username">
 			<span>Username: {{ currentUser?.username }}</span>
-		</div>
-		<div class="additional-info">
-			<span>email: {{ currentUser?.email }}</span>
-			<span>phone: {{ currentUser?.phone }}</span>
-			<span>region: {{ currentUser?.region }}</span>
-		</div>
-		</div>
-		<div class="logout-button">
-			<button (click)="logout()">LOG OUT</button>
+			</div>
+			<div class="additional-info">
+				<span>email: {{ currentUser?.email }}</span>
+				<span>phone: {{ currentUser?.phone }}</span>
+				<span>region: {{ currentUser?.region }}</span>
+			</div>
+
+			<div class="logout-button">
+				<button (click)="logout()">LOG OUT</button>
+			</div>
 		</div>
 	</span>
 
-	<div>
-	</div>
+
+	@if(currentUser?.roles?.includes("ROLE_PREMIUM1") || currentUser?.roles?.includes("ROLE_ADMIN")) {
+		<span class="span-group">
+			<span class="category-group">
+				<h3>Purchases</h3>
+				@if (purchasesLoading$ | async) {
+					<span class="align-spinner">
+						<mat-spinner color="primary"></mat-spinner>
+					</span>
+				} @else {
+					<span class="details">
+					<table mat-table [dataSource]="datasource" class="mat-elevation-z8">
+						<!-- Position Column -->
+						<ng-container matColumnDef="crop">
+							<th mat-header-cell *matHeaderCellDef>Crop</th>
+							<td mat-cell *matCellDef="let element">{{element.historyDTO.vegetableName}}</td>
+						</ng-container>
+
+						<!-- Position Column -->
+						<ng-container matColumnDef="rangeStartDate">
+							<th mat-header-cell *matHeaderCellDef>From</th>
+							<td mat-cell *matCellDef="let element">{{element.rangeStartDate}}</td>
+						</ng-container>
+
+						<!-- Position Column -->
+						<ng-container matColumnDef="rangeEndDate">
+							<th mat-header-cell *matHeaderCellDef>To</th>
+							<td mat-cell *matCellDef="let element">{{element.rangeEndDate}}</td>
+						</ng-container>
+
+						<tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+						 <tr
+							 mat-row
+							 (click)="clickedRow(row)"
+							 *matRowDef="let row; columns: displayedColumns;"
+						 ></tr>
+					</table>
+				</span>
+				}
+			</span>
+	</span>
+	}
+
 </div>

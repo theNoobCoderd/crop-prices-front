@@ -1,7 +1,23 @@
 .user-profile-container {
+	padding-inline: 0.625rem;
+
+	font-family: Roboto, sans-serif;
+	color: #444444;
+
+	padding-bottom: 100px;
+
+	display: flex;
+	flex-flow: column;
+	align-items: center;
+}
+
+.span-group {
 	display: flex;
 	flex-flow: column nowrap;
-	align-items: center;
+	margin-bottom: 3rem;
+
+	max-width: 500px;
+	width: 100%;
 }
 
 .header {
@@ -28,7 +44,6 @@
 
 	padding-block: 15px;
 	padding-inline: 15px;
-	width: 380px;
 
 	background-color: #EDEDED;
 	border-radius: 3px 3px 0 0;
@@ -70,4 +85,50 @@
 
 	gap: 20px;
 	margin-bottom: 120px;
+}
+
+.details {
+	margin-bottom: 2rem;
+	background: linear-gradient(#ffffff 0 76%, #f6f6f6);
+
+	th, td {
+		font-family: "Roboto Condensed", sans-serif;
+	}
+
+	th {
+		background-color: #858585;
+		color: #ffffff;
+	}
+
+	td {
+		font-size: 15px;
+	}
+
+	.mat-column-averagePrice, .mat-column-date {
+		font-weight: 700;
+	}
+}
+
+.mat-mdc-row .mat-mdc-cell {
+	border-bottom: 1px solid transparent;
+	border-top: 1px solid transparent;
+	cursor: pointer;
+}
+
+.mat-mdc-row:hover .mat-mdc-cell {
+	background-color: #8CD178;
+}
+
+.demo-row-is-clicked {
+	font-weight: bold;
+}
+
+.mat-mdc-progress-spinner{
+	--mdc-circular-progress-active-indicator-color: #2eab55;
+}
+
+.align-spinner {
+	display: flex;
+	justify-content: center;
+	padding-block: 7rem;
 }

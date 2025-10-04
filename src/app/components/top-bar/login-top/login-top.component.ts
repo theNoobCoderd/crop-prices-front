@@ -6,8 +6,7 @@ import {AsyncPipe, UpperCasePipe} from "@angular/common";
 @Component({
   selector: "app-login-top",
 	imports: [
-		AsyncPipe,
-		UpperCasePipe
+		AsyncPipe
 	],
   templateUrl: "./login-top.component.html",
   styleUrl: "./login-top.component.less"

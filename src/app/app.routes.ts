@@ -10,5 +10,6 @@ export const routes: Routes = [
 	{ path: 'page4', component: LoginComponent },
 	{ path: 'page5', component: ProfileWrapperComponent },
 	{ path: 'page6', component: UserProfileComponent },
-	{ path: 'page7', component: HistoricComponent }
+	{ path: 'page7', component: HistoricComponent },
+	{ path: 'page7/:data', component: HistoricComponent }
 ];
