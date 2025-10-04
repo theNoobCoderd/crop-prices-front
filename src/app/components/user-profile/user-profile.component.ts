@@ -12,6 +12,10 @@ import {UserPurchaseModel} from "../../models/user-purchase.model";
 import {BehaviorSubject, Subject, takeUntil} from "rxjs";
 import {AsyncPipe} from "@angular/common";
 import {MatProgressSpinner} from "@angular/material/progress-spinner";
+import {USER_LISTING} from "../../../assets/mocks/mock-data";
+import {MarketplaceListing} from "../../models/marketplace-listing.model";
+import {ListingService} from "../../services/listing/listing.service";
+import { MarketplaceItemComponent } from "../marketplace/marketplace-item/marketplace-item.component";
 
 @Component({
     selector: "app-user-profile",
