@@ -25,7 +25,8 @@ export const MARKETPLACE_LISTING: MarketplaceListing[] = [
 			"type": "VEGETABLE"
 		},
 		"creationDate": new Date("2025-02-13T18:09:22.417Z"),
-		"isDeleted": false
+		"isDeleted": false,
+		"expiryDate": new Date("2024-09-09")
 	},
 	{
 		"id": "182808eb-93f9-4bd1-9ee1-013a4f74134c",
@@ -48,7 +49,8 @@ export const MARKETPLACE_LISTING: MarketplaceListing[] = [
 			"type": "VEGETABLE"
 		},
 		"creationDate": new Date("2025-02-13T17:59:15.668Z"),
-		"isDeleted": false
+		"isDeleted": false,
+		"expiryDate": new Date("2024-09-09")
 	},
 	{
 		"id": "3e215ef4-dace-4eb6-aea1-b4408e0561e3",
@@ -71,7 +73,8 @@ export const MARKETPLACE_LISTING: MarketplaceListing[] = [
 			"type": "VEGETABLE"
 		},
 		"creationDate": new Date("2024-11-04T17:36:48.390Z"),
-		"isDeleted": false
+		"isDeleted": false,
+		"expiryDate": new Date("2024-09-09")
 	},
 	{
 		"id": "4a359467-bf47-4909-ae1a-adb6c0129001",
@@ -94,7 +97,8 @@ export const MARKETPLACE_LISTING: MarketplaceListing[] = [
 			"type": "VEGETABLE"
 		},
 		"creationDate": new Date("2025-01-29"),
-		"isDeleted": false
+		"isDeleted": false,
+		"expiryDate": new Date("2024-09-09")
 	},
 	{
 		"id": "593869f0-a00d-4055-a84a-413087606e2a",
@@ -117,7 +121,8 @@ export const MARKETPLACE_LISTING: MarketplaceListing[] = [
 			"type": "VEGETABLE"
 		},
 		"creationDate": new Date("2024-11-16"),
-		"isDeleted": false
+		"isDeleted": false,
+		"expiryDate": new Date("2024-09-09")
 	},
 	{
 		"id": "6411bb51-7123-4eb3-b38b-82830ec95f77",
@@ -140,7 +145,8 @@ export const MARKETPLACE_LISTING: MarketplaceListing[] = [
 			"type": "VEGETABLE"
 		},
 		"creationDate": new Date("2024-11-04"),
-		"isDeleted": false
+		"isDeleted": false,
+		"expiryDate": new Date("2024-09-09")
 	},
 	{
 		"id": "6ae0cf71-7e2b-4e21-91d9-b16aeb11ffec",
@@ -163,7 +169,8 @@ export const MARKETPLACE_LISTING: MarketplaceListing[] = [
 			"type": "VEGETABLE"
 		},
 		"creationDate": new Date("2025-02-13"),
-		"isDeleted": false
+		"isDeleted": false,
+		"expiryDate": new Date("2024-09-09")
 	},
 	{
 		"id": "73d94748-e4a3-4afe-9ec0-bc7374ae8323",
@@ -186,7 +193,8 @@ export const MARKETPLACE_LISTING: MarketplaceListing[] = [
 			"type": "VEGETABLE"
 		},
 		"creationDate": new Date("2024-11-04"),
-		"isDeleted": false
+		"isDeleted": false,
+		"expiryDate": new Date("2024-09-09")
 	},
 	{
 		"id": "7de789bd-0fac-453f-8853-5f82ef65c87f",
@@ -209,7 +217,8 @@ export const MARKETPLACE_LISTING: MarketplaceListing[] = [
 			"type": "VEGETABLE"
 		},
 		"creationDate": new Date("2025-02-13"),
-		"isDeleted": false
+		"isDeleted": false,
+		"expiryDate": new Date("2024-09-09")
 	},
 	{
 		"id": "901cb7b9-6841-4d10-8eb8-8881608101fa",
@@ -232,7 +241,8 @@ export const MARKETPLACE_LISTING: MarketplaceListing[] = [
 			"type": "VEGETABLE"
 		},
 		"creationDate": new Date("2025-02-13"),
-		"isDeleted": false
+		"isDeleted": false,
+		"expiryDate": new Date("2024-09-09")
 	},
 	{
 		"id": "9ece14c6-6b07-43bd-8718-f99eac8e78c9",
@@ -255,7 +265,8 @@ export const MARKETPLACE_LISTING: MarketplaceListing[] = [
 			"type": "VEGETABLE"
 		},
 		"creationDate": new Date("2024-09-06"),
-		"isDeleted": false
+		"isDeleted": false,
+		"expiryDate": new Date("2024-09-09")
 	},
 	{
 		"id": "a18423d7-d73b-406f-ba41-0b3b25bd84c6",
@@ -278,7 +289,8 @@ export const MARKETPLACE_LISTING: MarketplaceListing[] = [
 			"type": "VEGETABLE"
 		},
 		"creationDate": new Date("2024-09-06"),
-		"isDeleted": false
+		"isDeleted": false,
+		"expiryDate": new Date("2024-09-09")
 	},
 	{
 		"id": "be1128da-f79d-4135-86b9-6560c20f7638",
@@ -301,7 +313,8 @@ export const MARKETPLACE_LISTING: MarketplaceListing[] = [
 			"type": "VEGETABLE"
 		},
 		"creationDate": new Date("2024-11-04"),
-		"isDeleted": false
+		"isDeleted": false,
+		"expiryDate": new Date("2024-09-09")
 	},
 	{
 		"id": "c2ada2f6-bbec-4a7f-b81d-a47900915df1",
@@ -324,7 +337,8 @@ export const MARKETPLACE_LISTING: MarketplaceListing[] = [
 			"type": "VEGETABLE"
 		},
 		"creationDate": new Date("2024-11-04"),
-		"isDeleted": false
+		"isDeleted": false,
+		"expiryDate": new Date("2024-09-09")
 	},
 	{
 		"id": "d3631e80-f432-4218-89a0-ee03cabd8c10",
@@ -347,7 +361,8 @@ export const MARKETPLACE_LISTING: MarketplaceListing[] = [
 			"type": "VEGETABLE"
 		},
 		"creationDate": new Date("2024-10-27"),
-		"isDeleted": false
+		"isDeleted": false,
+		"expiryDate": new Date("2024-09-09")
 	},
 	{
 		"id": "d464e48c-25c3-4cbe-a08d-a193f7174cb6",
@@ -370,7 +385,8 @@ export const MARKETPLACE_LISTING: MarketplaceListing[] = [
 			"type": "VEGETABLE"
 		},
 		"creationDate": new Date("2024-11-07"),
-		"isDeleted": false
+		"isDeleted": false,
+		"expiryDate": new Date("2024-09-09")
 	},
 	{
 		"id": "d82f4318-4629-4c95-afd7-016e69c66a5c",
@@ -393,7 +409,8 @@ export const MARKETPLACE_LISTING: MarketplaceListing[] = [
 			"type": "VEGETABLE"
 		},
 		"creationDate": new Date("2024-10-27"),
-		"isDeleted": false
+		"isDeleted": false,
+		"expiryDate": new Date("2024-09-09")
 	},
 	{
 		"id": "e17e37e6-726b-49ae-8668-ba8c15472bb8",
@@ -416,7 +433,8 @@ export const MARKETPLACE_LISTING: MarketplaceListing[] = [
 			"type": "VEGETABLE"
 		},
 		"creationDate": new Date("2025-01-29"),
-		"isDeleted": false
+		"isDeleted": false,
+		"expiryDate": new Date("2024-09-09")
 	},
 	{
 		"id": "eadeab4a-cd48-4579-9ba0-8e87ca5b7995",
@@ -439,7 +457,8 @@ export const MARKETPLACE_LISTING: MarketplaceListing[] = [
 			"type": "VEGETABLE"
 		},
 		"creationDate": new Date("2025-01-29"),
-		"isDeleted": false
+		"isDeleted": false,
+		"expiryDate": new Date("2024-09-09")
 	},
 	{
 		"id": "f435385d-c3a3-43c2-9edc-2e7cf89945b9",
@@ -462,7 +481,8 @@ export const MARKETPLACE_LISTING: MarketplaceListing[] = [
 			"type": "VEGETABLE"
 		},
 		"creationDate": new Date("2024-09-06"),
-		"isDeleted": false
+		"isDeleted": false,
+		"expiryDate": new Date("2024-09-09")
 	},
 	{
 		"id": "f62f1828-3776-4185-8659-fc8763fe8339",
@@ -485,7 +505,8 @@ export const MARKETPLACE_LISTING: MarketplaceListing[] = [
 			"type": "VEGETABLE"
 		},
 		"creationDate": new Date("2025-02-13"),
-		"isDeleted": false
+		"isDeleted": false,
+		"expiryDate": new Date("2024-09-09")
 	}
 ]
 
@@ -511,7 +532,8 @@ export const USER_LISTING: MarketplaceListing[] = [
 			"type": "VEGETABLE"
 		},
 		"creationDate": new Date("2024-09-06"),
-		"isDeleted": false
+		"isDeleted": false,
+		"expiryDate": new Date("2024-09-09")
 	},
 	{
 		"id": "e17e37e6-726b-49ae-8668-ba8c15472bb8",
@@ -534,7 +556,8 @@ export const USER_LISTING: MarketplaceListing[] = [
 			"type": "VEGETABLE"
 		},
 		"creationDate": new Date("2024-09-06"),
-		"isDeleted": false
+		"isDeleted": false,
+		"expiryDate": new Date("2024-09-09")
 	},
 	{
 		"id": "eadeab4a-cd48-4579-9ba0-8e87ca5b7995",
@@ -557,7 +580,8 @@ export const USER_LISTING: MarketplaceListing[] = [
 			"type": "VEGETABLE"
 		},
 		"creationDate": new Date("2024-09-06"),
-		"isDeleted": false
+		"isDeleted": false,
+		"expiryDate": new Date("2024-09-09")
 	}
 ]
 

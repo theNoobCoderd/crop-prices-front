@@ -4,7 +4,12 @@
 	</div>
 	<div class="item-info">
 		<span class="date">
-			<div>Posted: {{item?.creationDate | date: 'dd MMM. yyyy / HH:mm'}}</div>
+			<span class="dates">
+				<div>Posted: {{item?.creationDate | date: 'dd MMM. yyyy / HH:mm'}}</div>
+				@if (isModifiable) {
+					<div>Expires: {{item?.expiryDate | date: 'dd MMM. yyyy / HH:mm'}}</div>
+				}
+			</span>
 			@if (isModifiable) {
 				<span class="user-actions">
 					<button (click)="edit()">

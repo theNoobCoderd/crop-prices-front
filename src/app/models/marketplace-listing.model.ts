@@ -7,6 +7,7 @@ export interface MarketplaceListing {
 	imageUrl: string,
 	type: string,
 	creationDate: Date,
+	expiryDate: Date,
 	seller: {
 		id: string,
 		username: string,
