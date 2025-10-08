@@ -2,7 +2,7 @@
 	<select
 				[id]="id"
 				class="form-control"
-				[value]="value"
+				[ngModel]="value"
 				(change)="onSelectionChange($event)"
 				(blur)="onBlur()"
 				[disabled]="disabled"

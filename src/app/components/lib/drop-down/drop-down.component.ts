@@ -1,5 +1,5 @@
 import {Component, forwardRef, Injector, Input, Optional, Self} from '@angular/core';
-import {ControlValueAccessor, NG_VALUE_ACCESSOR, NgControl, ReactiveFormsModule} from "@angular/forms";
+import {ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR, NgControl, ReactiveFormsModule} from "@angular/forms";
 import {NgForOf} from "@angular/common";
 
 export interface DropdownOption {
@@ -12,7 +12,8 @@ export interface DropdownOption {
 	selector: 'app-drop-down',
 	imports: [
 		ReactiveFormsModule,
-		NgForOf
+		NgForOf,
+		FormsModule
 	],
 	templateUrl: './drop-down.component.html',
 	styleUrl: './drop-down.component.less',

@@ -22,6 +22,11 @@ export class ListingService {
 		return this._http.post<boolean>(url, listing);
 	}
 
+	modifyListing(listing: MarketplaceListing): Observable<boolean> {
+		const url = `${this.apiUrl}/modify`;
+		return this._http.post<boolean>(url, listing);
+	}
+
 	getListingsByUserId(userId: string): Observable<MarketplaceListing[]> {
 		const url = `${this.apiUrl}/user/${userId}`;
 		return this._http.get<MarketplaceListing[]>(url);

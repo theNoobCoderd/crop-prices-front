@@ -5,19 +5,62 @@
 	<div class="item-info">
 		<span class="date">
 			<div>Posted: {{item?.creationDate | date: 'dd MMM. yyyy / HH:mm'}}</div>
+			@if (isModifiable) {
+				<span class="user-actions">
+					<button (click)="edit()">
+						<img class="edit" src="assets/svgs/edit-icon.svg" alt="edit">
+					</button>
+
+					<button (click)="delete()">
+						<img class="delete" src="assets/svgs/delete-icon.svg" alt="del">
+					</button>
+				</span>
+			}
 		</span>
 
 		<span class="crp-info">
 			<div class="crp-name">Item: {{item?.produce?.name}}</div>
 			<div>
-				<span class="crp-price">Price: {{item?.price}} / {{item?.unit}}</span>
-				<span>Qty: {{item?.quantity}} {{item?.unit}}</span>
+				<span class="crp-price">
+					Price: {{item?.price}} /
+					@switch (item?.unit) {
+						@case ("KG") {
+							Kg
+						}
+						@case ("PACKET") {
+							Pkt
+						}
+						@case ("BOX") {
+							Box
+						}
+						@case ("UNITS") {
+							Unit
+						}
+					}
+				</span>
+				<span>
+					Qty: {{item?.quantity}}
+					@switch (item?.unit) {
+						@case ("KG") {
+							Kg
+						}
+						@case ("PACKET") {
+							Pkts
+						}
+						@case ("BOX") {
+							Boxes
+						}
+						@case ("UNITS") {
+							Units
+						}
+					}
+				</span>
 			</div>
 		</span>
 
 		<span class="seller-info">
+			<div>Desc: {{item?.description}}</div>
 			<div class="region">Region: {{item?.seller?.region}}</div>
-			<div>Locality: {{item?.seller?.region}}</div>
 		</span>
 
 		<span class="call-info">

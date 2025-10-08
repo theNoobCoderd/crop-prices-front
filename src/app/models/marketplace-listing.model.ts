@@ -18,5 +18,6 @@ export interface MarketplaceListing {
 		name: string,
 		unitOfMeasure: string,
 		type: string,
-	}
+	},
+	isDeleted: boolean,
 }

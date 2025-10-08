@@ -35,6 +35,9 @@
 	flex-grow: 1;
 
 	.date {
+		display: flex;
+		justify-content: space-between;
+
 		font-size: 11px;
 		margin-top: 7px;
 
@@ -77,5 +80,20 @@
 		background-color: #E3E3E3;
 
 		font-weight: bold;
+	}
+}
+
+.user-actions {
+	button {
+		all: unset;
+	}
+
+	display: flex;
+	gap: 10px;
+
+	margin-right: 14px;
+	img {
+		width: 24px;
+		height: 24px;
 	}
 }
