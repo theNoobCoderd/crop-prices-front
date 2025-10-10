@@ -1,0 +1,83 @@
+@if (listingsLoaded$ | async) {
+	<div class="crp-container">
+		@for ((item of marketPlaceItems$ | async); track item) {
+			<app-marketplace-item [item]="item"></app-marketplace-item>
+		}
+		<app-add-crop></app-add-crop>
+	</div>
+} @else {
+	<div class="crp-container">
+		<div class="skeleton-container">
+		<span class="photo">
+			<ngx-skeleton-loader [theme]="{ height: '100%', 'border-radius': '8px' }"></ngx-skeleton-loader>
+		</span>
+			<span class="text">
+			<ngx-skeleton-loader
+				[count]="6"
+				[theme]="{ 'border-radius': '8px', height: '17px' }"
+			>
+        </ngx-skeleton-loader>
+		</span>
+		</div>
+		<div class="skeleton-container">
+		<span class="photo">
+			<ngx-skeleton-loader [theme]="{ height: '100%', 'border-radius': '8px' }"></ngx-skeleton-loader>
+		</span>
+			<span class="text">
+			<ngx-skeleton-loader
+				[count]="6"
+				[theme]="{ 'border-radius': '8px', height: '17px' }"
+			>
+        </ngx-skeleton-loader>
+		</span>
+		</div>
+		<div class="skeleton-container">
+		<span class="photo">
+			<ngx-skeleton-loader [theme]="{ height: '100%', 'border-radius': '8px' }"></ngx-skeleton-loader>
+		</span>
+			<span class="text">
+			<ngx-skeleton-loader
+				[count]="6"
+				[theme]="{ 'border-radius': '8px', height: '17px' }"
+			>
+        </ngx-skeleton-loader>
+		</span>
+		</div>
+		<div class="skeleton-container">
+		<span class="photo">
+			<ngx-skeleton-loader [theme]="{ height: '100%', 'border-radius': '8px' }"></ngx-skeleton-loader>
+		</span>
+			<span class="text">
+			<ngx-skeleton-loader
+				[count]="6"
+				[theme]="{ 'border-radius': '8px', height: '17px' }"
+			>
+        </ngx-skeleton-loader>
+		</span>
+		</div>
+		<div class="skeleton-container">
+		<span class="photo">
+			<ngx-skeleton-loader [theme]="{ height: '100%', 'border-radius': '8px' }"></ngx-skeleton-loader>
+		</span>
+			<span class="text">
+			<ngx-skeleton-loader
+				[count]="6"
+				[theme]="{ 'border-radius': '8px', height: '17px' }"
+			>
+        </ngx-skeleton-loader>
+		</span>
+		</div>
+		<div class="skeleton-container">
+		<span class="photo">
+			<ngx-skeleton-loader [theme]="{ height: '100%', 'border-radius': '8px' }"></ngx-skeleton-loader>
+		</span>
+			<span class="text">
+			<ngx-skeleton-loader
+				[count]="6"
+				[theme]="{ 'border-radius': '8px', height: '17px' }"
+			>
+        </ngx-skeleton-loader>
+		</span>
+		</div>
+	</div>
+}

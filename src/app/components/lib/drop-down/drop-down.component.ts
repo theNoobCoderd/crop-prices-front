@@ -1,17 +1,19 @@
-import {Component, forwardRef, Input} from '@angular/core';
-import {ControlValueAccessor, NG_VALUE_ACCESSOR, ReactiveFormsModule} from "@angular/forms";
+import {Component, forwardRef, Injector, Input, Optional, Self} from '@angular/core';
+import {ControlValueAccessor, FormsModule, NG_VALUE_ACCESSOR, NgControl, ReactiveFormsModule} from "@angular/forms";
 import {NgForOf} from "@angular/common";
 
 export interface DropdownOption {
 	id: string | number;
 	name: string;
+	value: string;
 }
 
 @Component({
 	selector: 'app-drop-down',
 	imports: [
 		ReactiveFormsModule,
-		NgForOf
+		NgForOf,
+		FormsModule
 	],
 	templateUrl: './drop-down.component.html',
 	styleUrl: './drop-down.component.less',
@@ -29,8 +31,17 @@ export class DropDownComponent implements ControlValueAccessor {
 	@Input() placeholder: string = 'Select an option';
 	@Input() options: DropdownOption[] = [];
 
+	private ngControl: NgControl | null = null;
+
 	value: string | number = '';
 	disabled = false;
+
+	constructor(private injector: Injector) {}
+
+	ngOnInit() {
+		// Get the NgControl after initialization to avoid circular dependency
+		this.ngControl = this.injector.get(NgControl, null);
+	}
 
 	// ControlValueAccessor methods
 	onChange = (value: string | number) => {};
@@ -60,5 +71,13 @@ export class DropDownComponent implements ControlValueAccessor {
 
 	trackByFn(index: number, item: DropdownOption): string | number {
 		return item.id;
+	}
+
+	onBlur(): void {
+		this.onTouched(); // Make sure this is called on blur
+	}
+
+	get formControl() {
+		return this.ngControl?.control;
 	}
 }
