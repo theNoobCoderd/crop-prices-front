@@ -1,20 +1,22 @@
-import {Component, EventEmitter, inject, Input, Output} from "@angular/core";
+import {Component, EventEmitter, inject, Input, OnDestroy, Output} from "@angular/core";
 import {MarketplaceListing} from "../../../models/marketplace-listing.model";
 import {DatePipe} from "@angular/common";
 import {MatDialog} from "@angular/material/dialog";
 import {ModifyListingComponent} from "../modify-listing/modify-listing.component";
 import {ListingService} from "../../../services/listing/listing.service";
 import { M } from "@angular/material/dialog.d-B5HZULyo";
+import {MatDialogConfirmationComponent} from "../../lib/mat-dialog-confirmation/mat-dialog-confirmation.component";
+import {Subject, takeUntil} from "rxjs";
 
 @Component({
 	selector: "app-marketplace-item",
 	imports: [
-		DatePipe
+		DatePipe,
 	],
 	templateUrl: "./marketplace-item.component.html",
 	styleUrl: "./marketplace-item.component.less"
 })
-export class MarketplaceItemComponent {
+export class MarketplaceItemComponent implements OnDestroy {
 
 	@Input() item: MarketplaceListing | undefined;
 	@Input() isModifiable: boolean = false;
@@ -23,6 +25,8 @@ export class MarketplaceItemComponent {
 	readonly dialog = inject(MatDialog);
 	listingService = inject(ListingService);
 	dialogRef: M<ModifyListingComponent, any> | undefined;
+	dialogRefDeleteConfirm: M<MatDialogConfirmationComponent, any> | undefined;
+	private _destroy$ = new Subject<void>();
 
 	edit() {
 		this.dialogRef = this.dialog.open(ModifyListingComponent, {
@@ -41,13 +45,26 @@ export class MarketplaceItemComponent {
 
 	delete() {
 		if (this.item) {
-			this.item.isDeleted = true;
-			this.listingService.modifyListing(this.item).subscribe((response: boolean) => {
-				if (response) {
-					this.modified.emit();
+			this.dialogRefDeleteConfirm = this.dialog.open(MatDialogConfirmationComponent, {});
+
+			this.dialogRefDeleteConfirm.afterClosed().subscribe(result => {
+				if (result === true && this.item) {
+					this.item.isDeleted = true;
+					this.listingService.modifyListing(this.item)
+						.pipe(takeUntil(this._destroy$))
+						.subscribe((response: boolean) => {
+							if (response) {
+								this.modified.emit();
+							}
+						});
 				}
-			});
+			})
 		}
+	}
+
+	ngOnDestroy(): void {
+		this._destroy$.next();
+		this._destroy$.complete();
 	}
 
 }

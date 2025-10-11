@@ -54,8 +54,6 @@ export class ModifyListingComponent {
 		});
 
 		this._markAllFieldsAsTouched();
-
-		console.log(listingModel);
 	}
 
 	private _mapFormToListing(): MarketplaceListing {

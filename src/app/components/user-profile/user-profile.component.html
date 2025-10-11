@@ -29,11 +29,18 @@
 			<span class="category-group">
 				<h3>My Listings</h3>
 				@if (userListingLoaded$ | async) {
-					<span class="marketplace-items">
+					@if (userListings.length > 0) {
+						<span class="marketplace-items">
 						@for (item of userListings; track item.id) {
 							<app-marketplace-item [item]="item" [isModifiable]="true" (modified)="fetchListingsByUserId()"></app-marketplace-item>
 						}
 					</span>
+					} @else {
+						<span class="no-listings">
+							<img src="assets/svgs/empty-inbox.svg" alt="Down" class="arrow-icon arrow-up"/>
+							<p>You have no active Listings !</p>
+						</span>
+					}
 				} @else {
 					<span class="skeleton-spacer">
 						<div class="skeleton-container">

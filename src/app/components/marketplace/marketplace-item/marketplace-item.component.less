@@ -91,14 +91,31 @@
 .user-actions {
 	button {
 		all: unset;
+		width: 100%;
 	}
 
 	display: flex;
-	gap: 10px;
+	flex-flow: row nowrap;
+	text-align: center;
 
-	margin-right: 14px;
 	img {
 		width: 24px;
 		height: 24px;
+	}
+
+	.user-edit {
+		width: 50%;
+		background-color: #38B87D;
+		color: white;
+		padding-block: 10px;
+		border-radius: 0 0 0 3px;
+	}
+
+	.user-delete {
+		width: 50%;
+		background-color: #F34642;
+		color: white;
+		padding-block: 10px;
+		border-radius: 0 0 3px 0;
 	}
 }
