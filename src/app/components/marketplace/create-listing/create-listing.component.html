@@ -53,7 +53,9 @@
 
 				<span class="details">
 					<input placeholder="Farmer Name" class="basic-input" id="farmer-name" formControlName="farmername" type="text" readonly>
-					<input placeholder="Contact Info" class="basic-input" id="phone" formControlName="phone" type="tel" [class.invalid-field]="createListingForm.get('phone')?.errors?.['required'] && createListingForm.get('phone')?.touched">
+					<input placeholder="Contact Info" class="basic-input" id="phone" formControlName="phone"
+								 type="tel"
+								 [class.invalid-field]="(createListingForm.get('phone')?.errors?.['required'] || createListingForm.get('phone')?.errors?.['pattern']) && createListingForm.get('phone')?.touched">
 					<app-drop-down
 						id="region"
 						placeholder="Select Region"

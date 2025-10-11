@@ -155,12 +155,12 @@ export const DROP_DOWN_VALUE_V2 = [
 	{ id: 71, name: "Rave", value: "Rave" },
 	{ id: 72, name: "Romarin", value: "Romarin" },
 	{ id: 73, name: "Safron", value: "Safron" },
-	{ id: 75, name: "Sooran", value: "Sooran" },
-	{ id: 76, name: "Thyme", value: "Thyme" },
-	{ id: 77, name: "Ti Piment", value: "Ti Piment" },
-	{ id: 78, name: "Tomate", value: "Tomate" },
-	{ id: 79, name: "Tomato ( Cherry)", value: "Tomato ( Cherry)" },
-	{ id: 80, name: "Turnip", value: "Turnip" },
-	{ id: 81, name: "Violette", value: "Violette" },
-	{ id: 82, name: "Voem", value: "Voem" }
+	{ id: 74, name: "Sooran", value: "Sooran" },
+	{ id: 75, name: "Thyme", value: "Thyme" },
+	{ id: 76, name: "Ti Piment", value: "Ti Piment" },
+	{ id: 77, name: "Tomate", value: "Tomate" },
+	{ id: 78, name: "Tomato ( Cherry)", value: "Tomato ( Cherry)" },
+	{ id: 79, name: "Turnip", value: "Turnip" },
+	{ id: 80, name: "Violette", value: "Violette" },
+	{ id: 81, name: "Voem", value: "Voem" }
 ] as DropDownValue[];

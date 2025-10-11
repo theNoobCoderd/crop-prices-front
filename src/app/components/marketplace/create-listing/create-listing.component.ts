@@ -1,6 +1,6 @@
 import {Component, inject, OnDestroy} from "@angular/core";
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
-import {DROP_DOWN_VALUE} from "../../../constants/drop-down-values";
+import {DROP_DOWN_VALUE_V2} from "../../../constants/drop-down-values";
 import {DropDownValue} from "../../../models/drop-down-value.model";
 import {MarketplaceListing} from "../../../models/marketplace-listing.model";
 import {UserService} from "../../../services/user/user.service";
@@ -53,7 +53,7 @@ export class CreateListingComponent implements OnDestroy {
 			unit: ['', Validators.required],
 			images: ['', Validators.required],
 			farmername: [this.userService.currentUser$.getValue()?.username, Validators.required],
-			phone: [this.userService.currentUser$.getValue()?.phone, Validators.required],
+			phone: [this.userService.currentUser$.getValue()?.phone, [Validators.required, Validators.pattern(/^\d{7}$/)]],
 			region: [this.userService.currentUser$.getValue()?.region, Validators.required]
 		});
 
@@ -70,7 +70,7 @@ export class CreateListingComponent implements OnDestroy {
 	}
 
 	onSubmit(): void {
-		const dialogRef = this.dialog.open(MatDialogLoadingComponent);
+		const dialogRef = this.dialog.open(MatDialogLoadingComponent, {data: {message: "Creating Listing. Please Wait..."}});
 
 		const listingModel = this._mapFormToListing();
 		this._listingService.createListing(listingModel)
@@ -143,6 +143,6 @@ export class CreateListingComponent implements OnDestroy {
 		});
 	}
 
-	protected readonly DROP_DOWN_VALUE = DROP_DOWN_VALUE;
+	protected readonly DROP_DOWN_VALUE = DROP_DOWN_VALUE_V2;
 	protected readonly REGIONS = REGIONS;
 }
