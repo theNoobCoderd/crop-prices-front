@@ -1,5 +1,11 @@
-import {ChangeDetectionStrategy, Component } from '@angular/core';
-import {MatDialogActions, MatDialogClose, MatDialogContent, MatDialogTitle} from "@angular/material/dialog";
+import {ChangeDetectionStrategy, Component, Inject} from '@angular/core';
+import {
+	MAT_DIALOG_DATA,
+	MatDialogActions,
+	MatDialogClose,
+	MatDialogContent,
+	MatDialogTitle
+} from "@angular/material/dialog";
 import {MatButtonModule} from "@angular/material/button";
 
 @Component({
@@ -10,5 +16,6 @@ import {MatButtonModule} from "@angular/material/button";
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MatDialogComponent {
-
+	constructor(@Inject(MAT_DIALOG_DATA) public data: { message: string }) {
+	}
 }

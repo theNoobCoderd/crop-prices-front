@@ -1,6 +1,10 @@
 <h2 mat-dialog-title class="title">Go Premium</h2>
 <mat-dialog-content class="content">
-	<p>Premium Access required for this feature.</p>
+	@if (data) {
+		<p>{{data.message}}</p>
+	} @else {
+		<p>Premium Access required for this feature.</p>
+	}
 	<p>Get Premium Access today and enjoy full access: Call / Message: 59335318</p>
 </mat-dialog-content>
 <mat-dialog-actions>
