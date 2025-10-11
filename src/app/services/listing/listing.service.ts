@@ -13,7 +13,7 @@ export class ListingService {
 	constructor(private _http: HttpClient) { }
 
 	getAllListing(): Observable<MarketplaceListing[]> {
-		const url = `${this.apiUrl}/`;
+		const url = `${this.apiUrl}/free`;
 		return this._http.get<MarketplaceListing[]>(url);
 	}
 
