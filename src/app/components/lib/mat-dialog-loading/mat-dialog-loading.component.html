@@ -1,7 +1,11 @@
 <span class="loading-container">
 	<mat-dialog-content class="content">
 		<span class="text">
-			Creating Listing. Please Wait...
+			@if (data) {
+				<p>{{data.message}}</p>
+			} @else {
+				Please Wait...
+			}
 		</span>
 		<span class="progress-bar">
 			<mat-progress-bar mode="indeterminate"></mat-progress-bar>

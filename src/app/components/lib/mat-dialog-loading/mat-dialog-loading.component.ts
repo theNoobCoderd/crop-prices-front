@@ -1,6 +1,6 @@
-import { Component } from '@angular/core';
+import {Component, Inject, Input} from '@angular/core';
 import {MatProgressBar} from "@angular/material/progress-bar";
-import {MatDialogActions, MatDialogContent} from "@angular/material/dialog";
+import {MAT_DIALOG_DATA, MatDialogContent} from "@angular/material/dialog";
 
 @Component({
   selector: 'app-mat-dialog-loading',
@@ -12,5 +12,5 @@ import {MatDialogActions, MatDialogContent} from "@angular/material/dialog";
   styleUrl: './mat-dialog-loading.component.less'
 })
 export class MatDialogLoadingComponent {
-
+	constructor(@Inject(MAT_DIALOG_DATA) public data: { message: string }) {}
 }
