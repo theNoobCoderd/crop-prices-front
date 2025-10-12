@@ -53,7 +53,7 @@ export class CreateListingComponent implements OnDestroy {
 			unit: ['', Validators.required],
 			images: ['', Validators.required],
 			farmername: [this.userService.currentUser$.getValue()?.username, Validators.required],
-			phone: [this.userService.currentUser$.getValue()?.phone, [Validators.required, Validators.pattern(/^\d{7}$/)]],
+			phone: [this.userService.currentUser$.getValue()?.phone, [Validators.required, Validators.pattern(/^\d{8}$/)]],
 			region: [this.userService.currentUser$.getValue()?.region, Validators.required]
 		});
 
