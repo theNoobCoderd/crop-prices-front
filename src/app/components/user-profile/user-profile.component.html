@@ -21,6 +21,49 @@
 		</div>
 	</span>
 
+	<div>
+	</div>
+
+	<div class="my-listing">
+		<span class="span-group">
+			<span class="category-group">
+				<h3>My Listings</h3>
+				@if (userListingLoaded$ | async) {
+					@if (userListings.length > 0) {
+						<span class="marketplace-items">
+						@for (item of userListings; track item.id) {
+							<app-marketplace-item [item]="item" [isModifiable]="true" (modified)="fetchListingsByUserId()"></app-marketplace-item>
+						}
+					</span>
+					} @else {
+						<span class="no-listings">
+							<img src="assets/svgs/empty-inbox.svg" alt="Down" class="arrow-icon arrow-up"/>
+							<p>You have no active Listings !</p>
+						</span>
+					}
+				} @else {
+					<span class="skeleton-spacer">
+						<div class="skeleton-container">
+						<span class="photo">
+							<ngx-skeleton-loader [theme]="{ height: '100%', 'border-radius': '8px' }"></ngx-skeleton-loader>
+						</span>
+						<span class="text">
+							<ngx-skeleton-loader [count]="6" [theme]="{ 'border-radius': '8px', height: '17px' }"></ngx-skeleton-loader>
+						</span>
+					</div>
+						<div class="skeleton-container">
+						<span class="photo">
+							<ngx-skeleton-loader [theme]="{ height: '100%', 'border-radius': '8px' }"></ngx-skeleton-loader>
+						</span>
+						<span class="text">
+							<ngx-skeleton-loader [count]="6" [theme]="{ 'border-radius': '8px', height: '17px' }"></ngx-skeleton-loader>
+						</span>
+					</div>
+					</span>
+				}
+			</span>
+		</span>
+	</div>
 
 	@if(currentUser?.roles?.includes("ROLE_PREMIUM1") || currentUser?.roles?.includes("ROLE_ADMIN")) {
 		<span class="span-group">
@@ -28,7 +71,10 @@
 				<h3>Purchases</h3>
 				@if (purchasesLoading$ | async) {
 					<span class="align-spinner">
-						<mat-spinner color="primary"></mat-spinner>
+						<ngx-skeleton-loader class="skeleton col-12"
+									count="5"
+									appearance="line"
+									[theme]="{ 'height.px': 45,'background-color': '#F2F2F2'}"/>
 					</span>
 				} @else {
 					<span class="details">

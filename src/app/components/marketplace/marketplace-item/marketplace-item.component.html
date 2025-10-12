@@ -1,0 +1,77 @@
+<div>
+	<div class="mrk-item-container">
+		<div class="item-image">
+		<img [src]="item?.imageUrl" alt="assets/images/carrots.jpg"/>
+		</div>
+		<div class="item-info">
+			<span class="date">
+				<span class="dates">
+					<div>Posted: {{item?.creationDate | date: 'dd MMM. yyyy / HH:mm'}}</div>
+					@if (isModifiable) {
+						<div>Expires: {{item?.expiryDate | date: 'dd MMM. yyyy / HH:mm'}}</div>
+					}
+				</span>
+			</span>
+
+			<span class="crp-info">
+				<div class="crp-name">Item: {{item?.produce?.name}}</div>
+				<div>
+					<span class="crp-price">
+						Price: {{item?.price}} /
+						@switch (item?.unit) {
+							@case ("KG") {
+								Kg
+							}
+							@case ("PACKET") {
+								Pkt
+							}
+							@case ("BOX") {
+								Box
+							}
+							@case ("UNITS") {
+								Unit
+							}
+						}
+					</span>
+					<span>
+						Qty: {{item?.quantity}}
+						@switch (item?.unit) {
+							@case ("KG") {
+								Kg
+							}
+							@case ("PACKET") {
+								Pkts
+							}
+							@case ("BOX") {
+								Boxes
+							}
+							@case ("UNITS") {
+								Units
+							}
+						}
+					</span>
+				</div>
+			</span>
+
+			<span class="seller-info">
+				<div>Desc: {{item?.description}}</div>
+				<div class="region">Region: {{item?.seller?.region}}</div>
+			</span>
+
+			<span class="call-info">
+				<div>Call on {{item?.seller?.phone}}</div>
+			</span>
+		</div>
+	</div>
+	@if (isModifiable) {
+		<div class="user-actions">
+			<span class="user-edit">
+				<button (click)="edit()">Modify</button>
+			</span>
+			<span class="user-delete">
+				<button (click)="delete()">Delete</button>
+			</span>
+		</div>
+	}
+</div>
+

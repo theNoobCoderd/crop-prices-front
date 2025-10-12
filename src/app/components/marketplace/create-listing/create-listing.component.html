@@ -1,0 +1,99 @@
+@if (userService.currentUser$ | async) {
+	<span class="header">
+		<h2>Add Listing</h2>
+	</span>
+
+	<form class="create-post" [formGroup]="createListingForm" (ngSubmit)="onSubmit()">
+		<span class="input-form">
+			<span class="category-group">
+				<h3>Crop Details</h3>
+				<span class="details">
+					<app-drop-down
+						id="crop"
+						placeholder="Select Crop"
+						[options]="DROP_DOWN_VALUE"
+						formControlName="crop">
+					</app-drop-down>
+
+					<input placeholder="Description"
+								 class="basic-input" id="description" formControlName="description" type="text"
+								 [class.invalid-field]="createListingForm.get('description')?.errors?.['required'] && createListingForm.get('description')?.touched">
+				</span>
+			</span>
+
+			<span class="category-group">
+				<h3>Pricing & Quantity</h3>
+
+				<span class="details">
+					<span class="price-unit">
+						<input placeholder="Price" class="basic-input" id="price" formControlName="price" type="number"
+									 [class.invalid-field]="createListingForm.get('price')?.errors?.['required'] && createListingForm.get('price')?.touched">
+						<span class="drop">
+							<app-drop-down
+								id="unit"
+								placeholder="/ Select Unit"
+								[options]="[
+									{id: 1, name:'Kg', value: 'KG'},
+									{id: 2, name:'Packet', value: 'PACKET'},
+									{id: 3, name:'Units', value: 'UNITS'},
+									{id: 4, name:'Box', value: 'BOX'}
+								]"
+								formControlName="unit">
+							</app-drop-down>
+						</span>
+					</span>
+
+					<input placeholder="Quantity" class="basic-input" id="quantity" formControlName="quantity" type="number"
+								 [class.invalid-field]="createListingForm.get('quantity')?.errors?.['required'] && createListingForm.get('quantity')?.touched">
+				</span>
+			</span>
+
+			<span class="category-group">
+				<h3>Seller Info</h3>
+
+				<span class="details">
+					<input placeholder="Farmer Name" class="basic-input" id="farmer-name" formControlName="farmername" type="text" readonly>
+					<input placeholder="Contact Info" class="basic-input" id="phone" formControlName="phone"
+								 type="tel"
+								 [class.invalid-field]="(createListingForm.get('phone')?.errors?.['required'] || createListingForm.get('phone')?.errors?.['pattern']) && createListingForm.get('phone')?.touched">
+					<app-drop-down
+						id="region"
+						placeholder="Select Region"
+						[options]="REGIONS"
+						formControlName="region">
+					</app-drop-down>
+				</span>
+			</span>
+
+			<span class="category-group">
+				<span class="details">
+					<span class="drop-container">
+						<span class="upload-text">
+							<span class="head">Upload Image</span>
+						</span>
+						@if (imgResultAfterCompress$ | async) {
+							<span class="uploaded-images">
+								<img [src]="imgResultAfterCompress$ | async">
+								@if (uploadProgress > 0) {
+									<mat-progress-bar class="progress-bar" mode="determinate" [value]="uploadProgress"></mat-progress-bar>
+								}
+							</span>
+						}
+						<label for="images" class="custom-file-upload">
+							Upload
+							<input id="images" formControlName="images" type="button" (click)="processImage()" alt="">
+						</label>
+					</span>
+				</span>
+			</span>
+
+			<span class="sign-up-button">
+				<button type="submit" [disabled]="!createListingForm.valid">Add Crop</button>
+			</span>
+		</span>
+	</form>
+}
+
+@if (!(userService.currentUser$ | async)) {
+	<app-login></app-login>
+}

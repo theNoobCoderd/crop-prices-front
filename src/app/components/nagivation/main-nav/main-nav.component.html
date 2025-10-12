@@ -5,6 +5,11 @@
 			<div class="text">NWM PRICE</div>
 		</button>
 
+		<button (click)="navToMarketplace()" class="navigation-item" [class.selected] = "(pagesService.selectedPage$ | async) === NavigationPage.MARKETPLACE">
+			<img src="assets/svgs/main-nav-marketplace.svg" alt="Marketplace">
+			<div class="text">BUY & SELL</div>
+		</button>
+
 		<button (click)="navToHistoric()" class="navigation-item" [class.selected] = "(pagesService.selectedPage$ | async) === NavigationPage.STATS">
 			<img src="assets/svgs/main-nav-stats.svg" alt="Stats">
 			<div class="text">STATS</div>

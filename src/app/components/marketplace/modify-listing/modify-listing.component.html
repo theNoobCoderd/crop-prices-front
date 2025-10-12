@@ -1,0 +1,70 @@
+@if (userService.currentUser$ | async) {
+}
+
+<span>
+	<span class="header">
+		<h2 mat-dialog-title>Modify Listing</h2>
+	</span>
+</span>
+<span class="edit-body">
+	<form class="create-post" [formGroup]="createListingForm" (ngSubmit)="onSubmit()">
+		<span class="input-form">
+			<span class="category-group">
+				<h3>Crop Details</h3>
+				<span class="details">
+
+					<input placeholder="Description"
+								 class="basic-input" id="description" formControlName="description" type="text"
+								 [class.invalid-field]="createListingForm.get('description')?.errors?.['required'] && createListingForm.get('description')?.touched">
+				</span>
+			</span>
+
+			<span class="category-group">
+				<h3>Pricing & Quantity</h3>
+
+				<span class="details">
+					<span class="price-unit">
+						<input placeholder="Price" class="basic-input" id="price" formControlName="price" type="number"
+									 [class.invalid-field]="createListingForm.get('price')?.errors?.['required'] && createListingForm.get('price')?.touched">
+						<span class="drop">
+							<app-drop-down
+								id="unit"
+								placeholder="/ Unit"
+								[options]="[
+									{id: 1, name:'Kg', value: 'KG'},
+									{id: 2, name:'Packet', value: 'PACKET'},
+									{id: 3, name:'Units', value: 'UNITS'},
+									{id: 4, name:'Box', value: 'BOX'}
+								]"
+								formControlName="unit">
+							</app-drop-down>
+						</span>
+					</span>
+
+					<input placeholder="Quantity" class="basic-input" id="quantity" formControlName="quantity" type="number"
+								 [class.invalid-field]="createListingForm.get('quantity')?.errors?.['required'] && createListingForm.get('quantity')?.touched">
+				</span>
+			</span>
+
+			<span class="category-group">
+				<h3>Seller Info</h3>
+
+				<span class="details">
+					<input placeholder="Farmer Name" class="basic-input" id="farmer-name" formControlName="farmername" type="text" readonly>
+					<input placeholder="Contact Info" class="basic-input" id="phone" formControlName="phone" type="tel" [class.invalid-field]="createListingForm.get('phone')?.errors?.['required'] && createListingForm.get('phone')?.touched">
+					<app-drop-down
+						id="region"
+						placeholder="Select Region"
+						[options]="REGIONS"
+						formControlName="region">
+					</app-drop-down>
+				</span>
+			</span>
+
+		</span>
+	</form>
+</span>
+<mat-dialog-actions>
+	<button class="cancel-button" (click)="close()">Cancel</button>
+	<button type="submit" [disabled]="!createListingForm.valid" (click)="onSubmit()">Modify</button>
+</mat-dialog-actions>
