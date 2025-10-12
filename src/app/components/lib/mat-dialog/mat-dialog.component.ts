@@ -16,6 +16,6 @@ import {MatButtonModule} from "@angular/material/button";
 	changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MatDialogComponent {
-	constructor(@Inject(MAT_DIALOG_DATA) public data: { message: string }) {
+	constructor(@Inject(MAT_DIALOG_DATA) public data: { message: string, header: string }) {
 	}
 }
