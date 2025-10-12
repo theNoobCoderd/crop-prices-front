@@ -7,6 +7,7 @@ import {ListingService} from "../../../services/listing/listing.service";
 import { M } from "@angular/material/dialog.d-B5HZULyo";
 import {MatDialogConfirmationComponent} from "../../lib/mat-dialog-confirmation/mat-dialog-confirmation.component";
 import {Subject, takeUntil} from "rxjs";
+import {MatDialogImageComponent} from "../../lib/mat-dialog-image/mat-dialog-image.component";
 
 @Component({
 	selector: "app-marketplace-item",
@@ -60,6 +61,10 @@ export class MarketplaceItemComponent implements OnDestroy {
 				}
 			})
 		}
+	}
+
+	fullscreenImage() {
+		this.dialog.open(MatDialogImageComponent, {data: {message: this.item?.imageUrl}});
 	}
 
 	ngOnDestroy(): void {
