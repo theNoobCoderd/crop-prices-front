@@ -1,5 +1,4 @@
 import {Unit} from "./unit.enum";
-import {Type} from "./type.enum";
 
 export interface HistoryGraphModel {
 	vegetableName: string;

@@ -8,12 +8,29 @@
 			<span class="category-group">
 				<h3>Crop Details</h3>
 				<span class="details">
-					<app-drop-down
-						id="crop"
-						placeholder="Select Crop"
-						[options]="DROP_DOWN_VALUE"
-						formControlName="crop">
-					</app-drop-down>
+					<div class="segmented-control">
+						<button
+							type="button"
+							class="segment"
+							*ngFor="let option of CROP_SELECTION"
+							[class.active]="(cropTypeSelected$ | async) === option.value"
+							(click)="selectCropType(option.value)">
+							{{ option.label }}
+						</button>
+					</div>
+
+					@if ((cropTypeSelected$ | async) !== "3") {
+						<app-drop-down
+							id="crop"
+							placeholder="Select Crop"
+							[options]="(DROP_DOWN_VALUE$.getValue())"
+							formControlName="crop">
+						</app-drop-down>
+					} @else {
+						<input placeholder="Crop Name"
+									 class="basic-input" id="cropname" formControlName="cropname" type="text"
+									 [class.invalid-field]="createListingForm.get('cropname')?.errors?.['required'] && createListingForm.get('cropname')?.touched">
+					}
 
 					<input placeholder="Description"
 								 class="basic-input" id="description" formControlName="description" type="text"
@@ -88,7 +105,11 @@
 			</span>
 
 			<span class="sign-up-button">
-				<button type="submit" [disabled]="!createListingForm.valid">Add Crop</button>
+				<button
+					[ngClass]="{
+					'button-disabled': !createListingForm.valid,
+					'button-enabled': createListingForm.valid
+					}" type="submit">Add Crop</button>
 			</span>
 		</span>
 	</form>

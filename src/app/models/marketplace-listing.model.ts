@@ -21,4 +21,5 @@ export interface MarketplaceListing {
 		type: string,
 	},
 	isDeleted: boolean,
+	otherCropName: string
 }

@@ -146,7 +146,6 @@ input[type=button] {
 
 	button {
 		all: unset;
-		background-color: #8CD178;
 		text-align: center;
 
 		border-radius: 8px;
@@ -159,9 +158,13 @@ input[type=button] {
 		color: #444444;
 	}
 
-	button:disabled {
+	.button-disabled {
 		cursor: not-allowed;
 		background-color: #c2c2c2;
+	}
+
+	.button-enabled {
+		background-color: #8CD178;
 	}
 }
 
@@ -182,4 +185,30 @@ input[type=button] {
 	.progress-bar {
 		width: 70%;
 	}
+}
+
+.segmented-control {
+	display: flex;
+	background-color: #EBF2EB;
+	border-radius: var(--bs-border-radius);
+	padding: 4px;
+	justify-content: space-between;
+}
+
+.segmented-control .segment {
+	background: transparent;
+	border: none;
+	color: #629155;
+	padding: 12px 16px;
+	border-radius: 5px;
+	cursor: pointer;
+	font-size: 14px;
+	transition: background-color 0.3s, color 0.3s;
+
+	width: 100%;
+}
+
+.segmented-control .segment.active {
+	background-color: #629155;
+	color: white;
 }
