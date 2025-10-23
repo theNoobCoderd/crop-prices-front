@@ -114,7 +114,18 @@ export class HistoricComponent implements OnDestroy {
 			setTimeout(()=> {
 				this.dataSource = this._transformData(crops);
 
-				this._buildCharts(crops)
+				let invertedCropList = {
+					...crops,
+					lowestPrices: [...crops.lowestPrices].reverse(),
+					mostCommonPrices: [...crops.mostCommonPrices].reverse(),
+					highestPrices: [...crops.highestPrices].reverse(),
+					totalSoldList: [...crops.totalSoldList].reverse(),
+					dates: [...crops.dates].reverse(),
+					revenue: [...crops.revenue].reverse(),
+
+				} as HistoryGraphModel;
+
+				this._buildCharts(invertedCropList);
 
 				this.isLoading$.next(false);
 				this.hasData$.next(true);
