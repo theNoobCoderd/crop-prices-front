@@ -11,6 +11,10 @@
 						<div>Expires: {{item?.expiryDate | date: 'dd MMM. yyyy / HH:mm'}}</div>
 					}
 				</span>
+
+				@if (item?.isDeleted) {
+					<span class="sold"> SOLD </span>
+				}
 			</span>
 
 			<span class="crp-info">
