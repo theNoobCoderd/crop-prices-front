@@ -31,4 +31,9 @@ export class ListingService {
 		const url = `${this.apiUrl}/user/${userId}`;
 		return this._http.get<MarketplaceListing[]>(url);
 	}
+
+	getActiveListingsByUserId(userId: string): Observable<MarketplaceListing[]> {
+		const url = `${this.apiUrl}/active/user/${userId}`;
+		return this._http.get<MarketplaceListing[]>(url);
+	}
 }

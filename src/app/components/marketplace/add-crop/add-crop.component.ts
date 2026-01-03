@@ -35,7 +35,7 @@ export class AddCropComponent implements OnDestroy {
 			takeUntil(this._destroy$),
 			switchMap(user => {
 				if (user) {
-					return this._listingService.getListingsByUserId(user.id);
+					return this._listingService.getActiveListingsByUserId(user.id);
 				} else {
 					dialogRef.close();
 					this.dialog.open(MatDialogComponent, {data: {message: "You must be logged in to add a listing.", header: "Login"}});
