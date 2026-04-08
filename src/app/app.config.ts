@@ -1,5 +1,5 @@
 import {ApplicationConfig} from '@angular/core';
-import { provideRouter } from '@angular/router';
+import {provideRouter, withInMemoryScrolling} from '@angular/router';
 
 import { routes } from './app.routes';
 import {HTTP_INTERCEPTORS, provideHttpClient, withInterceptors, withInterceptorsFromDi} from "@angular/common/http";
@@ -21,7 +21,10 @@ const firebaseConfig = {
 };
 
 export const appConfig: ApplicationConfig = {
-	providers: [provideRouter(routes),
+	providers: [provideRouter(routes, withInMemoryScrolling({
+		scrollPositionRestoration: 'top',   // or 'enabled'
+		anchorScrolling: 'enabled'
+	})),
 		provideHttpClient(withInterceptorsFromDi()),
 		{provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true},
 		provideCharts(withDefaultRegisterables()),
