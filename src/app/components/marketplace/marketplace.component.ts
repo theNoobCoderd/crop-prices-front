@@ -45,15 +45,15 @@ export class MarketplaceComponent implements OnDestroy {
 		}
 
 		this.listingsLoaded$.next(false);
-		// this._marketPlaceListing.getAllListingByType(this.marketplaceType$.getValue())
-		// 	.pipe(takeUntil(this._destroy$))
-		// 	.subscribe(results => {
-		// 		this.marketPlaceItems$.next(results);
-		// 		this.listingsLoaded$.next(true);
-		// 	});
+		this._marketPlaceListing.getAllListingByType(this.marketplaceType$.getValue())
+			.pipe(takeUntil(this._destroy$))
+			.subscribe(results => {
+				this.marketPlaceItems$.next(results);
+				this.listingsLoaded$.next(true);
+			});
 
-		this.marketPlaceItems$.next(this.mockMarketPlaceItems);
-		this.listingsLoaded$.next(true);
+		// this.marketPlaceItems$.next(this.mockMarketPlaceItems);
+		// this.listingsLoaded$.next(true);
 	}
 
 	ngOnDestroy(): void {
