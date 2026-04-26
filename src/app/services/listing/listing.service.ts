@@ -3,6 +3,7 @@ import {environment} from "../../../environments/environment";
 import { HttpClient } from "@angular/common/http";
 import {Observable} from "rxjs";
 import {MarketplaceListing} from "../../models/marketplace-listing.model";
+import {Type} from "../../models/type.enum";
 
 @Injectable({
 	providedIn: "root"
@@ -14,6 +15,11 @@ export class ListingService {
 
 	getAllListing(): Observable<MarketplaceListing[]> {
 		const url = `${this.apiUrl}/free`;
+		return this._http.get<MarketplaceListing[]>(url);
+	}
+
+	getAllListingByType(type: string): Observable<MarketplaceListing[]> {
+		const url = `${this.apiUrl}/free/${type}`;
 		return this._http.get<MarketplaceListing[]>(url);
 	}
 

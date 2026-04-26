@@ -7,6 +7,7 @@ import {ListingService} from "../../services/listing/listing.service";
 import {BehaviorSubject, Subject, takeUntil} from "rxjs";
 import {AsyncPipe} from "@angular/common";
 import {NgxSkeletonLoaderModule} from "ngx-skeleton-loader";
+import {Type} from "../../models/type.enum";
 
 @Component({
     selector: "app-marketplace",
@@ -28,7 +29,7 @@ export class MarketplaceComponent implements OnDestroy {
 
 	constructor(private _marketPlaceListing: ListingService) {
 		this.listingsLoaded$.next(false);
-		this._marketPlaceListing.getAllListing()
+		this._marketPlaceListing.getAllListingByType(Type.VEGETABLE)
 			.pipe(takeUntil(this._destroy$))
 			.subscribe(results => {
 				this.marketPlaceItems$.next(results);
