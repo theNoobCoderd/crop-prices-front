@@ -5,10 +5,24 @@
 				<img class="responsive-image" src="assets/images/ads/eco_shoots.jpg" alt="ads">
 			</a>
 		</div>
-		@for ((item of marketPlaceItems$ | async); track item) {
-			<app-marketplace-item [item]="item"></app-marketplace-item>
+
+		@if ((marketplaceType$ | async) === Type.VEGETABLE) {
+			@for ((item of marketPlaceItems$ | async); track item) {
+				<app-marketplace-item [item]="item"></app-marketplace-item>
+			}
+			<app-add-crop [addType]="Type.VEGETABLE"></app-add-crop>
+		} @else if ((marketplaceType$ | async) === Type.DECORATIVE) {
+			@for ((item of marketPlaceItems$ | async); track item) {
+				<app-matketplace-item-decorative [item]="item"></app-matketplace-item-decorative>
+			}
+			<app-add-crop [addType]="Type.DECORATIVE"></app-add-crop>
+		} @else {
+			@for ((item of marketPlaceItems$ | async); track item) {
+				<app-marketplace-item-seedling [item]="item"></app-marketplace-item-seedling>
+			}
+			<app-add-crop [addType]="Type.SEEDLING"></app-add-crop>
 		}
-		<app-add-crop></app-add-crop>
+
 	</div>
 } @else {
 	<div class="crp-container">

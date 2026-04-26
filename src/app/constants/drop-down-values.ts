@@ -210,4 +210,66 @@ export const DROP_DOWN_VALUE_V2_FRUIT = [
 	{id: 1, value:"Zacques",	name: "Zacques"},
 	{id: 1, value:"Zanblon",	name: "Zanblon"},
 	{id: 1, value:"Zatte",	name: "Zatte"}
-]
+];
+
+export const DROP_DOWN_FOLIAGE = [
+	{ id: 1, name: "Alocasia", value: "Alocasia" },
+	{ id: 2, name: "Areca Palm", value: "Areca Palm" },
+	{ id: 3, name: "Asparagus Fern", value: "Asparagus Fern" },
+	{ id: 4, name: "Boston Fern", value: "Boston Fern" },
+	{ id: 5, name: "Croton", value: "Croton" },
+	{ id: 6, name: "Chinese Evergreen", value: "Chinese Evergreen" },
+	{ id: 7, name: "Calathea", value: "Calathea" },
+	{ id: 8, name: "Dieffenbachia", value: "Dieffenbachia" },
+	{ id: 9, name: "Dracaena", value: "Dracaena" },
+	{ id: 10, name: "Ficus Elastica", value: "Ficus Elastica" },
+	{ id: 11, name: "Fiddle Leaf Fig", value: "Fiddle Leaf Fig" },
+	{ id: 12, name: "Maranta", value: "Maranta" },
+	{ id: 13, name: "Monstera Deliciosa", value: "Monstera Deliciosa" },
+	{ id: 14, name: "Parlor Palm", value: "Parlor Palm" },
+	{ id: 15, name: "Philodendron ", value: "Philodendron" },
+	{ id: 16, name: "Pothos ", value: "Pothos" },
+	{ id: 17, name: "Snake Plant", value: "Snake Plant" },
+	{ id: 18, name: "Syngonium", value: "Syngonium" },
+	{ id: 19, name: "ZZ Plant", value: "ZZ Plant" },
+] as DropDownValue[];
+
+export const DROP_DOWN_FLOWER = [
+	{ id: 1, name: "Adenium", value: "Adenium" },
+	{ id: 2, name: "African Violet", value: "African Violet" },
+	{ id: 3, name: "Anthurium", value: "Anthurium" },
+	{ id: 4, name: "Bougainvillea", value: "Bougainvillea" },
+	{ id: 5, name: "Begonia", value: "Begonia" },
+	{ id: 6, name: "Chrysanthemum", value: "Chrysanthemum" },
+	{ id: 7, name: "Cosmosa", value: "Cosmos" },
+	{ id: 8, name: "Cyclamen", value: "Cyclamen" },
+	{ id: 9, name: "Gardenia", value: "Gardenia" },
+	{ id: 10, name: "Geranium", value: "Geranium" },
+	{ id: 11, name: "Hibiscus ", value: "Hibiscus" },
+	{ id: 12, name: "Impatiens", value: "Impatiens" },
+	{ id: 13, name: "Ixora", value: "Ixora" },
+	{ id: 14, name: "Jasmine", value: "Jasmine" },
+	{ id: 15, name: "Orchids", value: "Orchids" },
+	{ id: 16, name: "Peace Lily", value: "Peace Lily" },
+	{ id: 17, name: "Petunia", value: "Petunia" },
+	{ id: 18, name: "Vinca", value: "Vinca" },
+	{ id: 19, name: "Zinnia", value: "Zinnia" },
+] as DropDownValue[];
+
+export const DROP_DOWN_SUCCULENT = [
+	{ id: 1, name: "Agave", value: "Agave" },
+	{ id: 2, name: "Aloe Vera", value: "Aloe Vera" },
+	{ id: 3, name: "Astrophytum", value: "Astrophytum" },
+	{ id: 4, name: "Crassula Ovata", value: "Crassula Ovata" },
+	{ id: 5, name: "Echeveria", value: "Echeveria" },
+	{ id: 6, name: "Ferocactus", value: "Ferocactus" },
+	{ id: 7, name: "Gasteria", value: "Gasteria" },
+	{ id: 8, name: "Gymnocalycium", value: "Gymnocalycium" },
+	{ id: 9, name: "Haworthia ", value: "Haworthia" },
+	{ id: 10, name: "Kalanchoe", value: "Kalanchoe" },
+	{ id: 11, name: "Lithops", value: "Lithops" },
+	{ id: 12, name: "Mammillaria", value: "Mammillaria" },
+	{ id: 13, name: "Opuntia", value: "Opuntia" },
+	{ id: 14, name: "Sedum", value: "Sedum" },
+	{ id: 15, name: "Sempervivum", value: "Sempervivum" }
+] as DropDownValue[];

@@ -1,0 +1,236 @@
+.marketplace-splash-container {
+	padding-inline: 0.625rem;
+
+	font-family: Roboto, sans-serif;
+	color: #444444;
+
+	padding-bottom: 100px;
+
+	display: flex;
+	flex-flow: column;
+	align-items: center;
+}
+
+.hero-section {
+	background: linear-gradient(to top, rgba(0, 0, 0, 0.4), transparent), url("../../../../assets/images/img/veggie_fruit.jpg");
+	background-repeat: no-repeat;
+	background-size: cover;
+
+	background-position: center;
+
+	height: 220px;
+	width: 100%;
+	border-radius: 6px; /* Rounded corners from your image */
+	display: flex;
+	align-items: flex-end; /* Pushes text to the bottom */
+	overflow: hidden;
+	color: white;
+
+	margin-block: 18px;
+}
+
+.hero-content {
+	padding-inline: 18px;
+	padding-block: 20px;
+}
+
+.hero-content h1 {
+	font-size: 2.5rem;
+	margin: 0;
+	font-weight: 800;
+	line-height: 1.1;
+}
+
+.hero-content p {
+	font-size: 1.1rem;
+	margin: 8px 0 0;
+	opacity: 0.9;
+}
+
+.span-group {
+	display: flex;
+	flex-flow: column nowrap;
+	margin-bottom: 0.5rem;
+
+	max-width: 500px;
+	width: 100%;
+}
+
+.section {
+	display: flex;
+	flex-flow: column nowrap;
+}
+
+.plant-card {
+	display: flex;
+	align-items: center;
+	background: #f4f4f4;
+	border-radius: 6px;
+	overflow: hidden;
+}
+
+.plant-image {
+	display: flex;
+
+	min-width: 150px;
+	max-width: 150px;
+	max-height: 194px;
+	height: 145px;
+	img {
+		width: 100%;
+		height: auto;
+		object-fit: cover;
+
+		border-radius: 6px 0 0 6px;
+	}
+}
+
+.plant-content {
+	padding: 20px;
+
+	h2 {
+		margin: 0;
+		font-size: 24px;
+		color: #111;
+		font-weight: 700;
+	}
+
+	p {
+		margin-top: 8px;
+		font-size: 16px;
+		color: #666;
+	}
+}
+
+.section-header {
+	display: flex;
+	margin-bottom: 16px;
+	width: 100%;
+
+	font-family: Roboto, sans-serif;
+	font-size: 1.25rem;
+	color: #444;
+}
+
+.section-header-mini {
+	display: flex;
+	margin-bottom: 16px;
+	width: 100%;
+
+	font-family: Roboto, sans-serif;
+	font-size: 1.25rem;
+	color: #444;
+
+	justify-content: space-between;
+	align-items: center;
+
+	h3 {
+		margin: 0;
+	}
+}
+
+.mrk-item-container {
+	display: flex;
+	align-items: center;
+	background: #f4f4f4;
+	border-radius: 6px;
+	overflow: hidden;
+}
+
+.item-image {
+	display: flex;
+
+	min-width: 150px;
+	max-width: 150px;
+	max-height: 160px;
+	img {
+		width: 100%;
+		height: auto;
+		object-fit: cover;
+
+		border-radius: 6px 0 0 6px;
+	}
+}
+
+	.crp-info {
+
+		.crp-name {
+			font-size: 22px;
+			font-weight: bold;
+		}
+
+		.crp-price {
+			font-size: 16px;
+			font-weight: bold;
+			color: #8CD178;
+			display: flex;
+		}
+	}
+
+	.seller-info {
+		font-size: 14px;
+		.region {
+		}
+	}
+
+.see-all-button {
+	display: flex;
+	justify-content: center;
+	max-width: 500px;
+	width: 75px;
+
+	button {
+		all: unset;
+		background: #8CD178;
+		text-align: center;
+
+		border-radius: 8px;
+
+		width: 100%;
+		height: 34px;
+
+		font-family: "Roboto Condensed", sans-serif;
+		font-weight: bold;
+		font-size: 14px;
+
+		color: #444444;
+		}
+
+		button:disabled {
+			background-color: #c2c2c2;
+		}
+}
+
+.selection-section {
+	margin-bottom: 32px;
+}
+
+.preview-section {
+	display: flex;
+	flex-flow: column;
+	width: 100%;
+	max-width: 500px;
+	gap: 38px;
+
+	.vegetable-section, .decorative-section, .seedling-section {
+		display: flex;
+		flex-flow: column nowrap;
+
+		.span-group {
+			gap: 10px;
+		}
+
+		.plant-content {
+			padding: 0;
+			padding-inline: 20px;
+			padding-block: 0;
+
+			display: flex;
+			flex-flow: column nowrap;
+
+			gap: 18px;
+		}
+	}
+}
+
+
