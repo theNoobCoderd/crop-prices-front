@@ -1,4 +1,4 @@
-import {Component, inject, OnDestroy, OnInit} from "@angular/core";
+import {Component, inject, Input, OnDestroy} from "@angular/core";
 import {Router} from "@angular/router";
 import {ListingService} from "../../../services/listing/listing.service";
 import {UserService} from "../../../services/user/user.service";
@@ -6,6 +6,7 @@ import {EMPTY, Subject, switchMap, takeUntil} from "rxjs";
 import {MatDialog} from "@angular/material/dialog";
 import {MatDialogComponent} from "../../lib/mat-dialog/mat-dialog.component";
 import {MatDialogLoadingComponent} from "../../lib/mat-dialog-loading/mat-dialog-loading.component";
+import {Type} from "../../../models/type.enum";
 
 @Component({
     selector: "app-add-crop",
@@ -15,11 +16,19 @@ import {MatDialogLoadingComponent} from "../../lib/mat-dialog-loading/mat-dialog
 })
 export class AddCropComponent implements OnDestroy {
 
+	@Input() addType: Type = Type.VEGETABLE;
+
 	private _listingService = inject(ListingService);
 	private _userService = inject(UserService);
 	private _destroy$: Subject<void> = new Subject<void>();
 
 	readonly dialog = inject(MatDialog);
+
+	private _routes: any = {
+		VEGETABLE: "/page3",
+		SEEDLING: "/page9",
+		DECORATIVE: "/page10"
+	};
 
 	constructor(private _router: Router) {}
 
@@ -47,7 +56,7 @@ export class AddCropComponent implements OnDestroy {
 				dialogRef.close();
 				const userRoles = this._userService.currentUser$.getValue()?.roles;
 				if (result.length <= 2 || (userRoles?.includes("ROLE_ADMIN") || userRoles?.includes("ROLE_PREMIUM1"))) {
-					this._router.navigate(["/page3"], { skipLocationChange: true });
+					this._router.navigate([this._routes[this.addType]], { skipLocationChange: true });
 				} else {
 					this.dialog.open(MatDialogComponent, {data: {
 						message: "You can only have up to 2 active listings on the free plan." + "<p></p>" +

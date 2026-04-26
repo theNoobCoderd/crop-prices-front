@@ -1,24 +1,24 @@
-import {Component, EventEmitter, inject, Input, OnDestroy, Output} from "@angular/core";
-import {MarketplaceListing} from "../../../models/marketplace-listing.model";
+import {Component, EventEmitter, inject, Input, Output} from '@angular/core';
 import {AsyncPipe, DatePipe} from "@angular/common";
+import {MarketplaceListing} from "../../../../models/marketplace-listing.model";
 import {MatDialog} from "@angular/material/dialog";
-import {ModifyListingComponent} from "../modify-listing/modify-listing.component";
-import {ListingService} from "../../../services/listing/listing.service";
-import { M } from "@angular/material/dialog.d-B5HZULyo";
-import {MatDialogConfirmationComponent} from "../../lib/mat-dialog-confirmation/mat-dialog-confirmation.component";
+import {ListingService} from "../../../../services/listing/listing.service";
+import {M} from "@angular/material/dialog.d-B5HZULyo";
+import {ModifyListingComponent} from "../../modify-listing/modify-listing.component";
+import {MatDialogConfirmationComponent} from "../../../lib/mat-dialog-confirmation/mat-dialog-confirmation.component";
 import {BehaviorSubject, Subject, takeUntil} from "rxjs";
-import {MatDialogImageComponent} from "../../lib/mat-dialog-image/mat-dialog-image.component";
+import {MatDialogImageComponent} from "../../../lib/mat-dialog-image/mat-dialog-image.component";
 
 @Component({
-	selector: "app-marketplace-item",
-	imports: [
-		DatePipe,
-		AsyncPipe,
-	],
-	templateUrl: "./marketplace-item.component.html",
-	styleUrl: "./marketplace-item.component.less"
+  selector: 'app-marketplace-item-seedling',
+    imports: [
+        AsyncPipe,
+        DatePipe
+    ],
+  templateUrl: './marketplace-item-seedling.component.html',
+  styleUrl: './marketplace-item-seedling.component.less'
 })
-export class MarketplaceItemComponent implements OnDestroy {
+export class MarketplaceItemSeedlingComponent {
 
 	@Input() item: MarketplaceListing | undefined;
 	@Input() isModifiable: boolean = false;
@@ -78,5 +78,4 @@ export class MarketplaceItemComponent implements OnDestroy {
 		this._destroy$.next();
 		this._destroy$.complete();
 	}
-
 }

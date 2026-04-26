@@ -1,5 +1,7 @@
 export enum Type {
 	VEGETABLE = "VEGETABLE",
 	FRUIT = "FRUIT",
+	SEEDLING = "SEEDLING",
+	DECORATIVE = "DECORATIVE",
 	OTHER = "OTHER",
 }

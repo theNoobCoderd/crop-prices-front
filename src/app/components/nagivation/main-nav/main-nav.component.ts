@@ -33,7 +33,7 @@ export class MainNavComponent implements OnInit {
 	navToMarketplace() : void {
 		this.pagesService.changePageTo(NavigationPage.MARKETPLACE);
 
-		this.router.navigate(["/page2"], { skipLocationChange: true });
+		this.router.navigate(["/page8"], { skipLocationChange: true });
 	}
 
 	navToHistoric(): void {
