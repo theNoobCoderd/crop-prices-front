@@ -18,8 +18,12 @@ export class ListingService {
 		return this._http.get<MarketplaceListing[]>(url);
 	}
 
-	getAllListingByType(type: string): Observable<MarketplaceListing[]> {
-		const url = `${this.apiUrl}/free/${type}`;
+	getAllListingByType(type: string, range?: number): Observable<MarketplaceListing[]> {
+		let url = `${this.apiUrl}/free/${type}`;
+		if (range) {
+			url = `${this.apiUrl}/free/${type}?range=${range}`;
+		}
+
 		return this._http.get<MarketplaceListing[]>(url);
 	}
 

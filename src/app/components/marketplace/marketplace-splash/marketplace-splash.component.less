@@ -64,9 +64,10 @@
 .plant-card {
 	display: flex;
 	align-items: center;
-	background: #f4f4f4;
 	border-radius: 6px;
 	overflow: hidden;
+
+	box-shadow: 1px 2px 6px rgba(129, 124, 124, 0.3);
 }
 
 .plant-image {
@@ -229,6 +230,27 @@
 			flex-flow: column nowrap;
 
 			gap: 18px;
+		}
+	}
+
+	.seedling-section {
+		.plant-card {
+			background: #F4F4F4;
+			background: linear-gradient(90deg, rgba(244, 244, 244, 0.57) 54%, rgba(41, 142, 242, 0.22) 100%);
+		}
+	}
+
+	.vegetable-section {
+		.plant-card {
+			background: #F4F4F4;
+			background: linear-gradient(90deg, rgba(244, 244, 244, 0.57) 54%, rgba(98, 242, 41, 0.22) 100%);
+		}
+	}
+
+	.decorative-section {
+		.plant-card {
+			background: #F4F4F4;
+			background: linear-gradient(90deg, rgba(244, 244, 244, 0.57) 54%, rgba(242, 41, 239, 0.22) 100%);
 		}
 	}
 }

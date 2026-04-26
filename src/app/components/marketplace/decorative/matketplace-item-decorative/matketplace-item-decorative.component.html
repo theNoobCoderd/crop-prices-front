@@ -23,31 +23,31 @@
 					<span class="crp-price">
 						Price: {{item?.price}} /
 						@switch (item?.unit) {
-							@case ("KG") {
-								Kg
+							@case ("POT") {
+								Pot
 							}
-							@case ("PACKET") {
-								Pkt
+							@case ("TRAY") {
+								Tray
 							}
-							@case ("BOX") {
-								Box
+							@case ("BUNCH") {
+								Bunch
 							}
 							@case ("UNITS") {
-								Unit
+								Units
 							}
 						}
 					</span>
 					<span>
 						Qty: {{item?.quantity}}
 						@switch (item?.unit) {
-							@case ("KG") {
-								Kg
+							@case ("POT") {
+								Pots
 							}
-							@case ("PACKET") {
-								Pkts
+							@case ("TRAY") {
+								Trays
 							}
-							@case ("BOX") {
-								Boxes
+							@case ("BUNCH") {
+								Bunch
 							}
 							@case ("UNITS") {
 								Units

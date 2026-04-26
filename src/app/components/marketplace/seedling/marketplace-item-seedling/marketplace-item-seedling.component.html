@@ -18,13 +18,13 @@
 			</span>
 
 			<span class="crp-info">
-				<div class="crp-name">Item: {{item?.produce?.name}}</div>
+				<div class="crp-name">Item: {{item?.produce?.name}} Seedlings</div>
 				<div>
 					<span class="crp-price">
 						Price: {{item?.price}} /
 						@switch (item?.unit) {
-							@case ("KG") {
-								Kg
+							@case ("BAG") {
+								Bag
 							}
 							@case ("PACKET") {
 								Pkt
@@ -40,8 +40,8 @@
 					<span>
 						Qty: {{item?.quantity}}
 						@switch (item?.unit) {
-							@case ("KG") {
-								Kg
+							@case ("BAG") {
+								Bags
 							}
 							@case ("PACKET") {
 								Pkts

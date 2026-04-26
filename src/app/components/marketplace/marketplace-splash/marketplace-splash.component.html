@@ -65,40 +65,52 @@
 
 			<span class="section vegetable-section">
 			<div class="span-group">
-				<div class="plant-card">
+				@for ((item of cropsListing$ | async); track item) {
+					<div class="plant-card">
 					<div class="plant-image">
-						<img src="assets/images/img/veggie-test.jpg" alt="assets/images/carrots.jpg"/>
+						<img [src]="item?.imageUrl" alt="assets/images/carrots.jpg"/>
 					</div>
 					<div class="plant-content">
 						<span class="crp-info">
-							<div class="crp-name">Gros Piment</div>
-							<div class="crp-price">129rs / Kg</div>
+							<div class="crp-name">{{ item?.produce?.name }}</div>
+							<div class="crp-price">{{item?.price}} rs / @switch (item?.unit) {
+								@case ("KG") {
+									Kg
+								}
+								@case ("PACKET") {
+									Pkts
+								}
+								@case ("BOX") {
+									Boxes
+								}
+								@case ("UNITS") {
+									Units
+								}
+							}
+							</div>
 						</span>
 						<span class="seller-info">
 							<span class="crp-quantity">
-									Qty: 150 Kg
+									Qty: {{item?.quantity}} @switch (item?.unit) {
+								@case ("KG") {
+									Kg
+								}
+								@case ("PACKET") {
+									Pkts
+								}
+								@case ("BOX") {
+									Boxes
+								}
+								@case ("UNITS") {
+									Units
+								}
+							}
 								</span>
-							<div class="region">North</div>
+							<div class="region">{{item?.seller?.region}}</div>
 						</span>
 					</div>
 				</div>
-				<div class="plant-card">
-					<div class="plant-image">
-						<img src="assets/images/img/veggie-test.jpg" alt="assets/images/carrots.jpg"/>
-					</div>
-					<div class="plant-content">
-						<span class="crp-info">
-							<div class="crp-name">Gros Piment</div>
-							<div class="crp-price">129rs / Kg</div>
-						</span>
-						<span class="seller-info">
-							<span class="crp-quantity">
-								<span>Qty: 150 Kg</span>
-							</span>
-							<div class="region">North</div>
-						</span>
-					</div>
-				</div>
+				}
 			</div>
 		</span>
 		</section>
@@ -109,46 +121,58 @@
 				<h3>Botanical Living</h3>
 
 				<div class="see-all-button">
-					<button (click)="navMarketplaceVegetable()">View All</button>
+					<button (click)="navMarketplaceDecorative()">View All</button>
 				</div>
 			</span>
 
 			<span class="section decorative-section">
 				<div class="span-group">
-					<div class="plant-card">
-						<div class="plant-image">
-							<img src="assets/images/img/veggie-test.jpg" alt="assets/images/carrots.jpg"/>
-						</div>
-						<div class="plant-content">
-							<span class="crp-info">
-								<div class="crp-name">Gros Piment</div>
-								<div class="crp-price">129rs / Kg</div>
-							</span>
-							<span class="seller-info">
-								<span class="crp-quantity">
-										Qty: 150 Kg
-									</span>
-								<div class="region">North</div>
-							</span>
-						</div>
+					@for ((item of decorativeListing$ | async); track item) {
+						<div class="plant-card">
+					<div class="plant-image">
+						<img [src]="item?.imageUrl" alt="assets/images/carrots.jpg"/>
 					</div>
-					<div class="plant-card">
-						<div class="plant-image">
-							<img src="assets/images/img/veggie-test.jpg" alt="assets/images/carrots.jpg"/>
-						</div>
-						<div class="plant-content">
-							<span class="crp-info">
-								<div class="crp-name">Gros Piment</div>
-								<div class="crp-price">129rs / Kg</div>
-							</span>
-							<span class="seller-info">
-								<span class="crp-quantity">
-									<span>Qty: 150 Kg</span>
+					<div class="plant-content">
+						<span class="crp-info">
+							<div class="crp-name">{{ item?.produce?.name }}</div>
+							<div class="crp-price">{{item?.price}} rs / @switch (item?.unit) {
+								@case ("POT") {
+									Pot
+								}
+								@case ("TRAY") {
+									Tray
+								}
+								@case ("BUNCH") {
+									Bunch
+								}
+								@case ("UNITS") {
+									Units
+								}
+							}
+							</div>
+						</span>
+						<span class="seller-info">
+							<span class="crp-quantity">
+									Qty: {{item?.quantity}} @switch (item?.unit) {
+								@case ("POT") {
+									Pots
+								}
+								@case ("TRAY") {
+									Trays
+								}
+								@case ("BUNCH") {
+									Bunch
+								}
+								@case ("UNITS") {
+									Units
+								}
+							}
 								</span>
-								<div class="region">North</div>
-							</span>
-						</div>
+							<div class="region">{{item?.seller?.region}}</div>
+						</span>
 					</div>
+				</div>
+					}
 				</div>
 			</span>
 		</section>
@@ -159,46 +183,58 @@
 				<h3>Seedling Haven</h3>
 
 				<div class="see-all-button">
-					<button (click)="navMarketplaceVegetable()">View All</button>
+					<button (click)="navMarketplaceSeedlings()">View All</button>
 				</div>
 			</span>
 
 			<span class="section seedling-section">
 				<div class="span-group">
-					<div class="plant-card">
-						<div class="plant-image">
-							<img src="assets/images/img/veggie-test.jpg" alt="assets/images/carrots.jpg"/>
-						</div>
-						<div class="plant-content">
-							<span class="crp-info">
-								<div class="crp-name">Gros Piment</div>
-								<div class="crp-price">129rs / Kg</div>
-							</span>
-							<span class="seller-info">
-								<span class="crp-quantity">
-										Qty: 150 Kg
-									</span>
-								<div class="region">North</div>
-							</span>
-						</div>
+					@for ((item of seedlingListing$ | async); track item) {
+						<div class="plant-card">
+					<div class="plant-image">
+						<img [src]="item?.imageUrl" alt="assets/images/carrots.jpg"/>
 					</div>
-					<div class="plant-card">
-						<div class="plant-image">
-							<img src="assets/images/img/veggie-test.jpg" alt="assets/images/carrots.jpg"/>
-						</div>
-						<div class="plant-content">
-							<span class="crp-info">
-								<div class="crp-name">Gros Piment</div>
-								<div class="crp-price">129rs / Kg</div>
-							</span>
-							<span class="seller-info">
-								<span class="crp-quantity">
-									<span>Qty: 150 Kg</span>
+					<div class="plant-content">
+						<span class="crp-info">
+							<div class="crp-name">{{ item?.produce?.name }}</div>
+							<div class="crp-price">{{item?.price}} rs / @switch (item?.unit) {
+								@case ("Bag") {
+									Bag
+								}
+								@case ("PACKET") {
+									Pkts
+								}
+								@case ("BOX") {
+									Boxes
+								}
+								@case ("UNITS") {
+									Units
+								}
+							}
+							</div>
+						</span>
+						<span class="seller-info">
+							<span class="crp-quantity">
+									Qty: {{item?.quantity}} @switch (item?.unit) {
+								@case ("KG") {
+									Kg
+								}
+								@case ("PACKET") {
+									Pkts
+								}
+								@case ("BOX") {
+									Boxes
+								}
+								@case ("UNITS") {
+									Units
+								}
+							}
 								</span>
-								<div class="region">North</div>
-							</span>
-						</div>
+							<div class="region">{{item?.seller?.region}}</div>
+						</span>
 					</div>
+				</div>
+					}
 				</div>
 			</span>
 		</section>
