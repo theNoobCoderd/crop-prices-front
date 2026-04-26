@@ -92,7 +92,7 @@ export class CreateListingDecorativeComponent {
 				.subscribe((response: boolean) => {
 					if (response) {
 						dialogRef.close();
-						this._router.navigate(["/page2"], { skipLocationChange: true });
+						this._router.navigate(["/page10"], { skipLocationChange: true });
 					}
 				});
 		} else {

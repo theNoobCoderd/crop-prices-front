@@ -87,7 +87,7 @@ export class CreateListingSeedlingComponent {
 				.subscribe((response: boolean) => {
 					if (response) {
 						dialogRef.close();
-						this._router.navigate(["/page2"], { skipLocationChange: true });
+						this._router.navigate(["/page9"], { skipLocationChange: true });
 					}
 				});
 		} else {
@@ -160,11 +160,11 @@ export class CreateListingSeedlingComponent {
 		const formValue = this.createListingForm.value;
 		let cropType;
 		if (this.cropTypeSelected$.getValue() === "1") {
-			cropType = Type.VEGETABLE
+			cropType = Type.SEEDLING
 		} else if (this.cropTypeSelected$.getValue() === "2") {
-			cropType = Type.FRUIT
+			cropType = Type.SEEDLING
 		} else {
-			cropType = Type.OTHER
+			cropType = Type.SEEDLING
 		}
 
 		return {
