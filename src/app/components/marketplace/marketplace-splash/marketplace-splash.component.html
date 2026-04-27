@@ -65,51 +65,80 @@
 
 			<span class="section vegetable-section">
 			<div class="span-group">
-				@for ((item of cropsListing$ | async); track item) {
-					<div class="plant-card">
-					<div class="plant-image">
-						<img [src]="item?.imageUrl" alt="assets/images/carrots.jpg"/>
+				@if (cropListingsLoaded$ | async) {
+					@for ((item of cropsListing$ | async); track item) {
+						<div class="plant-card">
+						<div class="plant-image">
+							<img [src]="item?.imageUrl" alt="assets/images/carrots.jpg"/>
+						</div>
+						<div class="plant-content">
+							<span class="crp-info">
+								@if (item?.produce?.name) {
+									<div class="crp-name">{{ item?.produce?.name }}</div>
+								} @else {
+									<div class="crp-name">{{ item?.otherCropName }}</div>
+								}
+								<div class="crp-price">{{item?.price}} rs / @switch (item?.unit) {
+									@case ("KG") {
+										Kg
+									}
+									@case ("PACKET") {
+										Pkts
+									}
+									@case ("BOX") {
+										Boxes
+									}
+									@case ("UNITS") {
+										Units
+									}
+								}
+								</div>
+							</span>
+							<span class="seller-info">
+								<span class="crp-quantity">
+										Qty: {{item?.quantity}} @switch (item?.unit) {
+									@case ("KG") {
+										Kg
+									}
+									@case ("PACKET") {
+										Pkts
+									}
+									@case ("BOX") {
+										Boxes
+									}
+									@case ("UNITS") {
+										Units
+									}
+								}
+									</span>
+								<div class="region">{{item?.seller?.region}}</div>
+							</span>
+						</div>
 					</div>
-					<div class="plant-content">
-						<span class="crp-info">
-							<div class="crp-name">{{ item?.produce?.name }}</div>
-							<div class="crp-price">{{item?.price}} rs / @switch (item?.unit) {
-								@case ("KG") {
-									Kg
-								}
-								@case ("PACKET") {
-									Pkts
-								}
-								@case ("BOX") {
-									Boxes
-								}
-								@case ("UNITS") {
-									Units
-								}
-							}
-							</div>
+					}
+				} @else {
+					<div class="skeleton-container">
+						<span class="photo">
+							<ngx-skeleton-loader [theme]="{ height: '100%', 'border-radius': '8px' }"></ngx-skeleton-loader>
 						</span>
-						<span class="seller-info">
-							<span class="crp-quantity">
-									Qty: {{item?.quantity}} @switch (item?.unit) {
-								@case ("KG") {
-									Kg
-								}
-								@case ("PACKET") {
-									Pkts
-								}
-								@case ("BOX") {
-									Boxes
-								}
-								@case ("UNITS") {
-									Units
-								}
-							}
-								</span>
-							<div class="region">{{item?.seller?.region}}</div>
+						<span class="text">
+							<ngx-skeleton-loader
+								[count]="4"
+								[theme]="{ 'border-radius': '8px', height: '15px' }">
+							</ngx-skeleton-loader>
 						</span>
 					</div>
-				</div>
+					<div class="skeleton-container">
+						<span class="photo">
+							<ngx-skeleton-loader [theme]="{ height: '100%', 'border-radius': '8px' }"></ngx-skeleton-loader>
+						</span>
+						<span class="text">
+							<ngx-skeleton-loader
+								[count]="4"
+								[theme]="{ 'border-radius': '8px', height: '15px' }">
+							</ngx-skeleton-loader>
+						</span>
+					</div>
 				}
 			</div>
 		</span>
@@ -127,14 +156,19 @@
 
 			<span class="section decorative-section">
 				<div class="span-group">
-					@for ((item of decorativeListing$ | async); track item) {
-						<div class="plant-card">
+					@if (decorativeListingsLoaded$ | async) {
+						@for ((item of decorativeListing$ | async); track item) {
+							<div class="plant-card">
 					<div class="plant-image">
 						<img [src]="item?.imageUrl" alt="assets/images/carrots.jpg"/>
 					</div>
 					<div class="plant-content">
 						<span class="crp-info">
-							<div class="crp-name">{{ item?.produce?.name }}</div>
+							@if (item?.produce?.name) {
+								<div class="crp-name">{{ item?.produce?.name }}</div>
+							} @else {
+								<div class="crp-name">{{ item?.otherCropName }}</div>
+							}
 							<div class="crp-price">{{item?.price}} rs / @switch (item?.unit) {
 								@case ("POT") {
 									Pot
@@ -172,6 +206,30 @@
 						</span>
 					</div>
 				</div>
+						}
+					} @else {
+						<div class="skeleton-container">
+						<span class="photo">
+							<ngx-skeleton-loader [theme]="{ height: '100%', 'border-radius': '8px' }"></ngx-skeleton-loader>
+						</span>
+						<span class="text">
+							<ngx-skeleton-loader
+								[count]="4"
+								[theme]="{ 'border-radius': '8px', height: '15px' }">
+							</ngx-skeleton-loader>
+						</span>
+					</div>
+						<div class="skeleton-container">
+						<span class="photo">
+							<ngx-skeleton-loader [theme]="{ height: '100%', 'border-radius': '8px' }"></ngx-skeleton-loader>
+						</span>
+						<span class="text">
+							<ngx-skeleton-loader
+								[count]="4"
+								[theme]="{ 'border-radius': '8px', height: '15px' }">
+							</ngx-skeleton-loader>
+						</span>
+					</div>
 					}
 				</div>
 			</span>
@@ -189,14 +247,19 @@
 
 			<span class="section seedling-section">
 				<div class="span-group">
-					@for ((item of seedlingListing$ | async); track item) {
-						<div class="plant-card">
+					@if (seedlingListingsLoaded$ | async) {
+						@for ((item of seedlingListing$ | async); track item) {
+							<div class="plant-card">
 					<div class="plant-image">
 						<img [src]="item?.imageUrl" alt="assets/images/carrots.jpg"/>
 					</div>
 					<div class="plant-content">
 						<span class="crp-info">
-							<div class="crp-name">{{ item?.produce?.name }}</div>
+							@if (item?.produce?.name) {
+								<div class="crp-name">{{ item?.produce?.name }}</div>
+							} @else {
+								<div class="crp-name">{{ item?.otherCropName }}</div>
+							}
 							<div class="crp-price">{{item?.price}} rs / @switch (item?.unit) {
 								@case ("Bag") {
 									Bag
@@ -234,6 +297,30 @@
 						</span>
 					</div>
 				</div>
+						}
+					} @else {
+						<div class="skeleton-container">
+						<span class="photo">
+							<ngx-skeleton-loader [theme]="{ height: '100%', 'border-radius': '8px' }"></ngx-skeleton-loader>
+						</span>
+						<span class="text">
+							<ngx-skeleton-loader
+								[count]="4"
+								[theme]="{ 'border-radius': '8px', height: '15px' }">
+							</ngx-skeleton-loader>
+						</span>
+					</div>
+						<div class="skeleton-container">
+						<span class="photo">
+							<ngx-skeleton-loader [theme]="{ height: '100%', 'border-radius': '8px' }"></ngx-skeleton-loader>
+						</span>
+						<span class="text">
+							<ngx-skeleton-loader
+								[count]="4"
+								[theme]="{ 'border-radius': '8px', height: '15px' }">
+							</ngx-skeleton-loader>
+						</span>
+					</div>
 					}
 				</div>
 			</span>

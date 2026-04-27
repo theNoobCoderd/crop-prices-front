@@ -18,7 +18,11 @@
 			</span>
 
 			<span class="crp-info">
-				<div class="crp-name">Item: {{item?.produce?.name}}</div>
+				@if (item?.produce?.name) {
+					<div class="crp-name">Item: {{item?.produce?.name}}</div>
+				} @else {
+					<div class="crp-name">Item: {{ item?.otherCropName }}</div>
+				}
 				<div>
 					<span class="crp-price">
 						Price: {{item?.price}} /

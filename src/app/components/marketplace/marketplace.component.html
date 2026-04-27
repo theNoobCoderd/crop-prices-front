@@ -1,10 +1,10 @@
 @if (listingsLoaded$ | async) {
 	<div class="crp-container">
-		<div class="ads-container">
-			<a href="tel:52583223">
-				<img class="responsive-image" src="assets/images/ads/eco_shoots.jpg" alt="ads">
-			</a>
-		</div>
+<!--		<div class="ads-container">-->
+<!--			<a href="tel:52583223">-->
+<!--				<img class="responsive-image" src="assets/images/ads/eco_shoots.jpg" alt="ads">-->
+<!--			</a>-->
+<!--		</div>-->
 
 		@if ((marketplaceType$ | async) === Type.VEGETABLE) {
 			@for ((item of marketPlaceItems$ | async); track item) {
@@ -26,13 +26,13 @@
 	</div>
 } @else {
 	<div class="crp-container">
-		<div class="skeleton-container">
-			<div class="ads-container">
-				<a href="tel:52583223">
-					<img class="responsive-image" src="assets/images/ads/eco_shoots.jpg" alt="ads">
-				</a>
-			</div>
-		</div>
+<!--		<div class="skeleton-container">-->
+<!--			<div class="ads-container">-->
+<!--				<a href="tel:52583223">-->
+<!--					<img class="responsive-image" src="assets/images/ads/eco_shoots.jpg" alt="ads">-->
+<!--				</a>-->
+<!--			</div>-->
+<!--		</div>-->
 		<div class="skeleton-container">
 		<span class="photo">
 			<ngx-skeleton-loader [theme]="{ height: '100%', 'border-radius': '8px' }"></ngx-skeleton-loader>
