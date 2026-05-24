@@ -1,0 +1,48 @@
+button {
+	all: unset;
+	color: #222820;
+	border-radius: var(--mat-button-text-container-shape, var(--mat-sys-corner-full));
+	background-color: #5DBA47;
+	font-family: var(--mat-button-text-label-text-font, var(--mat-sys-label-large-font));
+	font-weight: bold;
+	font-size: var(--mat-button-font-size, 14px);
+	min-width: 64px;
+	height: var(--mat-button-text-container-height, 40px);
+	text-align: center;
+}
+
+.dialog-bg-wrapper {
+	display: flex;
+	flex-flow: column nowrap;
+	justify-content: flex-end;
+
+	background-image: url('/assets/images/mrci_promo.jpeg');
+	background-size: cover;
+	background-position: center;
+	max-height: 600px;
+	height: 82vh;
+	min-width: 350px;
+	padding: 24px;
+}
+
+.actions {
+	display: flex;
+	flex-flow: column nowrap;
+	gap: 12px;
+
+	justify-content: center;
+
+	.btn-vote {
+		padding-inline: 18px;
+		padding-block: 2px;
+		font-size: 24px;
+		font-weight: 600;
+	}
+
+	.btn-mbc {
+		background-color: unset;
+		color: white;
+		border: 1px solid #5DBA47;
+		padding-inline: 15px
+	}
+}
