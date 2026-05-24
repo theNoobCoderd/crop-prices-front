@@ -1,6 +1,14 @@
-<div class="dialog-bg-wrapper">
-	<mat-dialog-actions class="actions">
-		<button (click)="openYoutube()" mat-button mat-dialog-close class="btn-mbc">KOZPRI on MBC</button>
-		<button (click)="openMRICVote()" mat-button mat-dialog-close class="btn-vote">Vote Now</button>
-	</mat-dialog-actions>
-</div>
+<section>
+	<div class="dialog-bg-wrapper">
+		<span class="close">
+			<button (click)="closeDialog()" mat-button mat-dialog-close>x</button>
+		</span>
+
+		<span class="actions-section">
+			<mat-dialog-actions class="actions">
+			<button (click)="openYoutube()" mat-button mat-dialog-close class="btn-mbc">KOZPRI on MBC</button>
+			<button (click)="openMRICVote()" mat-button mat-dialog-close class="btn-vote">Vote Now</button>
+		</mat-dialog-actions>
+		</span>
+	</div>
+</section>

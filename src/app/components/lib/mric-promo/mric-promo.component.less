@@ -11,6 +11,25 @@ button {
 	text-align: center;
 }
 
+.close {
+	position: absolute;
+	top: 15px;
+	right: 20px;
+
+	button {
+		all: unset;
+		background-color: #5DBA47;
+		border-radius: var(--mat-button-text-container-shape, var(--mat-sys-corner-full));
+		padding-inline: 10px;
+		padding-block: 2px;
+	}
+}
+
+.btn-close {
+	all: unset;
+	display: flex;
+}
+
 .dialog-bg-wrapper {
 	display: flex;
 	flex-flow: column nowrap;
