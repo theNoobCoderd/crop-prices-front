@@ -91,7 +91,19 @@ export class HistoricComponent implements OnDestroy {
 			if (this.historicDataAsInput) {
 				this.dataSource = this._transformData(this.historicDataAsInput);
 				this.displayedData = this.dataSource.slice(0, this.pageSize);
-				this._buildCharts(this.historicDataAsInput);
+
+				let invertedCropList = {
+					...this.historicDataAsInput,
+					lowestPrices: [...this.historicDataAsInput.lowestPrices].reverse(),
+					mostCommonPrices: [...this.historicDataAsInput.mostCommonPrices].reverse(),
+					highestPrices: [...this.historicDataAsInput.highestPrices].reverse(),
+					totalSoldList: [...this.historicDataAsInput.totalSoldList].reverse(),
+					dates: [...this.historicDataAsInput.dates].reverse(),
+					revenue: [...this.historicDataAsInput.revenue].reverse(),
+
+				} as HistoryGraphModel;
+
+				this._buildCharts(invertedCropList);
 
 				this.isLoading$.next(false);
 				this.hasData$.next(true);
