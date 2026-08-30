@@ -1,0 +1,59 @@
+.trip-item-container {
+	display: flex;
+	flex-flow: column nowrap;
+	gap: 0.75rem;
+
+	min-height: 172px;
+	padding: 14px;
+
+	border-radius: 6px;
+	background-color: #F0F0F0;
+	border-bottom: 2px solid #5EBA47;
+
+	cursor: pointer;
+	font-family: "Roboto Condensed", sans-serif;
+	color: #444444;
+}
+
+.status-badge {
+	align-self: flex-start;
+	padding: 2px 10px;
+	border-radius: 12px;
+	font-size: 0.75rem;
+	font-weight: bold;
+	color: white;
+	background-color: #8CD178;
+
+	&.status-open { background-color: #5EBA47; }
+	&.status-closed { background-color: #E0A72C; }
+	&.status-in_progress { background-color: #4C8BF5; }
+	&.status-completed { background-color: #629155; }
+	&.status-cancelled { background-color: #c2c2c2; }
+}
+
+.crp-name {
+	font-family: Roboto, sans-serif;
+	font-size: 1.1rem;
+	font-weight: bold;
+}
+
+.dates, .commission, .collector-info, .notes {
+	font-size: 0.875rem;
+}
+
+.trip-actions {
+	display: flex;
+	justify-content: flex-end;
+
+	button {
+		all: unset;
+		text-align: center;
+		border-radius: 8px;
+		padding: 10px 20px;
+		background-color: #8CD178;
+		font-family: "Roboto Condensed", sans-serif;
+		font-weight: bold;
+		color: #444444;
+		cursor: pointer;
+	}
+}

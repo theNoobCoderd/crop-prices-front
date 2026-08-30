@@ -1,0 +1,4 @@
+export enum RatedRole {
+	COLLECTOR = "COLLECTOR",
+	CONTRIBUTOR = "CONTRIBUTOR",
+}

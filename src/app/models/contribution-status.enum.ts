@@ -1,0 +1,9 @@
+export enum ContributionStatus {
+	PENDING = "PENDING",
+	ACCEPTED = "ACCEPTED",
+	REJECTED = "REJECTED",
+	COLLECTED = "COLLECTED",
+	SOLD = "SOLD",
+	PAID = "PAID",
+	CANCELLED = "CANCELLED",
+}

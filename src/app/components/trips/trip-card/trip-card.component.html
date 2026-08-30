@@ -1,0 +1,36 @@
+<div class="trip-item-container" (click)="viewTrip()">
+	<div class="trip-info">
+		<span class="status-badge status-{{trip?.status?.toLowerCase()}}">{{trip?.status}}</span>
+
+		<div class="crp-name">{{trip?.meetingPoint?.locality}}, {{trip?.meetingPoint?.district}}</div>
+
+		<div class="dates">
+			<div>Travel: {{trip?.travelDate | date: 'dd MMM. yyyy / HH:mm'}}</div>
+			<div>Cutoff: {{trip?.cutoffTime | date: 'dd MMM. yyyy / HH:mm'}}</div>
+		</div>
+
+		<div class="commission">
+			Commission: {{trip?.commissionValue}}{{trip?.commissionType === CommissionType.PERCENTAGE ? '%' : ' Rs'}}
+			@if (trip?.capacityWeightKg) {
+				<span> &middot; Capacity: {{trip?.capacityWeightKg}} Kg</span>
+			}
+		</div>
+
+		<div class="collector-info">
+			Collector: {{trip?.collector?.username}}
+			@if (trip?.collector?.totalRatings) {
+				<span> &middot; ★ {{trip?.collector?.averageRating | number:'1.1-1'}} ({{trip?.collector?.totalRatings}})</span>
+			}
+		</div>
+
+		@if (trip?.notes) {
+			<div class="notes">{{trip?.notes}}</div>
+		}
+	</div>
+
+	@if (canJoin) {
+		<div class="trip-actions">
+			<button (click)="onJoin($event)">Join Trip</button>
+		</div>
+	}
+</div>

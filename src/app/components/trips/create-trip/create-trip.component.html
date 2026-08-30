@@ -1,0 +1,80 @@
+@if (userService.currentUser$ | async) {
+	<span class="header">
+		<h2>Create a Regional Collection Trip</h2>
+	</span>
+
+	<form class="create-post" [formGroup]="createTripForm" (ngSubmit)="onSubmit()">
+		<span class="input-form">
+			<span class="category-group">
+				<h3>Meeting Point</h3>
+				<span class="details">
+					<app-drop-down
+						id="district"
+						placeholder="Select District"
+						[options]="DISTRICTS"
+						formControlName="district">
+					</app-drop-down>
+
+					<input placeholder="Locality (e.g. Chemin Grenier)"
+								 class="basic-input" id="locality" formControlName="locality" type="text"
+								 [class.invalid-field]="createTripForm.get('locality')?.errors?.['required'] && createTripForm.get('locality')?.touched">
+
+					<span class="price-unit">
+						<input placeholder="Latitude (optional)" class="basic-input" id="latitude" formControlName="latitude" type="number">
+						<input placeholder="Longitude (optional)" class="basic-input" id="longitude" formControlName="longitude" type="number">
+					</span>
+				</span>
+			</span>
+
+			<span class="category-group">
+				<h3>Schedule</h3>
+				<span class="details">
+					<label>Travel Date & Time
+						<input class="basic-input" id="travelDate" formControlName="travelDate" type="datetime-local"
+									 [class.invalid-field]="createTripForm.get('travelDate')?.errors?.['required'] && createTripForm.get('travelDate')?.touched">
+					</label>
+					<label>Cutoff for Joining
+						<input class="basic-input" id="cutoffTime" formControlName="cutoffTime" type="datetime-local"
+									 [class.invalid-field]="createTripForm.get('cutoffTime')?.errors?.['required'] && createTripForm.get('cutoffTime')?.touched">
+					</label>
+				</span>
+			</span>
+
+			<span class="category-group">
+				<h3>Capacity & Commission</h3>
+				<span class="details">
+					<input placeholder="Capacity (Kg, optional)" class="basic-input" id="capacityWeightKg" formControlName="capacityWeightKg" type="number">
+
+					<app-drop-down
+						id="commissionType"
+						placeholder="Select Commission Type"
+						[options]="COMMISSION_TYPES"
+						formControlName="commissionType">
+					</app-drop-down>
+
+					<input placeholder="Commission Value (% or Rs)" class="basic-input" id="commissionValue" formControlName="commissionValue" type="number"
+								 [class.invalid-field]="createTripForm.get('commissionValue')?.errors?.['required'] && createTripForm.get('commissionValue')?.touched">
+				</span>
+			</span>
+
+			<span class="category-group">
+				<h3>Notes</h3>
+				<span class="details">
+					<input placeholder="Any additional info for other farmers" class="basic-input" id="notes" formControlName="notes" type="text">
+				</span>
+			</span>
+
+			<span class="sign-up-button">
+				<button
+					[ngClass]="{
+					'button-disabled': !createTripForm.valid,
+					'button-enabled': createTripForm.valid
+					}" type="submit">Create Trip</button>
+			</span>
+		</span>
+	</form>
+}
+
+@if (!(userService.currentUser$ | async)) {
+	<app-login></app-login>
+}
