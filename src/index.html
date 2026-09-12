@@ -19,7 +19,16 @@
 	<meta name="twitter:image" content="/assets/images/kozpri_logo_circle.png">
   <base href="/">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="icon" type="image/svg+xml" href="/assets/images/kozpri_logo_circle.png">
+  <link rel="icon" type="image/png" href="/assets/images/kozpri_logo_circle.png">
+
+  <!-- Preconnects: shorten the network dependency chain to third-party origins -->
+  <link rel="preconnect" href="https://firestore.googleapis.com">
+  <link rel="preconnect" href="https://identitytoolkit.googleapis.com">
+  <link rel="preconnect" href="https://us.i.posthog.com">
+
+  <!-- Preload the critical body font and the LCP logo so they are discovered immediately -->
+  <link rel="preload" as="font" type="font/woff2" href="/assets/fonts/RobotoCondensed-Regular.woff2" crossorigin>
+  <link rel="preload" as="image" href="/assets/svgs/logo-simple.svg" fetchpriority="high">
 </head>
 <body>
   <app-root></app-root>
