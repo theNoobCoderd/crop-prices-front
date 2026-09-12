@@ -1,7 +1,7 @@
 <div>
 	<div class="mrk-item-container">
 		<div class="item-image" (click)="fullscreenImage()">
-			<img [src]="item?.imageUrl" alt="assets/images/carrots.jpg"/>
+			<img [src]="item?.imageUrl" alt="assets/images/carrots.jpg" loading="lazy" decoding="async"/>
 		</div>
 		<div class="item-info">
 			<span class="date">
