@@ -8,6 +8,10 @@ import { M } from "@angular/material/dialog.d-B5HZULyo";
 import {MatDialogConfirmationComponent} from "../../lib/mat-dialog-confirmation/mat-dialog-confirmation.component";
 import {Subject, takeUntil} from "rxjs";
 import {MatDialogImageComponent} from "../../lib/mat-dialog-image/mat-dialog-image.component";
+import {LikeService} from "../../../services/like/like.service";
+import {UserService} from "../../../services/user/user.service";
+import {MatDialogComponent} from "../../lib/mat-dialog/mat-dialog.component";
+import {ListingCommentsComponent} from "../listing-comments/listing-comments.component";
 
 @Component({
 	selector: "app-marketplace-item",
@@ -25,9 +29,12 @@ export class MarketplaceItemComponent implements OnDestroy {
 
 	readonly dialog = inject(MatDialog);
 	listingService = inject(ListingService);
+	likeService = inject(LikeService);
+	userService = inject(UserService);
 	dialogRef: M<ModifyListingComponent, any> | undefined;
 	dialogRefDeleteConfirm: M<MatDialogConfirmationComponent, any> | undefined;
 	private _destroy$ = new Subject<void>();
+	likeInProgress = false;
 
 	edit() {
 		this.dialogRef = this.dialog.open(ModifyListingComponent, {
@@ -65,6 +72,56 @@ export class MarketplaceItemComponent implements OnDestroy {
 
 	fullscreenImage() {
 		this.dialog.open(MatDialogImageComponent, {data: {message: this.item?.imageUrl}});
+	}
+
+	toggleLike() {
+		if (!this.item || this.likeInProgress) {
+			return;
+		}
+
+		if (!this.userService.currentUser$.getValue()) {
+			this.dialog.open(MatDialogComponent, {data: {message: "You must be logged in to like a listing.", header: "Login"}});
+			return;
+		}
+
+		const wasLiked = this.item.likedByMe;
+		const previousCount = this.item.likeCount ?? 0;
+
+		// Optimistic update
+		this.item.likedByMe = !wasLiked;
+		this.item.likeCount = wasLiked ? previousCount - 1 : previousCount + 1;
+		this.likeInProgress = true;
+
+		const request$ = wasLiked
+			? this.likeService.unlikeListing(this.item.id)
+			: this.likeService.likeListing(this.item.id);
+
+		request$.pipe(takeUntil(this._destroy$)).subscribe({
+			next: () => {
+				this.likeInProgress = false;
+			},
+			error: () => {
+				// Revert on failure
+				if (this.item) {
+					this.item.likedByMe = wasLiked;
+					this.item.likeCount = previousCount;
+				}
+				this.likeInProgress = false;
+			}
+		});
+	}
+
+	openComments() {
+		if (!this.item) {
+			return;
+		}
+
+		this.dialog.open(ListingCommentsComponent, {
+			minWidth: "320px",
+			maxWidth: "600px",
+			maxHeight: "90vh",
+			data: {listingId: this.item.id},
+		});
 	}
 
 	ngOnDestroy(): void {

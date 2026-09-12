@@ -67,6 +67,21 @@
 			</span>
 		</div>
 	</div>
+
+	<div class="social-actions">
+		<button class="like-button" [class.liked]="item?.likedByMe" (click)="toggleLike()">
+			@if (item?.likedByMe) {
+				👍 Liked
+			} @else {
+				👍 Like
+			}
+			@if ((item?.likeCount ?? 0) > 0) {
+				<span class="like-count">({{item?.likeCount}})</span>
+			}
+		</button>
+		<button class="comment-button" (click)="openComments()">💬 Comment</button>
+	</div>
+
 	@if (isModifiable) {
 		<div class="user-actions">
 			<span class="user-edit">

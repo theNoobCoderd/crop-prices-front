@@ -1,0 +1,36 @@
+<h2 mat-dialog-title class="title">Comments</h2>
+<mat-dialog-content class="content">
+	@if (commentsLoaded$ | async) {
+		@if ((comments$ | async)?.length) {
+			<div class="comments-list">
+				@for (comment of (comments$ | async); track comment.id) {
+					<div class="comment">
+						<div class="comment-header">
+							<span class="author">{{comment.authorName}}</span>
+							<span class="date">{{comment.createdAt | date: 'dd MMM. yyyy / HH:mm'}}</span>
+						</div>
+						<div class="comment-content">{{comment.content}}</div>
+					</div>
+				}
+			</div>
+		} @else {
+			<p class="no-comments">No comments yet. Be the first to comment!</p>
+		}
+	} @else {
+		<p>Loading comments...</p>
+	}
+
+	@if (userService.currentUser$ | async) {
+		<form class="comment-form" [formGroup]="commentForm" (ngSubmit)="postComment()">
+			<textarea placeholder="Write a comment..." class="comment-input" formControlName="content"
+								[class.invalid-field]="commentForm.get('content')?.errors?.['required'] && commentForm.get('content')?.touched">
+			</textarea>
+			<button type="submit" class="post-button" [disabled]="commentForm.invalid">Post</button>
+		</form>
+	} @else {
+		<p class="login-prompt">You must be logged in to comment.</p>
+	}
+</mat-dialog-content>
+<mat-dialog-actions class="buttons">
+	<button matButton mat-dialog-close>Close</button>
+</mat-dialog-actions>
