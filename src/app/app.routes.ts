@@ -1,19 +1,36 @@
 import { Routes } from '@angular/router';
-import {ItemTableComponent} from "./components/item-table/item-table.component";
-import {MarketplaceComponent} from "./components/marketplace/marketplace.component";
-import {CreateListingComponent} from "./components/marketplace/create-listing/create-listing.component";
-import {LoginComponent} from "./components/login/login.component";
-import {UserProfileComponent} from "./components/user-profile/user-profile.component";
-import {ProfileWrapperComponent} from "./components/profile-wrapper/profile-wrapper.component";
-import {HistoricComponent} from "./components/historic/historic.component";
 
 export const routes: Routes = [
-	{ path: 'page1', component: ItemTableComponent },
-	{ path: 'page2', component: MarketplaceComponent },
-	{ path: 'page3', component: CreateListingComponent },
-	{ path: 'page4', component: LoginComponent },
-	{ path: 'page5', component: ProfileWrapperComponent },
-	{ path: 'page6', component: UserProfileComponent },
-	{ path: 'page7', component: HistoricComponent },
-	{ path: 'page7/:data', component: HistoricComponent }
+	{
+		path: 'page1',
+		loadComponent: () => import('./components/item-table/item-table.component').then(m => m.ItemTableComponent)
+	},
+	{
+		path: 'page2',
+		loadComponent: () => import('./components/marketplace/marketplace.component').then(m => m.MarketplaceComponent)
+	},
+	{
+		path: 'page3',
+		loadComponent: () => import('./components/marketplace/create-listing/create-listing.component').then(m => m.CreateListingComponent)
+	},
+	{
+		path: 'page4',
+		loadComponent: () => import('./components/login/login.component').then(m => m.LoginComponent)
+	},
+	{
+		path: 'page5',
+		loadComponent: () => import('./components/profile-wrapper/profile-wrapper.component').then(m => m.ProfileWrapperComponent)
+	},
+	{
+		path: 'page6',
+		loadComponent: () => import('./components/user-profile/user-profile.component').then(m => m.UserProfileComponent)
+	},
+	{
+		path: 'page7',
+		loadComponent: () => import('./components/historic/historic.component').then(m => m.HistoricComponent)
+	},
+	{
+		path: 'page7/:data',
+		loadComponent: () => import('./components/historic/historic.component').then(m => m.HistoricComponent)
+	}
 ];
