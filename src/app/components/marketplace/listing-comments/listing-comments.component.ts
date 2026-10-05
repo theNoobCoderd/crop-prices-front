@@ -1,6 +1,6 @@
 import {Component, inject, OnDestroy, OnInit} from "@angular/core";
 import {MAT_DIALOG_DATA, MatDialogActions, MatDialogClose, MatDialogContent, MatDialogTitle} from "@angular/material/dialog";
-import {DatePipe} from "@angular/common";
+import {DatePipe, AsyncPipe} from "@angular/common";
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {BehaviorSubject, Subject, takeUntil} from "rxjs";
 import {CommentDTO} from "../../../models/comment.model";
@@ -15,6 +15,7 @@ import {UserService} from "../../../services/user/user.service";
 		MatDialogActions,
 		MatDialogClose,
 		DatePipe,
+		AsyncPipe,
 		ReactiveFormsModule,
 	],
 	templateUrl: "./listing-comments.component.html",

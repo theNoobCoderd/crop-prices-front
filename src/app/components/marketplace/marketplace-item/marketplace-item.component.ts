@@ -1,6 +1,6 @@
 import {Component, EventEmitter, inject, Input, OnDestroy, Output} from "@angular/core";
 import {MarketplaceListing} from "../../../models/marketplace-listing.model";
-import {DatePipe} from "@angular/common";
+import {AsyncPipe, DatePipe} from "@angular/common";
 import {MatDialog} from "@angular/material/dialog";
 import {ModifyListingComponent} from "../modify-listing/modify-listing.component";
 import {ListingService} from "../../../services/listing/listing.service";
@@ -10,13 +10,13 @@ import {Subject, takeUntil} from "rxjs";
 import {MatDialogImageComponent} from "../../lib/mat-dialog-image/mat-dialog-image.component";
 import {LikeService} from "../../../services/like/like.service";
 import {UserService} from "../../../services/user/user.service";
-import {MatDialogComponent} from "../../lib/mat-dialog/mat-dialog.component";
 import {ListingCommentsComponent} from "../listing-comments/listing-comments.component";
 
 @Component({
 	selector: "app-marketplace-item",
 	imports: [
 		DatePipe,
+		AsyncPipe,
 	],
 	templateUrl: "./marketplace-item.component.html",
 	styleUrl: "./marketplace-item.component.less"
@@ -75,20 +75,15 @@ export class MarketplaceItemComponent implements OnDestroy {
 	}
 
 	toggleLike() {
-		if (!this.item || this.likeInProgress) {
+		if (!this.item || this.likeInProgress || !this.userService.currentUser$.getValue()) {
 			return;
 		}
 
-		if (!this.userService.currentUser$.getValue()) {
-			this.dialog.open(MatDialogComponent, {data: {message: "You must be logged in to like a listing.", header: "Login"}});
-			return;
-		}
-
-		const wasLiked = this.item.likedByMe;
+		const wasLiked = this.item.likedByCurrentUser;
 		const previousCount = this.item.likeCount ?? 0;
 
 		// Optimistic update
-		this.item.likedByMe = !wasLiked;
+		this.item.likedByCurrentUser = !wasLiked;
 		this.item.likeCount = wasLiked ? previousCount - 1 : previousCount + 1;
 		this.likeInProgress = true;
 
@@ -103,7 +98,7 @@ export class MarketplaceItemComponent implements OnDestroy {
 			error: () => {
 				// Revert on failure
 				if (this.item) {
-					this.item.likedByMe = wasLiked;
+					this.item.likedByCurrentUser = wasLiked;
 					this.item.likeCount = previousCount;
 				}
 				this.likeInProgress = false;

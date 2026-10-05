@@ -23,5 +23,5 @@ export interface MarketplaceListing {
 	isDeleted: boolean,
 	otherCropName: string,
 	likeCount: number,
-	likedByMe: boolean
+	likedByCurrentUser: boolean
 }

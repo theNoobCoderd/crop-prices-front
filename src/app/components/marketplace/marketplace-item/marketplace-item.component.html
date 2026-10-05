@@ -69,16 +69,25 @@
 	</div>
 
 	<div class="social-actions">
-		<button class="like-button" [class.liked]="item?.likedByMe" (click)="toggleLike()">
-			@if (item?.likedByMe) {
-				👍 Liked
-			} @else {
+		@if (userService.currentUser$ | async) {
+			<button class="like-button" [class.liked]="item?.likedByCurrentUser" [disabled]="likeInProgress" (click)="toggleLike()">
+				@if (item?.likedByCurrentUser) {
+					👍 Liked
+				} @else {
+					👍 Like
+				}
+				@if ((item?.likeCount ?? 0) > 0) {
+					<span class="like-count">({{item?.likeCount}})</span>
+				}
+			</button>
+		} @else {
+			<button class="like-button" disabled title="You must be logged in to like a listing.">
 				👍 Like
-			}
-			@if ((item?.likeCount ?? 0) > 0) {
-				<span class="like-count">({{item?.likeCount}})</span>
-			}
-		</button>
+				@if ((item?.likeCount ?? 0) > 0) {
+					<span class="like-count">({{item?.likeCount}})</span>
+				}
+			</button>
+		}
 		<button class="comment-button" (click)="openComments()">💬 Comment</button>
 	</div>
 
