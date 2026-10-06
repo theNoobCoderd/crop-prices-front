@@ -72,23 +72,25 @@
 		@if (userService.currentUser$ | async) {
 			<button class="like-button" [class.liked]="item?.likedByCurrentUser" [disabled]="likeInProgress" (click)="toggleLike()">
 				@if (item?.likedByCurrentUser) {
-					👍 Liked
+					<img src="assets/svgs/like_icon_filled.svg" alt="like-filled-icon">
 				} @else {
-					👍 Like
+					<img src="assets/svgs/like_icon.svg" alt="like-icon">
 				}
 				@if ((item?.likeCount ?? 0) > 0) {
-					<span class="like-count">({{item?.likeCount}})</span>
+					<span class="like-count"> {{item?.likeCount}}</span>
 				}
 			</button>
 		} @else {
 			<button class="like-button" disabled title="You must be logged in to like a listing.">
-				👍 Like
+				<img src="assets/svgs/like_icon.svg" alt="like-icon">
 				@if ((item?.likeCount ?? 0) > 0) {
-					<span class="like-count">({{item?.likeCount}})</span>
+					<span class="like-count"> {{item?.likeCount}}</span>
 				}
 			</button>
 		}
-		<button class="comment-button" (click)="openComments()">💬 Comment</button>
+		<button class="comment-button" (click)="openComments()">
+			<img src="assets/svgs/chat_icon.svg" alt="comment-icon">
+		</button>
 	</div>
 
 	@if (isModifiable) {

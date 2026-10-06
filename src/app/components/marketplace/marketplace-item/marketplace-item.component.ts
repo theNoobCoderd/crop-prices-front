@@ -112,9 +112,10 @@ export class MarketplaceItemComponent implements OnDestroy {
 		}
 
 		this.dialog.open(ListingCommentsComponent, {
-			minWidth: "320px",
-			maxWidth: "600px",
-			maxHeight: "90vh",
+			minWidth: "100vw",
+			maxWidth: "450px",
+			minHeight: "90vh",
+			maxHeight: "1800px",
 			data: {listingId: this.item.id},
 		});
 	}
