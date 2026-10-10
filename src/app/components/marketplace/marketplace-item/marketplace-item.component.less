@@ -8,10 +8,8 @@
 	min-height: 172px;
 	min-width: 350px;
 
-	border-radius: 6px;
+// 	border-radius: 6px;
 	background-color: #F0F0F0;
-
-	border-bottom: 2px solid #5EBA47;
 }
 
 .item-image {
@@ -97,6 +95,53 @@
 		background-color: #E3E3E3;
 
 		font-weight: bold;
+	}
+}
+
+.social-actions {
+	display: flex;
+	flex-flow: row nowrap;
+	border-top: 1px solid #DBDBDB;
+	background-color: #FAFAFA;
+	border-radius: 0 0 6px 6px;
+
+	border-bottom: 2px solid #5EBA47;
+
+	button {
+		all: unset;
+		flex: 1;
+		text-align: center;
+		padding-block: 8px;
+		cursor: pointer;
+		font-weight: bold;
+		color: #555;
+
+		&:hover {
+			background-color: #E3E3E3;
+		}
+	}
+
+	.like-button.liked {
+		color: #38B87D;
+	}
+
+	button:disabled {
+		cursor: not-allowed;
+		opacity: 0.5;
+
+		&:hover {
+			background-color: transparent;
+		}
+	}
+
+	.like-count {
+		font-weight: normal;
+		color: #888;
+		margin-left: 3px;
+	}
+
+	.comment-button {
+		border-left: 1px solid #DBDBDB;
 	}
 }
 

@@ -19,7 +19,7 @@ export class ListingService {
 	}
 
 	getAllListingByType(type: string): Observable<MarketplaceListing[]> {
-		const url = `${this.apiUrl}/free/${type}`;
+		const url = `${this.apiUrl}/free`;
 		return this._http.get<MarketplaceListing[]>(url);
 	}
 
