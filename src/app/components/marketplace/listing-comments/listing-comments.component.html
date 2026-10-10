@@ -1,4 +1,11 @@
-<h2 mat-dialog-title class="title">Comments</h2>
+<h2 class="title">
+	<span>Comments</span>
+	<mat-dialog-actions>
+		<button matButton mat-dialog-close class="close-icon">
+			<img src="assets/svgs/close-icon.svg" width="30" alt="Close Icon">
+		</button>
+	</mat-dialog-actions>
+</h2>
 <mat-dialog-content class="content">
 	@if (commentsLoaded$ | async) {
 		@if ((comments$ | async)?.length) {
@@ -31,6 +38,3 @@
 		<p class="login-prompt">You must be logged in to comment.</p>
 	}
 </mat-dialog-content>
-<mat-dialog-actions class="buttons">
-	<button matButton mat-dialog-close>Close</button>
-</mat-dialog-actions>

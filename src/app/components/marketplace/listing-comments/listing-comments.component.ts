@@ -1,16 +1,16 @@
 import {Component, inject, OnDestroy, OnInit} from "@angular/core";
-import {MAT_DIALOG_DATA, MatDialogActions, MatDialogClose, MatDialogContent, MatDialogTitle} from "@angular/material/dialog";
+import {MAT_DIALOG_DATA, MatDialogActions, MatDialogClose, MatDialogContent} from "@angular/material/dialog";
 import {DatePipe, AsyncPipe} from "@angular/common";
 import {FormBuilder, FormGroup, ReactiveFormsModule, Validators} from "@angular/forms";
 import {BehaviorSubject, Subject, takeUntil} from "rxjs";
 import {CommentDTO} from "../../../models/comment.model";
 import {CommentService} from "../../../services/comment/comment.service";
 import {UserService} from "../../../services/user/user.service";
+import {NavigationPage} from "../../../models/navigation-page.enum";
 
 @Component({
 	selector: "app-listing-comments",
 	imports: [
-		MatDialogTitle,
 		MatDialogContent,
 		MatDialogActions,
 		MatDialogClose,

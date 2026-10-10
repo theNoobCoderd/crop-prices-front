@@ -1,6 +1,29 @@
+:host {
+	display: flex;
+	flex-flow: column nowrap;
+}
+
+.title {
+	display: flex;
+	flex-flow: row nowrap;
+	justify-content: space-between;
+	align-items: center;
+
+	margin-top: 0.5em;
+	padding-inline: 1.2em;
+
+	button {
+		all: unset;
+		border-radius: var(--mat-button-text-container-shape, var(--mat-sys-corner-full));
+		padding-inline: 10px;
+		padding-block: 2px;
+	}
+}
+
 .content {
+	align-self: center;
+	width: 100%;
 	min-width: 320px;
-	max-width: 480px;
 	max-height: 60vh;
 }
 
@@ -9,7 +32,7 @@
 	flex-flow: column nowrap;
 	gap: 0.75rem;
 	margin-bottom: 1rem;
-	max-height: 40vh;
+	max-height: 80vh;
 	overflow-y: auto;
 }
 
